@@ -1,0 +1,27 @@
+$primary: #fd3e60;
+
+.line {
+  position: relative;
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 12px;
+    left: -45px;
+    width: 35px;
+    height: 4px;
+    background: $primary;
+  }
+}
+
+.verticalLine {
+  position: relative;
+  &::after {
+    content: "";
+    position: absolute;
+    top: -80px;
+    left: 15px;
+    width: 4px;
+    height: 80px;
+    background: $primary;
+  }
+}
