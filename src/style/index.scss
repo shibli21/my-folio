@@ -25,3 +25,16 @@ $primary: #fd3e60;
     background: $primary;
   }
 }
+
+.line_projects {
+  position: relative;
+  &::after {
+    content: "";
+    position: absolute;
+    top: 25px;
+    left: 160px;
+    width: 135px;
+    height: 4px;
+    background: #fd3e60;
+  }
+}

@@ -6,7 +6,7 @@ import twitter from "../Public/iconfinder_Circled_Twitter_svg_5279123.svg";
 import linkedin from "../Public/iconfinder_Circled_Linkedin_svg_5279114.svg";
 
 export const Hero = () => (
-  <Grid templateColumns="1fr 1fr" mt={"150px"}>
+  <Grid templateColumns="1fr 1fr" my={"150px"}>
     <Flex flexDirection="column">
       <Text fontSize="4xl" fontWeight="700">
         Syed Shibli Mahmud
