@@ -1,7 +1,6 @@
 import { Container } from "../components/Container";
 import { Footer } from "../components/Footer";
 import { Hero } from "../components/Hero";
-import { Main } from "../components/Main";
 import NavBar from "../components/NavBar";
 import Projects from "../components/Projects";
 
@@ -10,8 +9,7 @@ const Index = () => (
     <NavBar />
     <Hero />
     <Projects />
-    <Main></Main>
-    <Footer></Footer>
+    <Footer>Designed & Developed by Syed Shibli Mahmud</Footer>
   </Container>
 );
 

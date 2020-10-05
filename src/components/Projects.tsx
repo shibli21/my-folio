@@ -7,7 +7,7 @@ interface Props {}
 
 const Projects = (props: Props) => {
   return (
-    <Box mb={"1100px"}>
+    <Box>
       <Flex flexDirection="column" mb={10}>
         <Text fontSize="4xl" fontWeight="700" className={css.line_projects}>
           Portfolio
