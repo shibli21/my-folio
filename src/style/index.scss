@@ -6,15 +6,17 @@ $primary: #fd3e60;
     content: "";
     position: absolute;
     bottom: 12px;
-    left: -45px;
-    width: 35px;
+    left: -60px;
+    width: 50px;
     height: 4px;
     background: $primary;
   }
 }
 
 .verticalLine {
-  position: relative;
+  position: fixed;
+  left: 100px;
+  top: 317px;
   &::after {
     content: "";
     position: absolute;

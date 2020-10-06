@@ -7,11 +7,15 @@
     "start": "next start"
   },
   "dependencies": {
-    "@chakra-ui/core": "^1.0.0-rc.3",
+    "@chakra-ui/core": "^1.0.0-rc.5",
     "@chakra-ui/icons": "^1.0.0-rc.3",
+    "@emotion/core": "^10.0.35",
+    "@emotion/styled": "^10.0.27",
     "@types/zeit__next-typescript": "^0.1.4",
     "@zeit/next-sass": "^1.0.1",
     "@zeit/next-typescript": "^1.1.1",
+    "emotion-theming": "^10.0.27",
+    "file-loader": "^6.1.0",
     "next": "latest",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",

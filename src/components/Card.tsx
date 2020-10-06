@@ -1,7 +1,6 @@
-import { Text, BadgeProps, Box, Flex, Image, Tag, Link } from "@chakra-ui/core";
+import { Box, Flex, Image, Link, Tag, Text } from "@chakra-ui/core";
 import React from "react";
-
-const Card = (props: BadgeProps) => {
+const Card = (props) => {
   return (
     <Box>
       <Image src="https://bit.ly/2k1H1t6" />
