@@ -4,21 +4,6 @@ const fonts = { ...chakraTheme.fonts, mono: `'Menlo', monospace` };
 
 const breakpoints = ["40em", "52em", "64em"];
 
-const customIcons = {
-  Github: {
-    path: <path fill="currentColor" d="..." />,
-    // If the icon's viewBox is `0 0 24 24`, you can ignore `viewBox`
-    viewBox: "0 0 40 40",
-  },
-  icon2: {
-    path: (
-      <g fill="currentColor">
-        <path d="..." />
-      </g>
-    ),
-  },
-};
-
 const theme = {
   ...chakraTheme,
   colors: {
