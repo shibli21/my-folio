@@ -7,7 +7,7 @@ import Projects from "../components/Projects";
 
 const Index = () => (
   <>
-    <Container height="100vh">
+    <Container>
       <NavBar />
       <Hero />
       <Projects />

@@ -1,15 +1,7 @@
 import { Box, Flex, Link } from "@chakra-ui/core";
 import React from "react";
+import { Link as ScrollLink } from "react-scroll";
 import css from "../style/nav.scss";
-import * as Scroll from "react-scroll";
-import {
-  Link as ScrollLink,
-  Element,
-  Events,
-  animateScroll as scroll,
-  scrollSpy,
-  scroller,
-} from "react-scroll";
 
 const NavBar = () => {
   return (
