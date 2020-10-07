@@ -1,5 +1,6 @@
-import React from "react";
 import { Box, Flex, Image, Link, Tag, Text } from "@chakra-ui/core";
+import React from "react";
+import { FaExternalLinkAlt, FaGithub } from "react-icons/fa";
 
 const Card = () => {
   return (
@@ -19,9 +20,14 @@ const Card = () => {
             </Tag>
           </Flex>
         </Box>
-        <Link>
-          <Text fontSize="lg">Live demo</Text>
-        </Link>
+        <Flex justify="center" pt={2}>
+          <Link mr={2}>
+            <FaGithub size="20px" />
+          </Link>
+          <Link>
+            <FaExternalLinkAlt size="20px" />
+          </Link>
+        </Flex>
       </Flex>
     </Box>
   );
