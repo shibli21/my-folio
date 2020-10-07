@@ -12,6 +12,7 @@
     "@chakra-ui/icons": "^1.0.0-rc.3",
     "@emotion/core": "^10.0.35",
     "@emotion/styled": "^10.0.27",
+    "@types/react-scroll": "^1.8.0",
     "@types/zeit__next-typescript": "^0.1.4",
     "@zeit/next-sass": "^1.0.1",
     "@zeit/next-typescript": "^1.1.1",
@@ -20,6 +21,7 @@
     "next": "latest",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-scroll": "^1.8.1",
     "sass": "^1.26.11",
     "url-loader": "^4.1.0"
   },

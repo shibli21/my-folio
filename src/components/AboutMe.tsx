@@ -3,7 +3,7 @@ import React from "react";
 
 const AboutMe = () => {
   return (
-    <Box my={"100px"} maxW="800px" mx="auto">
+    <Box my={"100px"} maxW="800px" mx="auto" id="aboutMe">
       <Text fontSize="4xl" mb={10} fontWeight="700">
         About me
       </Text>
