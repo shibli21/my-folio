@@ -1,9 +1,7 @@
 import { Box, Grid, Image, List, ListItem, Text } from "@chakra-ui/core";
 import React from "react";
 
-interface Props {}
-
-const AboutMe = (props: Props) => {
+const AboutMe = () => {
   return (
     <Box my={"100px"} maxW="800px" mx="auto">
       <Text fontSize="4xl" mb={10} fontWeight="700">

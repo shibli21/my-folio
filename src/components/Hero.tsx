@@ -1,6 +1,6 @@
 import { Box, Button, Flex, Link, Text } from "@chakra-ui/core";
 
-export const Hero = (props) => (
+export const Hero = () => (
   <Box h="100vh" pt={200}>
     <Flex flexDirection="column" justify="center">
       <Text fontSize="xl" fontWeight="700" color="primary">

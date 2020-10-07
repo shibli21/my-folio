@@ -2,9 +2,7 @@ import { Box, Flex, Link } from "@chakra-ui/core";
 import React from "react";
 import css from "../style/nav.scss";
 
-interface Props {}
-
-const NavBar = (props: Props) => {
+const NavBar = () => {
   return (
     <Box top={0} position="sticky" zIndex={10} bg="white">
       <Flex justifyContent="flex-end" fontSize="xl" py={10}>

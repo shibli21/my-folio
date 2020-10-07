@@ -1,12 +1,13 @@
-import { Box, Flex, Image, Link, Tag, Text } from "@chakra-ui/core";
 import React from "react";
-const Card = (props) => {
+import { Box, Flex, Image, Link, Tag, Text } from "@chakra-ui/core";
+
+const Card = () => {
   return (
     <Box>
       <Image src="https://bit.ly/2k1H1t6" />
       <Flex justifyContent="space-between" my={2}>
         <Box>
-          <Text fontSize="xl" mb={2}>
+          <Text fontSize="lg" mb={2}>
             Weather app
           </Text>
           <Flex>
@@ -19,7 +20,7 @@ const Card = (props) => {
           </Flex>
         </Box>
         <Link>
-          <Text fontSize="xl">Live demo</Text>
+          <Text fontSize="lg">Live demo</Text>
         </Link>
       </Flex>
     </Box>

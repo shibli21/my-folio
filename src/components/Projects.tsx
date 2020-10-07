@@ -3,9 +3,7 @@ import React from "react";
 import css from "../style/index.scss";
 import Card from "./Card";
 
-interface Props {}
-
-const Projects = (props: Props) => {
+const Projects = () => {
   return (
     <Box>
       <Flex flexDirection="column" mb={10}>
