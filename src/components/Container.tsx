@@ -6,7 +6,11 @@ import css from "../style/index.scss";
 export const Container = (props: FlexProps) => {
   return (
     <Box position="relative">
-      <Box mt={20} className={css.verticalLine} ml="auto">
+      <Box
+        mt={20}
+        className={css.verticalLine}
+        display={["none", "none", "none", "inherit"]}
+      >
         <Link href="https://github.com/shibli21" isExternal>
           <Box
             py={4}
@@ -59,7 +63,12 @@ export const Container = (props: FlexProps) => {
           </Box>
         </Link>
       </Box>
-      <Box {...props} w="1000px" mx="auto" fontFamily="raleway">
+      <Box
+        {...props}
+        maxW="1024px"
+        mx={[8, 8, "auto", "auto"]}
+        fontFamily="raleway"
+      >
         {props.children}
       </Box>
     </Box>

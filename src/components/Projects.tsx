@@ -12,7 +12,10 @@ const Projects = () => {
         </Text>
         <Text fontSize="xl">Take a look at my latest projects</Text>
       </Flex>
-      <Grid templateColumns="1fr 1fr 1fr" gap={6}>
+      <Grid
+        templateColumns={["1fr", "1fr 1fr 1fr", "1fr 1fr 1fr", "1fr 1fr 1fr"]}
+        gap={6}
+      >
         <Card />
         <Card />
         <Card />

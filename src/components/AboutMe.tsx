@@ -3,12 +3,17 @@ import React from "react";
 
 const AboutMe = () => {
   return (
-    <Box my={"140px"} maxW="800px" mx="auto" id="aboutMe">
+    <Box
+      my={"140px"}
+      maxW={["100%", "100%", "800px", "800px"]}
+      mx="auto"
+      id="aboutMe"
+    >
       <Text fontSize="4xl" mb={10} fontWeight="700">
         About me
       </Text>
-      <Grid templateColumns="1fr 1fr">
-        <Box>
+      <Grid templateColumns={["1fr", "1fr 1fr", "1fr 1fr", "1fr 1fr"]}>
+        <Box justifySelf={["center", "initial", "initial", "initial"]}>
           <Image
             src="/me.jpg"
             h="300px"

@@ -1,15 +1,22 @@
 import { Box, Button, Flex, Link, Text } from "@chakra-ui/core";
 
 export const Hero = () => (
-  <Box h="100vh" pt={200}>
+  <Box h="100vh" pt={[120, 150, 180, 200]}>
     <Flex flexDirection="column" justify="center">
-      <Text fontSize="xl" fontWeight="700" color="primary">
+      <Text
+        fontSize={["sm", "md", "lg", "xl"]}
+        fontWeight="700"
+        color="primary"
+      >
         Hi, my name is
       </Text>
-      <Text fontSize="6xl" fontWeight="700">
+
+      <Text fontSize={["4xl", "5xl", "5xl", "6xl"]} fontWeight="700">
         Syed Shibli Mahmud.
       </Text>
-      <Text fontSize="6xl">I build things for the web.</Text>
+      <Text fontSize={["4xl", "5xl", "5xl", "6xl"]}>
+        I build things for the web.
+      </Text>
     </Flex>
     <Button
       variant="outline"
