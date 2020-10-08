@@ -11,23 +11,25 @@ const Card = () => {
           <Text fontSize="lg" mb={2}>
             Weather app
           </Text>
-          <Flex>
-            <Tag fontSize="xs" mr={2} bg="primary" color="white">
-              graphql
-            </Tag>
-            <Tag fontSize="xs" mr={2} bg="primary" color="white">
-              graphql
-            </Tag>
+        </Box>
+        <Box>
+          <Flex justify="center" pt={2}>
+            <Link mr={2}>
+              <FaGithub size="20px" />
+            </Link>
+            <Link>
+              <FaExternalLinkAlt size="20px" />
+            </Link>
           </Flex>
         </Box>
-        <Flex justify="center" pt={2}>
-          <Link mr={2}>
-            <FaGithub size="20px" />
-          </Link>
-          <Link>
-            <FaExternalLinkAlt size="20px" />
-          </Link>
-        </Flex>
+      </Flex>
+      <Flex>
+        <Tag fontSize="xs" mr={2} bg="primary" color="white">
+          graphql
+        </Tag>
+        <Tag fontSize="xs" mr={2} bg="primary" color="white">
+          graphql
+        </Tag>
       </Flex>
     </Box>
   );
