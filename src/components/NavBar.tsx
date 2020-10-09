@@ -25,18 +25,18 @@ const NavBar = () => {
   const NavLinks = (
     <>
       <Box pos="relative" fontSize={["25px", "25px", "inherit", "inherit"]}>
-        <Link className={css.navigationLink} onClick={onClose}>
-          <ScrollLink
-            activeClass="active"
-            to="contact"
-            spy={true}
-            smooth={true}
-            offset={50}
-            duration={500}
-            onClick={onClose}
-          >
-            Contact
-          </ScrollLink>
+        <Link
+          className={css.navigationLink}
+          onClick={onClose}
+          as={ScrollLink}
+          activeClass="active"
+          to="contact"
+          spy={true}
+          smooth={true}
+          offset={50}
+          duration={500}
+        >
+          Contact
         </Link>
       </Box>
       <Box
@@ -44,18 +44,18 @@ const NavBar = () => {
         ml={8}
         fontSize={["25px", "25px", "inherit", "inherit"]}
       >
-        <Link className={css.navigationLink}>
-          <ScrollLink
-            onClick={onClose}
-            activeClass="active"
-            to="aboutMe"
-            spy={true}
-            smooth={true}
-            offset={-100}
-            duration={500}
-          >
-            About me
-          </ScrollLink>
+        <Link
+          className={css.navigationLink}
+          as={ScrollLink}
+          activeClass="active"
+          to="aboutMe"
+          spy={true}
+          smooth={true}
+          offset={-100}
+          duration={500}
+          onClick={onClose}
+        >
+          About me
         </Link>
       </Box>
       <Box
@@ -63,18 +63,18 @@ const NavBar = () => {
         ml={8}
         fontSize={["25px", "25px", "inherit", "inherit"]}
       >
-        <Link className={css.navigationLink}>
-          <ScrollLink
-            onClick={onClose}
-            activeClass="active"
-            to="projects"
-            spy={true}
-            smooth={true}
-            offset={-150}
-            duration={500}
-          >
-            Projects
-          </ScrollLink>
+        <Link
+          className={css.navigationLink}
+          as={ScrollLink}
+          onClick={onClose}
+          activeClass="active"
+          to="projects"
+          spy={true}
+          smooth={true}
+          offset={-150}
+          duration={500}
+        >
+          Projects
         </Link>
       </Box>
     </>
