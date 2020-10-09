@@ -18,10 +18,13 @@
     "@zeit/next-typescript": "^1.1.1",
     "emotion-theming": "^10.0.27",
     "file-loader": "^6.1.0",
+    "gray-matter": "^4.0.2",
     "next": "latest",
+    "raw-loader": "^4.0.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-icons": "^3.11.0",
+    "react-markdown": "^4.3.1",
     "react-scroll": "^1.8.1",
     "sass": "^1.26.11",
     "url-loader": "^4.1.0"
