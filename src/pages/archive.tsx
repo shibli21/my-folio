@@ -4,9 +4,7 @@ import React from "react";
 import Logo from "../../public/logo.svg";
 import { Container } from "../components/Container";
 
-interface Props {}
-
-const Archive = (props: Props) => {
+const Archive = () => {
   return (
     <>
       <Head>

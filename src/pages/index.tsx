@@ -17,10 +17,10 @@ interface IndexProps {
 
 const Index: React.FC<IndexProps> = ({ title, description, data }) => {
   const RealData = data.map((blog: any) => matter(blog));
-  // console.log("RealData", RealData);
+  console.log("RealData", RealData);
 
   const ListItems = RealData.map((listItem: { data: any }) => listItem.data);
-  // console.log("ListItems", ListItems);
+  console.log("ListItems", ListItems);
 
   return (
     <>
