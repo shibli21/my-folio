@@ -1,7 +1,8 @@
-import { Box, Flex, Grid, Text } from "@chakra-ui/core";
+import { Box, Button, Flex, Grid, Text } from "@chakra-ui/core";
 import React from "react";
 import css from "../style/index.scss";
 import Card from "./Card";
+import NextLink from "next/link";
 
 const Projects = () => {
   return (
@@ -20,6 +21,20 @@ const Projects = () => {
         <Card />
         <Card />
       </Grid>
+      <Box textAlign="center" mt={10}>
+        <NextLink href="/projects">
+          <Button
+            variant="outline"
+            borderColor="primary"
+            color="primary"
+            size="lg"
+            _hover={{ bg: "primary", color: "white", textDecoration: "none" }}
+            mt={8}
+          >
+            View All
+          </Button>
+        </NextLink>
+      </Box>
     </Box>
   );
 };
