@@ -19,7 +19,6 @@ const Index: React.FC<IndexProps> = ({
   title,
   description,
 }) => {
-  console.log("featuredProjects", featuredProjects);
   return (
     <>
       <Head>
@@ -27,7 +26,7 @@ const Index: React.FC<IndexProps> = ({
         <meta charSet="utf-8" />
         <meta name="Description" content={description}></meta>
         <title>{title}</title>
-        <link rel="icon" href={Logo} type="image/x-icon" />
+        <link rel="icon" href={Logo} type="image/shibli-icon" />
       </Head>
       <Container>
         <NavBar />

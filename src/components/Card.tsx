@@ -8,7 +8,9 @@ const Card = ({ project }: any) => {
   }
   return (
     <Box>
-      <Image src="https://bit.ly/2k1H1t6" />
+      <Image
+        src={project.frontmatter.cover && `${project.frontmatter.cover}`}
+      />
       <Flex justifyContent="space-between" my={2}>
         <Box>
           <Text fontSize="lg" mb={2}>
