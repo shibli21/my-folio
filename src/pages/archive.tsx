@@ -8,7 +8,7 @@ const Archive = () => {
   return (
     <>
       <Head>
-        <title>archive</title>
+        <title>shibli | archive</title>
         <link rel="icon" href={Logo} type="image/x-icon" />
       </Head>
       <Container>

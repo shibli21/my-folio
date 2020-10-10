@@ -1,27 +1,25 @@
+import matter from "gray-matter";
+import { GetStaticProps } from "next";
+import Head from "next/head";
+import Logo from "../../public/logo.svg";
 import AboutMe from "../components/AboutMe";
 import { Container } from "../components/Container";
 import { Footer } from "../components/Footer";
 import { Hero } from "../components/Hero";
 import NavBar from "../components/NavBar";
 import Projects from "../components/Projects";
-import Head from "next/head";
-import Logo from "../../public/logo.svg";
-import { GetStaticProps } from "next";
-import matter from "gray-matter";
-
 interface IndexProps {
   title: string;
   description: string;
-  data: any;
+  featuredProjects: any;
 }
 
-const Index: React.FC<IndexProps> = ({ title, description, data }) => {
-  const RealData = data.map((blog: any) => matter(blog));
-  console.log("RealData", RealData);
-
-  const ListItems = RealData.map((listItem: { data: any }) => listItem.data);
-  console.log("ListItems", ListItems);
-
+const Index: React.FC<IndexProps> = ({
+  featuredProjects,
+  title,
+  description,
+}) => {
+  console.log("featuredProjects", featuredProjects);
   return (
     <>
       <Head>
@@ -34,7 +32,7 @@ const Index: React.FC<IndexProps> = ({ title, description, data }) => {
       <Container>
         <NavBar />
         <Hero />
-        <Projects />
+        <Projects data={featuredProjects} />
         <AboutMe />
         <Footer>Designed & Developed by Syed Shibli Mahmud</Footer>
       </Container>
@@ -46,24 +44,27 @@ export default Index;
 
 export const getStaticProps: GetStaticProps = async () => {
   const siteData = await import(`../config.json`);
-  const fs = require("fs");
 
-  const files = fs.readdirSync(`${process.cwd()}/src/content`, "utf-8");
+  const featuredProjects = ((context) => {
+    const keys = context.keys();
+    const values = keys.map(context);
 
-  const blogs = files.filter((fn: string) => fn.endsWith(".md"));
-
-  const data = blogs.map((blog: any) => {
-    const path = `${process.cwd()}/src/content/${blog}`;
-    const rawContent = fs.readFileSync(path, {
-      encoding: "utf-8",
+    const data = keys.map((key, index) => {
+      let slug = key.replace(/^.*[\\\/]/, "").slice(0, -3);
+      const value: any = values[index];
+      const document = matter(value.default);
+      return {
+        frontmatter: document.data,
+        markdownBody: document.content,
+        slug,
+      };
     });
-
-    return rawContent;
-  });
+    return data;
+  })(require.context("../content/featured", true, /\.md$/));
 
   return {
     props: {
-      data: data,
+      featuredProjects,
       title: siteData.title,
       description: siteData.description,
     },

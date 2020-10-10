@@ -1,10 +1,10 @@
 import { Box, Button, Flex, Grid, Text } from "@chakra-ui/core";
+import NextLink from "next/link";
 import React from "react";
 import css from "../style/index.scss";
 import Card from "./Card";
-import NextLink from "next/link";
 
-const Projects = () => {
+const Projects = ({ data }: any) => {
   return (
     <Box id="projects">
       <Flex flexDirection="column" mb={10}>
@@ -17,12 +17,12 @@ const Projects = () => {
         templateColumns={["1fr", "1fr 1fr 1fr", "1fr 1fr 1fr", "1fr 1fr 1fr"]}
         gap={6}
       >
-        <Card />
-        <Card />
-        <Card />
+        {data.map((project: any) => (
+          <Card project={project} key={project.slug} />
+        ))}
       </Grid>
       <Box textAlign="center" mt={10}>
-        <NextLink href="/projects">
+        <NextLink href="/archive">
           <Button
             variant="outline"
             borderColor="primary"
@@ -40,3 +40,5 @@ const Projects = () => {
 };
 
 export default Projects;
+
+// export const getStaticProps: GetStaticProps = async () => {};
