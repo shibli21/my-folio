@@ -1,12 +1,14 @@
 import { ChakraProvider } from "@chakra-ui/core";
-import { motion as Motion, AnimateSharedLayout } from "framer-motion";
+import { motion as Motion } from "framer-motion";
 import { AppProps } from "next/app";
 import React, { useEffect, useState } from "react";
 import PreLoader from "../components/PreLoader";
 import theme from "../theme";
+import { useRouter } from "next/router";
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
   const [loading, setLoading] = useState(true);
+  const router = useRouter();
 
   useEffect(() => {
     window.addEventListener("load", () => {
@@ -18,7 +20,7 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
 
   return (
     <ChakraProvider resetCSS theme={theme}>
-      {loading ? (
+      {router.pathname === "/" && loading ? (
         <Motion.div
           transition={{ duration: 2, delay: 1 }}
           animate={{ opacity: 0 }}
