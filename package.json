@@ -18,6 +18,7 @@
     "@zeit/next-typescript": "^1.1.1",
     "emotion-theming": "^10.0.27",
     "file-loader": "^6.1.0",
+    "framer-motion": "^2.8.0",
     "gray-matter": "^4.0.2",
     "next": "latest",
     "raw-loader": "^4.0.1",
