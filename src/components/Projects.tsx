@@ -1,14 +1,13 @@
 import { Box, Button, Flex, Grid, Text } from "@chakra-ui/core";
 import NextLink from "next/link";
 import React from "react";
-import css from "../style/index.scss";
 import Card from "./Card";
 
 const Projects = ({ data }: any) => {
   return (
     <Box id="projects">
       <Flex flexDirection="column" mb={10}>
-        <Text fontSize="4xl" fontWeight="700" className={css.line_projects}>
+        <Text fontSize="4xl" fontWeight="700">
           Portfolio
         </Text>
         <Text fontSize="xl">Take a look at my latest projects</Text>
