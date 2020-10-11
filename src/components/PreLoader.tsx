@@ -16,7 +16,7 @@ const PreLoader: React.FC<PreLoaderProps> = () => {
           }}
           transition={{ duration: 3 }}
         >
-          <Image src={Logo} h="100px" />
+          <Image src={Logo} h="100px" alt="preloader" />
         </Motion.div>
       </Flex>
     </Box>

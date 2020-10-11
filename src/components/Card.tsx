@@ -10,6 +10,7 @@ const Card = ({ project }: any) => {
     <Box>
       <Image
         src={project.frontmatter.cover && `${project.frontmatter.cover}`}
+        alt={`${project.frontmatter.title}`}
       />
       <Flex justifyContent="space-between" my={2}>
         <Box>
@@ -20,12 +21,22 @@ const Card = ({ project }: any) => {
         <Box>
           <Flex justify="center" pt={2}>
             {project.frontmatter.github && (
-              <Link ml={2} href={project.frontmatter.github} isExternal>
+              <Link
+                ml={2}
+                href={project.frontmatter.github}
+                isExternal
+                aria-label={`${project.frontmatter.title}`}
+              >
                 <FaGithub size="20px" />
               </Link>
             )}
             {project.frontmatter.external && (
-              <Link ml={2} href={project.frontmatter.external} isExternal>
+              <Link
+                ml={2}
+                href={project.frontmatter.external}
+                isExternal
+                aria-label={`${project.frontmatter.title}`}
+              >
                 <FaExternalLinkAlt size="20px" />
               </Link>
             )}

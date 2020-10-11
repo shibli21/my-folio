@@ -11,7 +11,7 @@ export const Container = (props: FlexProps) => {
         className={css.verticalLine}
         display={["none", "none", "none", "inherit"]}
       >
-        <Link href="https://github.com/shibli21" isExternal>
+        <Link href="https://github.com/shibli21" isExternal aria-label="Github">
           <Box
             py={4}
             _hover={{
@@ -23,7 +23,11 @@ export const Container = (props: FlexProps) => {
             <FaGithub size="25px" />
           </Box>
         </Link>
-        <Link href="https://twitter.com/shibli21" isExternal>
+        <Link
+          href="https://twitter.com/shibli21"
+          isExternal
+          aria-label="Twitter"
+        >
           <Box
             py={4}
             _hover={{
@@ -35,7 +39,11 @@ export const Container = (props: FlexProps) => {
             <FaTwitter size="25px" />
           </Box>
         </Link>
-        <Link href="https://twitter.com/shibli21" isExternal>
+        <Link
+          href="https://twitter.com/shibli21"
+          isExternal
+          aria-label="Instagram"
+        >
           <Box
             py={4}
             _hover={{
@@ -50,6 +58,7 @@ export const Container = (props: FlexProps) => {
         <Link
           href="https://www.linkedin.com/in/syed-shibli-mahmud-0bb357163/"
           isExternal
+          aria-label="Linkedin"
         >
           <Box
             py={4}

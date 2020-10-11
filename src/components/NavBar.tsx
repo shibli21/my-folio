@@ -84,7 +84,7 @@ const NavBar = () => {
     <Box top={0} position="sticky" zIndex={100} bg="white">
       <Flex justifyContent="space-between" fontSize="xl" py={8}>
         <Box>
-          <Image src={Logo} h="40px" />
+          <Image src={Logo} h="40px" alt="logo" />
         </Box>
         <Flex display={["none", "none", "inherit", "inherit"]}>{NavLinks}</Flex>
         <Box display={["block", "block", "none", "none"]}>
