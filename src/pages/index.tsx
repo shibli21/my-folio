@@ -7,7 +7,11 @@ import { Container } from "../components/Container";
 import { Footer } from "../components/Footer";
 import { Hero } from "../components/Hero";
 import NavBar from "../components/NavBar";
+import { motion as Motion } from "framer-motion";
 import Projects from "../components/Projects";
+import { useRouter } from "next/router";
+import React, { useState, useEffect } from "react";
+import PreLoader from "../components/PreLoader";
 interface IndexProps {
   title: string;
   description: string;
@@ -19,6 +23,17 @@ const Index: React.FC<IndexProps> = ({
   title,
   description,
 }) => {
+  const [loading, setLoading] = useState(true);
+  const router = useRouter();
+
+  useEffect(() => {
+    window.addEventListener("load", () => {
+      setTimeout(() => {
+        setLoading(false);
+      }, 3000);
+    });
+  }, []);
+
   return (
     <>
       <Head>
@@ -28,13 +43,22 @@ const Index: React.FC<IndexProps> = ({
         <title>{title}</title>
         <link rel="icon" href={Logo} type="image/shibli-icon" />
       </Head>
-      <Container>
-        <NavBar />
-        <Hero />
-        <Projects data={featuredProjects} />
-        <AboutMe />
-        <Footer>Designed & Developed by Syed Shibli Mahmud</Footer>
-      </Container>
+      {router.pathname === "/" && loading ? (
+        <Motion.div
+          transition={{ duration: 2, delay: 1 }}
+          animate={{ opacity: 0 }}
+        >
+          <PreLoader />
+        </Motion.div>
+      ) : (
+        <Container>
+          <NavBar />
+          <Hero />
+          <Projects data={featuredProjects} />
+          <AboutMe />
+          <Footer>Designed & Developed by Syed Shibli Mahmud</Footer>
+        </Container>
+      )}
     </>
   );
 };
