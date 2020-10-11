@@ -1,87 +1,84 @@
 import { Box, Button, Flex, Link, Text } from "@chakra-ui/core";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion, Variants } from "framer-motion";
 
 export const Hero = () => {
   const MotionText = motion.custom(Text);
-  const name = Array.from("Syed Shibli Mahmud");
-  console.log("Hero -> name", name);
 
-  // Add staggering effect to the children of the container
-  const containerVariants = {
-    before: {},
-    after: { transition: { staggerChildren: 0.06 } },
-  };
-
-  // Variants for animating each letter
-  const letterVariants = {
-    before: {
-      opacity: 0,
-      y: 20,
-      transition: {
-        type: "spring",
-        damping: 16,
-        stiffness: 200,
-      },
-    },
-    after: {
+  const containerVariants: Variants = {
+    enter: {
+      x: 0,
       opacity: 1,
-      y: 0,
       transition: {
-        type: "spring",
-        damping: 16,
-        stiffness: 200,
+        when: "beforeChildren",
+        staggerChildren: 0.2,
       },
     },
+    exit: { x: -300, opacity: 0 },
   };
+
+  const childVariants: Variants = {
+    enter: {
+      x: 0,
+      opacity: 1,
+    },
+    exit: {
+      x: -20,
+      opacity: 0,
+    },
+  };
+
   return (
     <Box h="100vh" pt={[120, 150, 180, 200]}>
-      <Flex flexDirection="column" justify="center">
-        <MotionText
-          fontSize={["sm", "md", "lg", "xl"]}
-          fontWeight="700"
-          color="primary"
-        >
-          Hi, my name is
-        </MotionText>
-        <MotionText
-          width="100%"
-          fontSize={["3xl", "5xl", "5xl", "6xl"]}
-          fontWeight="700"
-          background=""
-          display="flex" // Set the display value to flex
+      <AnimatePresence exitBeforeEnter>
+        <motion.div
           variants={containerVariants}
-          initial={"before"}
-          animate={"after"}
+          initial="exit"
+          animate="enter"
+          exit="exit"
         >
-          {name.map((letter, index) => (
+          <Flex flexDirection="column" justify="center">
             <MotionText
-              key={index}
-              variants={letterVariants}
-              minW={letter === " " ? "15px" : "auto"}
+              fontSize={["sm", "md", "lg", "xl"]}
+              fontWeight="700"
+              color="primary"
+              key="subheading"
+              variants={childVariants}
             >
-              {letter}
+              Hi, my name is
             </MotionText>
-          ))}
-        </MotionText>
-        {/* <MotionText fontSize={["4xl", "5xl", "5xl", "6xl"]} fontWeight="700">
-          Syed Shibli Mahmud.
-        </MotionText> */}
-        <MotionText fontSize={["3xl", "5xl", "5xl", "6xl"]}>
-          I build things for the web.
-        </MotionText>
-      </Flex>
-      <Button
-        variant="outline"
-        borderColor="primary"
-        color="primary"
-        size="lg"
-        _hover={{ bg: "primary", color: "white", textDecoration: "none" }}
-        mt={8}
-        as={Link}
-        href="mailto:syedshiblimahmud@gmail.com"
-      >
-        Get In Touch
-      </Button>
+            <MotionText
+              fontSize={["3xl", "5xl", "5xl", "6xl"]}
+              fontWeight="700"
+              key="subheading"
+              variants={childVariants}
+            >
+              Syed Shibli Mahmud.
+            </MotionText>
+
+            <MotionText
+              fontSize={["3xl", "5xl", "5xl", "6xl"]}
+              key="subheading"
+              variants={childVariants}
+            >
+              I build things for the web.
+            </MotionText>
+          </Flex>
+          <motion.div key="button" variants={childVariants}>
+            <Button
+              variant="outline"
+              borderColor="primary"
+              color="primary"
+              size="lg"
+              _hover={{ bg: "primary", color: "white", textDecoration: "none" }}
+              mt={8}
+              as={Link}
+              href="mailto:syedshiblimahmud@gmail.com"
+            >
+              Get In Touch
+            </Button>
+          </motion.div>
+        </motion.div>
+      </AnimatePresence>
     </Box>
   );
 };
