@@ -28,7 +28,7 @@ export const Hero = () => {
   };
 
   return (
-    <Box h="100vh" pt={[120, 150, 180, 200]}>
+    <Box h="100vh" pt={[80, 150, 180, 200]}>
       <AnimatePresence exitBeforeEnter>
         <motion.div
           variants={containerVariants}
@@ -38,26 +38,31 @@ export const Hero = () => {
         >
           <Flex flexDirection="column" justify="center">
             <MotionText
-              fontSize={["sm", "md", "lg", "xl"]}
+              fontSize={["md", "md", "lg", "xl"]}
               fontWeight="700"
               color="primary"
-              key="subheading"
+              key="subheading1"
+              mb={2}
               variants={childVariants}
             >
               Hi, my name is
             </MotionText>
             <MotionText
               fontSize={["3xl", "5xl", "5xl", "6xl"]}
+              lineHeight="1"
               fontWeight="700"
-              key="subheading"
+              key="heading"
               variants={childVariants}
+              mb={2}
             >
               Syed Shibli Mahmud.
             </MotionText>
 
             <MotionText
               fontSize={["3xl", "5xl", "5xl", "6xl"]}
-              key="subheading"
+              fontWeight="600"
+              key="subheading2"
+              lineHeight="1"
               variants={childVariants}
             >
               I build things for the web.
