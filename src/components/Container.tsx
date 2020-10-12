@@ -2,6 +2,7 @@ import { Box, FlexProps, Link } from "@chakra-ui/core";
 import React from "react";
 import { FaGithub, FaInstagram, FaLinkedin, FaTwitter } from "react-icons/fa";
 import css from "../style/index.scss";
+import NavBar from "./NavBar";
 
 export const Container = (props: FlexProps) => {
   return (
@@ -75,9 +76,10 @@ export const Container = (props: FlexProps) => {
       <Box
         {...props}
         maxW="1024px"
-        mx={[8, 8, "auto", "auto"]}
+        mx={[4, 8, "auto", "auto"]}
         fontFamily="raleway"
       >
+        <NavBar />
         {props.children}
       </Box>
     </Box>

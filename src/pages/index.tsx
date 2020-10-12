@@ -7,7 +7,6 @@ import AboutMe from "../components/AboutMe";
 import { Container } from "../components/Container";
 import { Footer } from "../components/Footer";
 import { Hero } from "../components/Hero";
-import NavBar from "../components/NavBar";
 import Projects from "../components/Projects";
 interface IndexProps {
   title: string;
@@ -31,7 +30,6 @@ const Index: React.FC<IndexProps> = ({
       </Head>
 
       <Container>
-        <NavBar />
         <Hero />
         <Projects data={featuredProjects} />
         <AboutMe />

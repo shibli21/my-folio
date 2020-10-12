@@ -1,5 +1,6 @@
 import {
   Box,
+  Button,
   Drawer,
   DrawerBody,
   DrawerCloseButton,
@@ -7,27 +8,33 @@ import {
   DrawerFooter,
   DrawerOverlay,
   Flex,
-  Image,
   Link,
   Stack,
   useDisclosure,
 } from "@chakra-ui/core";
+import { useRouter } from "next/dist/client/router";
+import NextLink from "next/link";
 import React from "react";
 import { FaBars } from "react-icons/fa";
 import { RiCloseFill } from "react-icons/ri";
-import { Link as ScrollLink } from "react-scroll";
-import Logo from "../../public/logo.svg";
+import { animateScroll as scroll, Link as ScrollLink } from "react-scroll";
 import css from "../style/nav.scss";
+import Logo from "./icons/Logo";
 
 const NavBar = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
-
+  const Router = useRouter();
   const NavLinks = (
     <>
       <Box pos="relative" fontSize={["25px", "25px", "inherit", "inherit"]}>
         <Link
           className={css.navigationLink}
-          onClick={onClose}
+          onClick={() => {
+            onClose;
+            if (Router.pathname !== "/") {
+              Router.push("/");
+            }
+          }}
           as={ScrollLink}
           activeClass="active"
           to="contact"
@@ -45,6 +52,14 @@ const NavBar = () => {
         fontSize={["25px", "25px", "inherit", "inherit"]}
       >
         <Link
+          onClick={async () => {
+            onClose();
+
+            if (Router.pathname !== "/") {
+              await Router.push("/");
+              scroll.scrollTo(1500);
+            }
+          }}
           className={css.navigationLink}
           as={ScrollLink}
           activeClass="active"
@@ -53,9 +68,8 @@ const NavBar = () => {
           smooth={true}
           offset={-100}
           duration={500}
-          onClick={onClose}
         >
-          About me
+          About
         </Link>
       </Box>
       <Box
@@ -66,7 +80,14 @@ const NavBar = () => {
         <Link
           className={css.navigationLink}
           as={ScrollLink}
-          onClick={onClose}
+          onClick={async () => {
+            onClose();
+
+            if (Router.pathname !== "/") {
+              await Router.push("/");
+              scroll.scrollTo(850);
+            }
+          }}
           activeClass="active"
           to="projects"
           spy={true}
@@ -74,19 +95,40 @@ const NavBar = () => {
           offset={-150}
           duration={500}
         >
-          Projects
+          Work
         </Link>
+      </Box>
+      <Box ml={8} fontSize={["25px", "25px", "inherit", "inherit"]}>
+        <NextLink href="/resume">
+          <Button
+            onClick={onClose}
+            variant="outline"
+            borderColor="primary"
+            color="primary"
+            size="md"
+            _hover={{ bg: "primary", color: "white", textDecoration: "none" }}
+          >
+            Resume
+          </Button>
+        </NextLink>
       </Box>
     </>
   );
 
   return (
     <Box top={0} position="sticky" zIndex={100} bg="white">
-      <Flex justifyContent="space-between" fontSize="xl" py={8}>
-        <Box>
-          <Image src={Logo} h="40px" alt="logo" />
-        </Box>
-        <Flex display={["none", "none", "inherit", "inherit"]}>{NavLinks}</Flex>
+      <Flex justifyContent="space-between" fontSize="xl" py={4}>
+        <NextLink href="/">
+          <Box cursor="pointer">
+            <Logo />
+          </Box>
+        </NextLink>
+        <Flex
+          display={["none", "none", "inherit", "inherit"]}
+          alignItems="center"
+        >
+          {NavLinks}
+        </Flex>
         <Box display={["block", "block", "none", "none"]}>
           <>
             <Box color="primary" onClick={onOpen}>
