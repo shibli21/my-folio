@@ -1,13 +1,17 @@
 import { Box, FlexProps, Link } from "@chakra-ui/core";
+import { motion } from "framer-motion";
 import React from "react";
 import { FaGithub, FaInstagram, FaLinkedin, FaTwitter } from "react-icons/fa";
 import css from "../style/index.scss";
 import NavBar from "./NavBar";
 
 export const Container = (props: FlexProps) => {
+  const MotionBox = motion.custom(Box);
   return (
     <Box position="relative">
-      <Box
+      <MotionBox
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1, transition: { delay: 1 } }}
         mt={20}
         className={css.verticalLine}
         display={["none", "none", "none", "inherit"]}
@@ -72,12 +76,12 @@ export const Container = (props: FlexProps) => {
             <FaLinkedin size="25px" />
           </Box>
         </Link>
-      </Box>
+      </MotionBox>
       <Box
         {...props}
         maxW="1024px"
         mx={[4, 8, "auto", "auto"]}
-        fontFamily="raleway"
+        fontFamily="system-ui"
       >
         <NavBar />
         {props.children}

@@ -20,13 +20,45 @@ import { RiCloseFill } from "react-icons/ri";
 import { animateScroll as scroll, Link as ScrollLink } from "react-scroll";
 import css from "../style/nav.scss";
 import Logo from "./icons/Logo";
+import { motion, Variants } from "framer-motion";
 
 const NavBar = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const Router = useRouter();
+  const MotionBox = motion.custom(Box);
+  const MotionFlex = motion.custom(Flex);
+
+  const containerVariants: Variants = {
+    enter: {
+      x: 0,
+      opacity: 1,
+      transition: {
+        when: "beforeChildren",
+        staggerChildren: 0.2,
+      },
+    },
+    exit: { x: -300, opacity: 0 },
+  };
+
+  const childVariants: Variants = {
+    enter: {
+      y: 0,
+      opacity: 1,
+    },
+    exit: {
+      y: -20,
+      opacity: 0,
+    },
+  };
+
   const NavLinks = (
     <>
-      <Box pos="relative" fontSize={["25px", "25px", "inherit", "inherit"]}>
+      <MotionBox
+        key="contact"
+        variants={childVariants}
+        pos="relative"
+        fontSize={["25px", "25px", "inherit", "inherit"]}
+      >
         <Link
           className={css.navigationLink}
           onClick={() => {
@@ -45,8 +77,10 @@ const NavBar = () => {
         >
           Contact
         </Link>
-      </Box>
-      <Box
+      </MotionBox>
+      <MotionBox
+        key="about"
+        variants={childVariants}
         pos="relative"
         ml={8}
         fontSize={["25px", "25px", "inherit", "inherit"]}
@@ -71,8 +105,10 @@ const NavBar = () => {
         >
           About
         </Link>
-      </Box>
-      <Box
+      </MotionBox>
+      <MotionBox
+        key="work"
+        variants={childVariants}
         pos="relative"
         ml={8}
         fontSize={["25px", "25px", "inherit", "inherit"]}
@@ -80,11 +116,11 @@ const NavBar = () => {
         <Link
           className={css.navigationLink}
           as={ScrollLink}
-          onClick={async () => {
+          onClick={() => {
             onClose();
 
             if (Router.pathname !== "/") {
-              await Router.push("/");
+              Router.push("/");
               scroll.scrollTo(850);
             }
           }}
@@ -97,8 +133,13 @@ const NavBar = () => {
         >
           Work
         </Link>
-      </Box>
-      <Box ml={8} fontSize={["25px", "25px", "inherit", "inherit"]}>
+      </MotionBox>
+      <MotionBox
+        key="resume"
+        variants={childVariants}
+        ml={8}
+        fontSize={["25px", "25px", "inherit", "inherit"]}
+      >
         <NextLink href="/resume">
           <Button
             onClick={onClose}
@@ -111,7 +152,7 @@ const NavBar = () => {
             Resume
           </Button>
         </NextLink>
-      </Box>
+      </MotionBox>
     </>
   );
 
@@ -119,21 +160,43 @@ const NavBar = () => {
     <Box top={0} position="sticky" zIndex={100} bg="white">
       <Flex justifyContent="space-between" fontSize="xl" py={4}>
         <NextLink href="/">
-          <Box cursor="pointer">
+          <MotionBox
+            cursor="pointer"
+            initial={{ x: -20, opacity: 0 }}
+            animate={{
+              x: 0,
+              opacity: 1,
+              transition: { delay: 0.5 },
+            }}
+          >
             <Logo />
-          </Box>
+          </MotionBox>
         </NextLink>
-        <Flex
+        <MotionFlex
           display={["none", "none", "inherit", "inherit"]}
           alignItems="center"
+          variants={containerVariants}
+          initial="exit"
+          animate="enter"
+          exit="exit"
         >
           {NavLinks}
-        </Flex>
+        </MotionFlex>
         <Box display={["block", "block", "none", "none"]}>
           <>
-            <Box color="primary" onClick={onOpen}>
-              <FaBars size="40px" />
-            </Box>
+            <motion.div
+              key="bar"
+              initial={{ x: 20, opacity: 0 }}
+              animate={{
+                x: 0,
+                opacity: 1,
+                transition: { delay: 0.5 },
+              }}
+            >
+              <Box color="primary" onClick={onOpen}>
+                <FaBars size="40px" />
+              </Box>
+            </motion.div>
             <Drawer
               size="xs"
               isOpen={isOpen}
@@ -142,7 +205,7 @@ const NavBar = () => {
             >
               <DrawerOverlay />
               <DrawerContent>
-                <DrawerCloseButton m={6}>
+                <DrawerCloseButton m={4}>
                   <Box color="primary">
                     <RiCloseFill size="60px" />
                   </Box>

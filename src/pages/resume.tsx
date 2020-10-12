@@ -12,7 +12,7 @@ const resume = () => {
         <link rel="icon" href={Logo} type="image/x-icon" />
       </Head>
       <Container>
-        <Text fontSize="6xl" fontWeight="700">
+        <Text fontSize="6xl" height="200vh" fontWeight="700">
           Resume
         </Text>
       </Container>
