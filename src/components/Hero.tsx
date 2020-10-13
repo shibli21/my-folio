@@ -29,7 +29,7 @@ export const Hero = () => {
   };
 
   return (
-    <Box h="100vh" pt={[80, 150, 180, 200]}>
+    <Box h="100vh" pt={[100, 150, 180, 200]}>
       <motion.div
         variants={containerVariants}
         initial="exit"
@@ -38,7 +38,7 @@ export const Hero = () => {
       >
         <Flex flexDirection="column" justify="center">
           <MotionText
-            fontSize={["md", "md", "lg", "xl"]}
+            fontSize={["xl", "xl", "xl", "xl"]}
             fontWeight="700"
             color="primary"
             mb={2}
@@ -48,7 +48,7 @@ export const Hero = () => {
             Hi, my name is
           </MotionText>
           <MotionText
-            fontSize={["5xl", "6xl", "6xl", "6xl"]}
+            fontSize={["4xl", "5xl", "5xl", "6xl"]}
             lineHeight="1"
             fontWeight="700"
             key="heading"
@@ -60,7 +60,7 @@ export const Hero = () => {
           </MotionText>
 
           <MotionText
-            fontSize={["5xl", "6xl", "6xl", "6xl"]}
+            fontSize={["4xl", "5xl", "5xl", "6xl"]}
             fontWeight="600"
             key="subheading2"
             color="gray.700"

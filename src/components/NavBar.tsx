@@ -21,12 +21,15 @@ import { animateScroll as scroll, Link as ScrollLink } from "react-scroll";
 import css from "../style/nav.scss";
 import Logo from "./icons/Logo";
 import { motion, Variants } from "framer-motion";
+import useIntro from "../hooks/useIntro";
 
 const NavBar = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const Router = useRouter();
   const MotionBox = motion.custom(Box);
   const MotionFlex = motion.custom(Flex);
+
+  const showAnimation = useIntro();
 
   const containerVariants: Variants = {
     enter: {
@@ -162,12 +165,17 @@ const NavBar = () => {
         <NextLink href="/">
           <MotionBox
             cursor="pointer"
-            initial={{ x: -20, opacity: 0 }}
-            animate={{
-              x: 0,
-              opacity: 1,
-              transition: { delay: 0.5 },
-            }}
+            initial={showAnimation ? { x: -20, opacity: 0 } : undefined}
+            animate={
+              showAnimation
+                ? {
+                    x: 0,
+                    opacity: 1,
+                    transition: { delay: 0.5 },
+                  }
+                : undefined
+            }
+            key="logo"
           >
             <Logo />
           </MotionBox>
@@ -176,9 +184,9 @@ const NavBar = () => {
           display={["none", "none", "inherit", "inherit"]}
           alignItems="center"
           variants={containerVariants}
-          initial="exit"
-          animate="enter"
-          exit="exit"
+          initial={showAnimation ? "exit" : undefined}
+          animate={showAnimation ? "enter" : undefined}
+          exit={showAnimation ? "exit" : undefined}
         >
           {NavLinks}
         </MotionFlex>
