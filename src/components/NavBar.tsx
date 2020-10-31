@@ -1,6 +1,7 @@
 import {
   Box,
   Button,
+  ChakraProps,
   Drawer,
   DrawerBody,
   DrawerCloseButton,
@@ -12,23 +13,23 @@ import {
   Stack,
   useDisclosure,
 } from "@chakra-ui/core";
+import { motion, Variants } from "framer-motion";
 import { useRouter } from "next/dist/client/router";
 import NextLink from "next/link";
 import React from "react";
 import { FaBars } from "react-icons/fa";
 import { RiCloseFill } from "react-icons/ri";
 import { animateScroll as scroll, Link as ScrollLink } from "react-scroll";
+import useIntro from "../hooks/useIntro";
 import css from "../style/nav.scss";
 import Logo from "./icons/Logo";
-import { motion, Variants } from "framer-motion";
-import useIntro from "../hooks/useIntro";
+import MenuItems from "./MenuItems";
 
-const NavBar = () => {
+const NavBar = (props: ChakraProps) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const Router = useRouter();
   const MotionBox = motion.custom(Box);
   const MotionFlex = motion.custom(Flex);
-
   const showAnimation = useIntro();
 
   const containerVariants: Variants = {
@@ -56,112 +57,107 @@ const NavBar = () => {
 
   const NavLinks = (
     <>
-      <MotionBox
-        key="contact"
-        variants={childVariants}
-        pos="relative"
-        fontSize={["25px", "25px", "inherit", "inherit"]}
-      >
-        <Link
-          className={css.navigationLink}
-          onClick={() => {
-            onClose;
-            if (Router.pathname !== "/") {
-              Router.push("/");
-            }
-          }}
-          as={ScrollLink}
-          activeClass="active"
-          to="contact"
-          spy={true}
-          smooth={true}
-          offset={50}
-          duration={500}
-        >
-          Contact
-        </Link>
-      </MotionBox>
-      <MotionBox
-        key="about"
-        variants={childVariants}
-        pos="relative"
-        ml={8}
-        fontSize={["25px", "25px", "inherit", "inherit"]}
-      >
-        <Link
-          onClick={async () => {
-            onClose();
-
-            if (Router.pathname !== "/") {
-              await Router.push("/");
-              scroll.scrollTo(1500);
-            }
-          }}
-          className={css.navigationLink}
-          as={ScrollLink}
-          activeClass="active"
-          to="aboutMe"
-          spy={true}
-          smooth={true}
-          offset={-100}
-          duration={500}
-        >
-          About
-        </Link>
-      </MotionBox>
-      <MotionBox
-        key="work"
-        variants={childVariants}
-        pos="relative"
-        ml={8}
-        fontSize={["25px", "25px", "inherit", "inherit"]}
-      >
-        <Link
-          className={css.navigationLink}
-          as={ScrollLink}
-          onClick={() => {
-            onClose();
-
-            if (Router.pathname !== "/") {
-              Router.push("/");
-              scroll.scrollTo(850);
-            }
-          }}
-          activeClass="active"
-          to="projects"
-          spy={true}
-          smooth={true}
-          offset={-150}
-          duration={500}
-        >
-          Work
-        </Link>
-      </MotionBox>
-      <MotionBox
-        key="resume"
-        variants={childVariants}
-        ml={8}
-        fontSize={["25px", "25px", "inherit", "inherit"]}
-      >
-        <NextLink href="/resume">
-          <Button
-            onClick={onClose}
-            variant="outline"
-            borderColor="primary"
-            color="primary"
-            size="md"
-            _hover={{ bg: "primary", color: "white", textDecoration: "none" }}
+      <MenuItems>
+        <MotionBox key="contact" variants={childVariants} pos="relative">
+          <Link
+            className={css.navigationLink}
+            onClick={() => {
+              onClose;
+              if (Router.pathname !== "/") {
+                Router.push("/");
+              }
+            }}
+            as={ScrollLink}
+            activeClass="active"
+            to="contact"
+            spy={true}
+            smooth={true}
+            offset={50}
+            duration={500}
           >
-            Resume
-          </Button>
-        </NextLink>
-      </MotionBox>
+            Contact
+          </Link>
+        </MotionBox>
+      </MenuItems>
+      <MenuItems>
+        <MotionBox key="about" variants={childVariants} pos="relative">
+          <Link
+            onClick={async () => {
+              onClose();
+
+              if (Router.pathname !== "/") {
+                await Router.push("/");
+                scroll.scrollTo(1500);
+              }
+            }}
+            className={css.navigationLink}
+            as={ScrollLink}
+            activeClass="active"
+            to="aboutMe"
+            spy={true}
+            smooth={true}
+            offset={-100}
+            duration={500}
+          >
+            About
+          </Link>
+        </MotionBox>
+      </MenuItems>
+      <MenuItems>
+        <MotionBox key="work" variants={childVariants} pos="relative">
+          <Link
+            className={css.navigationLink}
+            as={ScrollLink}
+            onClick={() => {
+              onClose();
+
+              if (Router.pathname !== "/") {
+                Router.push("/");
+                scroll.scrollTo(850);
+              }
+            }}
+            activeClass="active"
+            to="projects"
+            spy={true}
+            smooth={true}
+            offset={-150}
+            duration={500}
+          >
+            Work
+          </Link>
+        </MotionBox>
+      </MenuItems>
+      <MenuItems>
+        <MotionBox key="resume" variants={childVariants}>
+          <NextLink href="/resume">
+            <Button
+              onClick={onClose}
+              variant="outline"
+              borderColor="primary"
+              color="primary"
+              size="md"
+              _hover={{ bg: "primary", color: "white", textDecoration: "none" }}
+            >
+              Resume
+            </Button>
+          </NextLink>
+        </MotionBox>
+      </MenuItems>
     </>
   );
 
   return (
-    <Box top={0} position="sticky" zIndex={100} bg="white">
-      <Flex justifyContent="space-between" fontSize="xl" py={4}>
+    <Box top={0} position="sticky" zIndex={100} bg="white" boxShadow="rgba(149, 157, 165, 0.2) 0px 8px 24px;">
+      <Flex
+        as="nav"
+        align="center"
+        justify="space-between"
+        wrap="wrap"
+        padding="1rem"
+        maxW="1024px"
+        mx="auto"
+        {...props}
+      >
         <NextLink href="/">
           <MotionBox
             cursor="pointer"
@@ -181,8 +177,9 @@ const NavBar = () => {
           </MotionBox>
         </NextLink>
         <MotionFlex
-          display={["none", "none", "inherit", "inherit"]}
-          alignItems="center"
+          display={["none", "inherit"]}
+          align="center"
+          justify="center"
           variants={containerVariants}
           initial={showAnimation ? "exit" : undefined}
           animate={showAnimation ? "enter" : undefined}
@@ -190,7 +187,7 @@ const NavBar = () => {
         >
           {NavLinks}
         </MotionFlex>
-        <Box display={["block", "block", "none", "none"]}>
+        <Box display={["block", "none"]}>
           <>
             <motion.div
               key="bar"
@@ -205,12 +202,7 @@ const NavBar = () => {
                 <FaBars size="40px" />
               </Box>
             </motion.div>
-            <Drawer
-              size="xs"
-              isOpen={isOpen}
-              placement="right"
-              onClose={onClose}
-            >
+            <Drawer size="xs" isOpen={isOpen} placement="right" onClose={onClose}>
               <DrawerOverlay />
               <DrawerContent>
                 <DrawerCloseButton m={4}>

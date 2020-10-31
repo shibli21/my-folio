@@ -7,6 +7,7 @@ import AboutMe from "../components/AboutMe";
 import { Container } from "../components/Container";
 import { Footer } from "../components/Footer";
 import { Hero } from "../components/Hero";
+import { Main } from "../components/Main";
 import Projects from "../components/Projects";
 interface IndexProps {
   title: string;
@@ -14,11 +15,7 @@ interface IndexProps {
   featuredProjects: any;
 }
 
-const Index: React.FC<IndexProps> = ({
-  featuredProjects,
-  title,
-  description,
-}) => {
+const Index: React.FC<IndexProps> = ({ featuredProjects, title, description }) => {
   return (
     <>
       <Head>
@@ -30,9 +27,11 @@ const Index: React.FC<IndexProps> = ({
       </Head>
 
       <Container>
-        <Hero />
-        <Projects data={featuredProjects} />
-        <AboutMe />
+        <Main>
+          <Hero />
+          <Projects data={featuredProjects} />
+          <AboutMe />
+        </Main>
         <Footer>Designed & Developed by Syed Shibli Mahmud</Footer>
       </Container>
     </>

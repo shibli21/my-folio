@@ -15,6 +15,8 @@ $primary: #fd3e60;
 
 .verticalLine {
   position: fixed;
+  display: flex;
+  flex-direction: column;
   left: 70px;
   top: 317px;
   &::after {
