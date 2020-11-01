@@ -59,15 +59,7 @@ const NavBar = (props: ChakraProps) => {
     <>
       <MenuItems>
         <MotionBox key="contact" variants={childVariants} pos="relative">
-          <Link
-            className={css.navigationLink}
-            onClick={() => {
-              onClose;
-              if (Router.pathname !== "/") {
-                Router.push("/");
-              }
-            }}
-            as={ScrollLink}
+          <ScrollLink
             activeClass="active"
             to="contact"
             spy={true}
@@ -75,23 +67,23 @@ const NavBar = (props: ChakraProps) => {
             offset={50}
             duration={500}
           >
-            Contact
-          </Link>
+            <Link
+              className={css.navigationLink}
+              onClick={() => {
+                onClose;
+                if (Router.pathname !== "/") {
+                  Router.push("/");
+                }
+              }}
+            >
+              Contact
+            </Link>
+          </ScrollLink>
         </MotionBox>
       </MenuItems>
       <MenuItems>
         <MotionBox key="about" variants={childVariants} pos="relative">
-          <Link
-            onClick={async () => {
-              onClose();
-
-              if (Router.pathname !== "/") {
-                await Router.push("/");
-                scroll.scrollTo(1500);
-              }
-            }}
-            className={css.navigationLink}
-            as={ScrollLink}
+          <ScrollLink
             activeClass="active"
             to="aboutMe"
             spy={true}
@@ -99,23 +91,25 @@ const NavBar = (props: ChakraProps) => {
             offset={-100}
             duration={500}
           >
-            About
-          </Link>
+            <Link
+              onClick={async () => {
+                onClose();
+
+                if (Router.pathname !== "/") {
+                  await Router.push("/");
+                  scroll.scrollTo(1500);
+                }
+              }}
+              className={css.navigationLink}
+            >
+              About
+            </Link>
+          </ScrollLink>
         </MotionBox>
       </MenuItems>
       <MenuItems>
         <MotionBox key="work" variants={childVariants} pos="relative">
-          <Link
-            className={css.navigationLink}
-            as={ScrollLink}
-            onClick={() => {
-              onClose();
-
-              if (Router.pathname !== "/") {
-                Router.push("/");
-                scroll.scrollTo(850);
-              }
-            }}
+          <ScrollLink
             activeClass="active"
             to="projects"
             spy={true}
@@ -123,8 +117,20 @@ const NavBar = (props: ChakraProps) => {
             offset={-150}
             duration={500}
           >
-            Work
-          </Link>
+            <Link
+              className={css.navigationLink}
+              onClick={() => {
+                onClose();
+
+                if (Router.pathname !== "/") {
+                  Router.push("/");
+                  scroll.scrollTo(850);
+                }
+              }}
+            >
+              Work
+            </Link>
+          </ScrollLink>
         </MotionBox>
       </MenuItems>
       <MenuItems>
@@ -147,7 +153,7 @@ const NavBar = (props: ChakraProps) => {
   );
 
   return (
-    <Box top={0} position="sticky" zIndex={100} bg="white" boxShadow="rgba(149, 157, 165, 0.2) 0px 8px 24px;">
+    <Box top={0} position="sticky" zIndex={100} bg="white" boxShadow="xs">
       <Flex
         as="nav"
         align="center"
@@ -202,7 +208,12 @@ const NavBar = (props: ChakraProps) => {
                 <FaBars size="40px" />
               </Box>
             </motion.div>
-            <Drawer size="xs" isOpen={isOpen} placement="right" onClose={onClose}>
+            <Drawer
+              size="xs"
+              isOpen={isOpen}
+              placement="right"
+              onClose={onClose}
+            >
               <DrawerOverlay />
               <DrawerContent>
                 <DrawerCloseButton m={4}>
