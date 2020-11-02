@@ -1,5 +1,5 @@
 # **my folio**
 
-## [live demo](https://syedshiblimahmud.netlify.app)
+## [live demo](https://syedshiblimahmud.vercel.app)
 
 ![alt text](/public/demo.png)
