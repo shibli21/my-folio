@@ -18,7 +18,7 @@ $primary: #fd3e60;
   display: flex;
   flex-direction: column;
   left: 70px;
-  top: 317px;
+  top: 360px;
   &::after {
     content: "";
     position: absolute;
@@ -27,6 +27,10 @@ $primary: #fd3e60;
     width: 4px;
     height: 80px;
     background: $primary;
+  }
+
+  @media screen and (max-width: 1280px) {
+    display: none;
   }
 }
 
