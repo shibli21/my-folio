@@ -11,6 +11,8 @@ import {
   Flex,
   Link,
   Stack,
+  useColorMode,
+  useColorModeValue,
   useDisclosure,
 } from "@chakra-ui/core";
 import { motion, Variants } from "framer-motion";
@@ -22,6 +24,7 @@ import { RiCloseFill } from "react-icons/ri";
 import { animateScroll as scroll, Link as ScrollLink } from "react-scroll";
 import useIntro from "../hooks/useIntro";
 import css from "../style/nav.scss";
+import { DarkModeSwitch } from "./DarkModeSwitch";
 import Logo from "./icons/Logo";
 import MenuItems from "./MenuItems";
 
@@ -55,8 +58,19 @@ const NavBar = (props: ChakraProps) => {
     },
   };
 
+  const { colorMode } = useColorMode();
+  const isDark = colorMode === "dark";
+
+  const backgroundImage = useColorModeValue(
+    "linear-gradient(to right,#fd6581,#fd3e60 50%,rgba(0, 0, 0, 0.781) 60%)",
+    "linear-gradient(to right,#fd6581,#fd3e60 50%,white 60%)"
+  );
+
   const NavLinks = (
     <>
+      <MenuItems>
+        <DarkModeSwitch />
+      </MenuItems>
       <MenuItems>
         <MotionBox key="contact" variants={childVariants} pos="relative">
           <ScrollLink
@@ -69,6 +83,7 @@ const NavBar = (props: ChakraProps) => {
           >
             <Link
               className={css.navigationLink}
+              backgroundImage={backgroundImage}
               onClick={() => {
                 onClose;
                 if (Router.pathname !== "/") {
@@ -100,6 +115,7 @@ const NavBar = (props: ChakraProps) => {
                   scroll.scrollTo(1500);
                 }
               }}
+              backgroundImage={backgroundImage}
               className={css.navigationLink}
             >
               About
@@ -127,6 +143,7 @@ const NavBar = (props: ChakraProps) => {
                   scroll.scrollTo(850);
                 }
               }}
+              backgroundImage={backgroundImage}
             >
               Work
             </Link>
@@ -153,7 +170,13 @@ const NavBar = (props: ChakraProps) => {
   );
 
   return (
-    <Box top={0} position="sticky" zIndex={100} bg="white" boxShadow="xs">
+    <Box
+      top={0}
+      position="sticky"
+      zIndex={100}
+      boxShadow="xs"
+      bg={!isDark ? "#FFFFFF" : "#1A202C"}
+    >
       <Flex
         as="nav"
         align="center"
@@ -183,7 +206,7 @@ const NavBar = (props: ChakraProps) => {
           </MotionBox>
         </NextLink>
         <MotionFlex
-          display={["none", "inherit"]}
+          display={["none", "none", "inherit", "inherit"]}
           align="center"
           justify="center"
           variants={containerVariants}
@@ -193,7 +216,7 @@ const NavBar = (props: ChakraProps) => {
         >
           {NavLinks}
         </MotionFlex>
-        <Box display={["block", "none"]}>
+        <Box display={["block", "block", "none", "none"]}>
           <>
             <motion.div
               key="bar"

@@ -49,12 +49,11 @@ export const Hero = () => {
           </MotionText>
           <MotionText
             fontSize={["4xl", "5xl", "5xl", "6xl"]}
+            mb={2}
             lineHeight="1"
             fontWeight="700"
             key="heading"
             variants={childVariants}
-            mb={2}
-            color="gray.800"
           >
             Syed Shibli Mahmud.
           </MotionText>
@@ -63,7 +62,6 @@ export const Hero = () => {
             fontSize={["4xl", "5xl", "5xl", "6xl"]}
             fontWeight="600"
             key="subheading2"
-            color="gray.700"
             lineHeight="1"
             variants={childVariants}
           >

@@ -15,7 +15,11 @@ interface IndexProps {
   featuredProjects: any;
 }
 
-const Index: React.FC<IndexProps> = ({ featuredProjects, title, description }) => {
+const Index: React.FC<IndexProps> = ({
+  featuredProjects,
+  title,
+  description,
+}) => {
   return (
     <>
       <Head>
@@ -31,8 +35,8 @@ const Index: React.FC<IndexProps> = ({ featuredProjects, title, description }) =
           <Hero />
           <Projects data={featuredProjects} />
           <AboutMe />
+          <Footer>Designed & Developed by Syed Shibli Mahmud</Footer>
         </Main>
-        <Footer>Designed & Developed by Syed Shibli Mahmud</Footer>
       </Container>
     </>
   );

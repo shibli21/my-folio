@@ -1,4 +1,5 @@
-import { Box, Flex, Image, Link, Tag, Text } from "@chakra-ui/core";
+import { Box, Flex, Link, Tag, Text } from "@chakra-ui/core";
+import NextImage from "next/image";
 import React from "react";
 import { FaExternalLinkAlt, FaGithub } from "react-icons/fa";
 
@@ -8,7 +9,8 @@ const Card = ({ project }: any) => {
   }
   return (
     <Box>
-      <Image
+      <NextImage
+        unsized
         src={project.frontmatter.cover && `${project.frontmatter.cover}`}
         alt={`${project.frontmatter.title}`}
       />

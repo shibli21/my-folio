@@ -1,7 +1,6 @@
 import {
   Box,
   Grid,
-  Image,
   Link,
   List,
   ListIcon,
@@ -9,22 +8,18 @@ import {
   Stack,
   Text,
 } from "@chakra-ui/core";
+import NextImage from "next/image";
 import React from "react";
 import { BsFillSquareFill } from "react-icons/bs";
 
 const AboutMe = () => {
   return (
-    <Box
-      my={"140px"}
-      maxW={["100%", "100%", "900px", "900px"]}
-      mx="auto"
-      id="aboutMe"
-    >
+    <Box py="6rem" px={["0", "0", "0", "70px"]} id="aboutMe">
       <Text fontSize="4xl" mb={10} fontWeight="700">
         About me
       </Text>
       <Grid
-        templateColumns={["1fr", "1fr 1fr", "1fr 1fr", "1fr 1fr"]}
+        templateColumns={["1fr", "1fr ", "1fr 1fr", "1fr 1fr"]}
         columnGap={2}
         rowGap={4}
       >
@@ -32,7 +27,7 @@ const AboutMe = () => {
           <Text mb={1} color="GrayText">
             Nice to meet you
           </Text>
-          <Text mb={1} fontSize="4xl" fontWeight="700">
+          <Text mb={1} fontSize="3xl" fontWeight="700">
             Hi there, I’m Shibli
           </Text>
           <Text mb={1} fontSize="xl">
@@ -96,12 +91,11 @@ const AboutMe = () => {
             </List>
           </Stack>
         </Box>
-        <Box justifySelf={["center", "initial", "center", "center"]}>
-          <Image
+        <Box justifySelf="center">
+          <NextImage
             src="/me.jpg"
-            h="300px"
-            loading="lazy"
-            objectFit="cover"
+            unsized
+            sizes="(min-width: 1440px) 400px,500px"
             alt="syed shibli mahmud"
           />
         </Box>
