@@ -1,7 +1,6 @@
 import {
   Box,
   Grid,
-  Image,
   Link,
   List,
   ListIcon,
@@ -11,6 +10,7 @@ import {
 } from "@chakra-ui/core";
 import React from "react";
 import { BsFillSquareFill } from "react-icons/bs";
+import NextImage from "next/image";
 
 const AboutMe = () => {
   return (
@@ -92,13 +92,7 @@ const AboutMe = () => {
           </Stack>
         </Box>
         <Box justifySelf="center">
-          <Image
-            src="/me.jpg"
-            h="300px"
-            alt="syed shibli mahmud"
-            loading="lazy"
-            objectFit="cover"
-          />
+          <NextImage src="/me.jpg" unsized alt="syed shibli mahmud" />
         </Box>
       </Grid>
     </Box>
