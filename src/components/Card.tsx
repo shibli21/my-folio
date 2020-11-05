@@ -12,7 +12,10 @@ const Card = ({ project }: any) => {
       <NextImage
         src={project.frontmatter.cover && `${project.frontmatter.cover}`}
         alt={`${project.frontmatter.title}`}
-        unsized
+        height="200"
+        width="400"
+        layout="responsive"
+        loading="eager"
       />
       <Flex justifyContent="space-between" my={2}>
         <Box>
