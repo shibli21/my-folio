@@ -1,4 +1,4 @@
-import { Text } from "@chakra-ui/core";
+import { Text } from "@chakra-ui/react";
 import Head from "next/head";
 import React from "react";
 import Logo from "../../public/logo.svg";

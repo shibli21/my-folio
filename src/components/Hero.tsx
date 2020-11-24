@@ -1,4 +1,4 @@
-import { Box, Button, Flex, Link, Text } from "@chakra-ui/core";
+import { Box, Button, Flex, Link, Text } from "@chakra-ui/react";
 import { motion, Variants } from "framer-motion";
 
 export const Hero = () => {

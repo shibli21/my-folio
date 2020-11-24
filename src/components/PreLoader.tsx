@@ -1,4 +1,4 @@
-import { Box, Flex, Image } from "@chakra-ui/core";
+import { Box, Flex, Image } from "@chakra-ui/react";
 import { motion as Motion } from "framer-motion";
 import React from "react";
 import Logo from "../../public/logo.svg";

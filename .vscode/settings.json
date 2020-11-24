@@ -1,3 +1,6 @@
 {
-    "typescript.tsdk": "f:\\PROJECTS\\my-folio\\node_modules\\typescript\\lib"
+    "typescript.tsdk": "f:\\PROJECTS\\my-folio\\node_modules\\typescript\\lib",
+    "cSpell.words": [
+        "frontmatter"
+    ]
 }

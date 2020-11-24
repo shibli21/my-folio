@@ -1,4 +1,4 @@
-import { Box, Link } from "@chakra-ui/core";
+import { Box, Link } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import React from "react";
 import { FaGithub, FaInstagram, FaLinkedin, FaTwitter } from "react-icons/fa";

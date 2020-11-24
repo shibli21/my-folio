@@ -7,7 +7,7 @@ import {
   ListItem,
   Stack,
   Text,
-} from "@chakra-ui/core";
+} from "@chakra-ui/react";
 import NextImage from "next/image";
 import React from "react";
 import { BsFillSquareFill } from "react-icons/bs";
@@ -91,14 +91,23 @@ const AboutMe = () => {
             </List>
           </Stack>
         </Box>
-        <Box justifySelf="center">
-          <NextImage
-            src="/me.jpg"
-            height="350"
-            width="350"
-            alt="syed shibli mahmud"
-            loading="eager"
-          />
+        <Box
+          justifySelf="center"
+          color="primary"
+          backgroundImage={`radial-gradient(currentColor 1px, transparent 0.5px)`}
+          backgroundSize={`calc(15 * 0.5px) calc(15 * 0.5px)`}
+          mt="30px"
+          mr="30px"
+        >
+          <Box transform={"translate(30px,-30px)"}>
+            <NextImage
+              src="/me.jpg"
+              height="350"
+              width="350"
+              alt="syed shibli mahmud"
+              loading="eager"
+            />
+          </Box>
         </Box>
       </Grid>
     </Box>

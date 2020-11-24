@@ -14,7 +14,7 @@ import {
   useColorMode,
   useColorModeValue,
   useDisclosure,
-} from "@chakra-ui/core";
+} from "@chakra-ui/react";
 import { motion, Variants } from "framer-motion";
 import { useRouter } from "next/dist/client/router";
 import NextLink from "next/link";
