@@ -71,10 +71,7 @@ export const Hero = () => {
         <motion.div key="button" variants={childVariants}>
           <Button
             variant="outline"
-            borderColor="primary"
-            color="primary"
             size="lg"
-            _hover={{ bg: "primary", color: "white", textDecoration: "none" }}
             mt={8}
             as={Link}
             href="mailto:syedshiblimahmud@gmail.com"

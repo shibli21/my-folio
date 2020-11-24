@@ -24,17 +24,15 @@ const AboutMe = () => {
         rowGap={4}
       >
         <Box>
-          <Text mb={1} color="GrayText">
+          <Text mb={1} color="gray.500">
             Nice to meet you
           </Text>
-          <Text mb={1} fontSize="3xl" fontWeight="700">
+          <Text mb={1} fontSize="2xl" fontWeight="700">
             Hi there, I’m Shibli
           </Text>
           <Text mb={1} fontSize="xl">
-            I work as a fullstack developer.
-          </Text>
-          <Text mb={1} fontSize="xl">
-            Currently, I’m completing my under graduation from
+            I work as a fullstack developer. Currently, I’m completing my under
+            graduation from
             <Link
               color="primary"
               href="http://www.sec.ac.bd/"

@@ -19,15 +19,8 @@ const Projects = ({ data }: any) => {
       </Grid>
       <Box textAlign="center" mt={10}>
         <NextLink href="/archive">
-          <Button
-            variant="outline"
-            borderColor="primary"
-            color="primary"
-            size="lg"
-            _hover={{ bg: "primary", color: "white", textDecoration: "none" }}
-            mt={8}
-          >
-            View All
+          <Button variant="outline" size="lg" mt={8}>
+            View all
           </Button>
         </NextLink>
       </Box>

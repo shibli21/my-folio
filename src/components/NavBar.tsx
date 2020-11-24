@@ -9,7 +9,6 @@ import {
   DrawerFooter,
   DrawerOverlay,
   Flex,
-  Link,
   Stack,
   useColorMode,
   useColorModeValue,
@@ -58,6 +57,23 @@ const NavBar = (props: ChakraProps) => {
     },
   };
 
+  const logo: Variants = {
+    enter: { x: -20, opacity: 0 },
+    exit: {
+      x: 0,
+      opacity: 1,
+      transition: { delay: 0.5 },
+    },
+  };
+  const bar: Variants = {
+    enter: { x: 20, opacity: 0 },
+    exit: {
+      x: 0,
+      opacity: 1,
+      transition: { delay: 0.5 },
+    },
+  };
+
   const { colorMode } = useColorMode();
   const isDark = colorMode === "dark";
 
@@ -81,7 +97,8 @@ const NavBar = (props: ChakraProps) => {
             offset={50}
             duration={500}
           >
-            <Link
+            <Box
+              cursor="pointer"
               className={css.navigationLink}
               backgroundImage={backgroundImage}
               onClick={() => {
@@ -92,7 +109,7 @@ const NavBar = (props: ChakraProps) => {
               }}
             >
               Contact
-            </Link>
+            </Box>
           </ScrollLink>
         </MotionBox>
       </MenuItems>
@@ -106,7 +123,8 @@ const NavBar = (props: ChakraProps) => {
             offset={-100}
             duration={500}
           >
-            <Link
+            <Box
+              cursor="pointer"
               onClick={async () => {
                 onClose();
 
@@ -119,7 +137,7 @@ const NavBar = (props: ChakraProps) => {
               className={css.navigationLink}
             >
               About
-            </Link>
+            </Box>
           </ScrollLink>
         </MotionBox>
       </MenuItems>
@@ -133,7 +151,8 @@ const NavBar = (props: ChakraProps) => {
             offset={-150}
             duration={500}
           >
-            <Link
+            <Box
+              cursor="pointer"
               className={css.navigationLink}
               onClick={() => {
                 onClose();
@@ -146,21 +165,14 @@ const NavBar = (props: ChakraProps) => {
               backgroundImage={backgroundImage}
             >
               Work
-            </Link>
+            </Box>
           </ScrollLink>
         </MotionBox>
       </MenuItems>
       <MenuItems>
         <MotionBox key="resume" variants={childVariants}>
           <NextLink href="/resume">
-            <Button
-              onClick={onClose}
-              variant="outline"
-              borderColor="primary"
-              color="primary"
-              size="md"
-              _hover={{ bg: "primary", color: "white", textDecoration: "none" }}
-            >
+            <Button onClick={onClose} variant="outline" size="md">
               Resume
             </Button>
           </NextLink>
@@ -190,16 +202,9 @@ const NavBar = (props: ChakraProps) => {
         <NextLink href="/">
           <MotionBox
             cursor="pointer"
-            initial={showAnimation ? { x: -20, opacity: 0 } : undefined}
-            animate={
-              showAnimation
-                ? {
-                    x: 0,
-                    opacity: 1,
-                    transition: { delay: 0.5 },
-                  }
-                : undefined
-            }
+            initial={showAnimation ? "enter" : undefined}
+            animate={showAnimation ? "exit" : undefined}
+            variants={logo}
             key="logo"
           >
             <Logo />
@@ -218,19 +223,16 @@ const NavBar = (props: ChakraProps) => {
         </MotionFlex>
         <Box display={["block", "block", "none", "none"]}>
           <>
-            <motion.div
+            <MotionBox
+              initial={showAnimation ? "enter" : undefined}
+              animate={showAnimation ? "exit" : undefined}
+              variants={bar}
               key="bar"
-              initial={{ x: 20, opacity: 0 }}
-              animate={{
-                x: 0,
-                opacity: 1,
-                transition: { delay: 0.5 },
-              }}
             >
               <Box color="primary" onClick={onOpen}>
                 <FaBars size="40px" />
               </Box>
-            </motion.div>
+            </MotionBox>
             <Drawer
               size="xs"
               isOpen={isOpen}

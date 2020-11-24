@@ -1,5 +1,23 @@
 $primary: #fd3e60;
 
+body {
+  &::-webkit-scrollbar {
+    width: 15px;
+    margin: 10px;
+    height: 0;
+  }
+  &::scrollbar {
+    width: 15px;
+    margin: 10px;
+    height: 0;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+    background-color: $primary;
+  }
+}
+
 .line {
   position: relative;
   &::after {
