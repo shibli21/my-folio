@@ -4,6 +4,7 @@ $primary-300: #fd6581;
 
 .navigationLink {
   font-weight: 700;
+  background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   transition: all 0.4s cubic-bezier(0, 0, 0.23, 1);
