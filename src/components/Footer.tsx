@@ -17,29 +17,29 @@ export const Footer = (props: FlexProps) => (
     py="4rem"
     {...props}
   >
-    <Text textAlign="center">
-      Designed & Developed by Syed Shibli Mahmud &copy;
+    <Text textAlign="center" fontSize="sm">
+      Designed & Developed by Syed Shibli Mahmud
     </Text>
     <Grid gridTemplateColumns="1fr 1fr 1fr 1fr" gap="10px" pt={4}>
       <Link href="https://github.com/shibli21" isExternal aria-label="Github">
-        <Box _hover={hover} as={FaGithub} size="20px" />
+        <Box _hover={hover} as={FaGithub} size="18px" />
       </Link>
       <Link href="https://twitter.com/shibli21" isExternal aria-label="Twitter">
-        <Box _hover={hover} size="20px" as={FaTwitter} />
+        <Box _hover={hover} size="18px" as={FaTwitter} />
       </Link>
       <Link
         href="https://twitter.com/shibli21"
         isExternal
         aria-label="Instagram"
       >
-        <Box _hover={hover} size="20px" as={FaInstagram} />
+        <Box _hover={hover} size="18px" as={FaInstagram} />
       </Link>
       <Link
         href="https://www.linkedin.com/in/syed-shibli-mahmud-0bb357163/"
         isExternal
         aria-label="Linkedin"
       >
-        <Box _hover={hover} as={FaLinkedin} size="20px" />
+        <Box _hover={hover} as={FaLinkedin} size="18px" />
       </Link>
     </Grid>
   </Flex>

@@ -10,7 +10,9 @@ import {
 } from "@chakra-ui/react";
 import NextImage from "next/image";
 import React from "react";
-import { BsFillSquareFill } from "react-icons/bs";
+import { FaCss3, FaHtml5, FaNodeJs, FaReact } from "react-icons/fa";
+import { GrGraphQl } from "react-icons/gr";
+import { SiTypescript } from "react-icons/si";
 
 const AboutMe = () => {
   return (
@@ -48,42 +50,30 @@ const AboutMe = () => {
           <Stack isInline spacing={"80px"}>
             <List spacing={3}>
               <ListItem>
-                <ListIcon color="primary">
-                  <BsFillSquareFill size="30px" />
-                </ListIcon>
+                <ListIcon as={SiTypescript} color="primary" />
                 Typescript
               </ListItem>
               <ListItem>
-                <ListIcon color="primary">
-                  <BsFillSquareFill size="30px" />
-                </ListIcon>
+                <ListIcon as={FaHtml5} color="primary" />
                 HTML
               </ListItem>
 
               <ListItem>
-                <ListIcon color="primary">
-                  <BsFillSquareFill size="30px" />
-                </ListIcon>
+                <ListIcon as={FaCss3} color="primary" />
                 (S)CSS
               </ListItem>
             </List>
             <List spacing={3}>
               <ListItem>
-                <ListIcon color="primary">
-                  <BsFillSquareFill size="30px" />
-                </ListIcon>
+                <ListIcon as={FaReact} color="primary" />
                 React
-              </ListItem>{" "}
+              </ListItem>
               <ListItem>
-                <ListIcon color="primary">
-                  <BsFillSquareFill size="30px" />
-                </ListIcon>
+                <ListIcon as={FaNodeJs} color="primary" />
                 Nodejs
               </ListItem>
               <ListItem>
-                <ListIcon color="primary">
-                  <BsFillSquareFill size="30px" />
-                </ListIcon>
+                <ListIcon as={GrGraphQl} color="primary" />
                 Graphql
               </ListItem>
             </List>

@@ -29,7 +29,7 @@ export const Hero = () => {
   };
 
   return (
-    <Box h="100vh" pt={[100, 150, 180, 200]}>
+    <Box h="100vh" pt={[100, 150, 180, 200]} id="contact">
       <motion.div
         variants={containerVariants}
         initial="exit"

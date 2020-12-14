@@ -20,6 +20,7 @@ import NextLink from "next/link";
 import React from "react";
 import { FaBars } from "react-icons/fa";
 import { RiCloseFill } from "react-icons/ri";
+import { TiThSmall } from "react-icons/ti";
 import { animateScroll as scroll, Link as ScrollLink } from "react-scroll";
 import useIntro from "../hooks/useIntro";
 import css from "../style/nav.scss";
@@ -94,7 +95,7 @@ const NavBar = (props: ChakraProps) => {
             to="contact"
             spy={true}
             smooth={true}
-            offset={50}
+            offset={-70}
             duration={500}
           >
             <Box
