@@ -14,6 +14,16 @@ const theme = extendTheme({
         }),
       },
     },
+    Table: {
+      baseStyle: {
+        td: {
+          border: "1px solid #eee",
+        },
+        th: {
+          border: "1px solid #eee",
+        },
+      },
+    },
   },
   colors: { primary: "#fd3e60" },
   styles: {

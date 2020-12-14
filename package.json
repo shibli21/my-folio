@@ -8,13 +8,13 @@
     "export": "next export"
   },
   "dependencies": {
-    "@chakra-ui/react": "^1.0.1",
-    "@emotion/react": "^11.1.1",
+    "@chakra-ui/react": "^1.0.3",
+    "@emotion/react": "^11.1.2",
     "@emotion/styled": "^11.0.0",
     "@types/react-scroll": "^1.8.0",
     "@zeit/next-sass": "^1.0.1",
     "file-loader": "^6.1.0",
-    "framer-motion": "^2.9.4",
+    "framer-motion": "^2.9.5",
     "gray-matter": "^4.0.2",
     "next": "^10.0.1",
     "raw-loader": "^4.0.1",
