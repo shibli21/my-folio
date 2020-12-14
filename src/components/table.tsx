@@ -13,7 +13,7 @@ import {
   Tr,
   useColorModeValue,
 } from "@chakra-ui/react";
-import React from "react";
+import React, { Fragment } from "react";
 import { FaExternalLinkAlt, FaGithub } from "react-icons/fa";
 import { ArchiveProjects } from "../pages/archive";
 
@@ -53,11 +53,12 @@ const DataTable = ({ data }: TableProps) => {
           </Tr>
         </Thead>
         <Tbody>
-          {data.map((b) => (
+          {data.map((b, i) => (
             <Tr
               _hover={{
                 bg: hoverBg,
               }}
+              key={`${b.slug + i}`}
             >
               <Td p={3} w={["auto", "auto", "60px", "60px"]}>
                 {b.data.date.slice(-4)}
@@ -76,8 +77,10 @@ const DataTable = ({ data }: TableProps) => {
                 display={["none", "table-cell", "table-cell", "table-cell"]}
               >
                 <HStack>
-                  {b.data.tech.map((c) => (
-                    <Badge>{c}</Badge>
+                  {b.data.tech.map((c, i) => (
+                    <Fragment key={i}>
+                      <Badge>{c}</Badge>
+                    </Fragment>
                   ))}
                 </HStack>
               </Td>

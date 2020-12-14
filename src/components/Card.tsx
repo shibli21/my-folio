@@ -11,7 +11,7 @@ const Card = ({ project }: any) => {
     <Box
       boxShadow="rgba(149, 157, 165, 0.1) 0px 8px 24px"
       border="1px solid"
-      borderColor="gray.500"
+      borderColor="gray.100"
       overflow="hidden"
     >
       <Box borderBottom="3px solid" borderColor="gray.500">
