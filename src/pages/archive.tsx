@@ -1,8 +1,9 @@
-import { Text } from "@chakra-ui/react";
+import { Box, Text } from "@chakra-ui/react";
 import matter from "gray-matter";
 import { GetStaticProps } from "next";
 import Head from "next/head";
 import React from "react";
+import { FaArrowLeft } from "react-icons/fa";
 import Logo from "../../public/logo.svg";
 import { Container } from "../components/Container";
 import { Main } from "../components/Main";
@@ -36,9 +37,14 @@ const Archive = ({ archiveProjects }: ArchiveProps) => {
       </Head>
       <Container>
         <Main>
-          <Text fontSize="6xl" fontWeight="700">
-            Archive
-          </Text>
+          <Box>
+            <Box mt={6} cursor="pointer">
+              <FaArrowLeft onClick={() => history.back()} />
+            </Box>
+            <Text fontSize="6xl" fontWeight="700">
+              Archive
+            </Text>
+          </Box>
           <Text fontSize="xl">A big list of things I’ve worked on</Text>
           <Table data={archiveProjects} />
         </Main>
