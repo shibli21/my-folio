@@ -38,7 +38,7 @@ const Archive = ({ archiveProjects }: ArchiveProps) => {
       <Container>
         <Main>
           <Box>
-            <Box mt={6} cursor="pointer">
+            <Box mt={6} cursor="pointer" display="inline-block">
               <FaArrowLeft onClick={() => history.back()} />
             </Box>
             <Text fontSize="6xl" fontWeight="700">

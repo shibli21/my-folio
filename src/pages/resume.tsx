@@ -16,7 +16,7 @@ const resume = () => {
       <Container>
         <Main>
           <Box>
-            <Box mt={6} cursor="pointer">
+            <Box mt={6} cursor="pointer" display="inline-block">
               <FaArrowLeft onClick={() => history.back()} />
             </Box>
             <Text fontSize="6xl" height="200vh" fontWeight="700">
