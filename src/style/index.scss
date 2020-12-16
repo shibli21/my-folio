@@ -1,12 +1,10 @@
 $primary: #fd3e60;
+html {
+  overflow-y: scroll;
+}
 
 body {
   &::-webkit-scrollbar {
-    width: 15px;
-    margin: 10px;
-    height: 0;
-  }
-  &::scrollbar {
     width: 15px;
     margin: 10px;
     height: 0;

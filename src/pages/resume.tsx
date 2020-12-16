@@ -19,7 +19,7 @@ const resume = () => {
             <Box mt={6} cursor="pointer" display="inline-block">
               <FaArrowLeft onClick={() => history.back()} />
             </Box>
-            <Text fontSize="6xl" height="200vh" fontWeight="700">
+            <Text fontSize="4xl" fontWeight="700">
               Resume
             </Text>
           </Box>

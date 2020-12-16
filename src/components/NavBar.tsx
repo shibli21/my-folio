@@ -10,7 +10,6 @@ import {
   DrawerOverlay,
   Flex,
   Stack,
-  useColorMode,
   useColorModeValue,
   useDisclosure,
 } from "@chakra-ui/react";
@@ -29,7 +28,7 @@ import MenuItems from "./MenuItems";
 
 const NavBar = (props: ChakraProps) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const Router = useRouter();
+  const router = useRouter();
   const MotionBox = motion.custom(Box);
   const MotionFlex = motion.custom(Flex);
   const showAnimation = useIntro();
@@ -74,9 +73,6 @@ const NavBar = (props: ChakraProps) => {
     },
   };
 
-  const { colorMode } = useColorMode();
-  const isDark = colorMode === "dark";
-
   const backgroundImage = useColorModeValue(
     "linear-gradient(to right,#fd6581,#fd3e60 50%,rgba(0, 0, 0, 0.781) 60%)",
     "linear-gradient(to right,#fd6581,#fd3e60 50%,white 60%)"
@@ -103,8 +99,8 @@ const NavBar = (props: ChakraProps) => {
               backgroundImage={backgroundImage}
               onClick={() => {
                 onClose;
-                if (Router.pathname !== "/") {
-                  Router.push("/");
+                if (router.pathname !== "/") {
+                  router.push("/");
                 }
               }}
             >
@@ -128,8 +124,8 @@ const NavBar = (props: ChakraProps) => {
               onClick={async () => {
                 onClose();
 
-                if (Router.pathname !== "/") {
-                  await Router.push("/");
+                if (router.pathname !== "/") {
+                  await router.push("/");
                   scroll.scrollTo(1500);
                 }
               }}
@@ -157,8 +153,8 @@ const NavBar = (props: ChakraProps) => {
               onClick={() => {
                 onClose();
 
-                if (Router.pathname !== "/") {
-                  Router.push("/");
+                if (router.pathname !== "/") {
+                  router.push("/");
                   scroll.scrollTo(850);
                 }
               }}
@@ -187,7 +183,7 @@ const NavBar = (props: ChakraProps) => {
       position="sticky"
       zIndex={100}
       boxShadow="xs"
-      bg={!isDark ? "#FFFFFF" : "#1A202C"}
+      bg={useColorModeValue("white", "gray.800")}
     >
       <Flex
         as="nav"
@@ -230,7 +226,7 @@ const NavBar = (props: ChakraProps) => {
               key="bar"
             >
               <Box color="primary" onClick={onOpen}>
-                <FaBars size="40px" />
+                <FaBars size="35px" />
               </Box>
             </MotionBox>
             <Drawer
@@ -243,7 +239,7 @@ const NavBar = (props: ChakraProps) => {
               <DrawerContent>
                 <DrawerCloseButton m={4}>
                   <Box color="primary">
-                    <RiCloseFill size="60px" />
+                    <RiCloseFill size="50px" />
                   </Box>
                 </DrawerCloseButton>
                 <DrawerBody pt="150px">
