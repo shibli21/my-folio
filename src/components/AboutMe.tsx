@@ -1,13 +1,4 @@
-import {
-  Box,
-  Grid,
-  Link,
-  List,
-  ListIcon,
-  ListItem,
-  Stack,
-  Text,
-} from "@chakra-ui/react";
+import { Box, Grid, HStack, Link, Text } from "@chakra-ui/react";
 import NextImage from "next/image";
 import React from "react";
 import { FaCss3, FaHtml5, FaNodeJs, FaReact } from "react-icons/fa";
@@ -17,13 +8,13 @@ import { SiTypescript } from "react-icons/si";
 const AboutMe = () => {
   return (
     <Box py="6rem" px={["0", "0", "0", "70px"]} id="aboutMe">
-      <Text fontSize="4xl" mb={10} fontWeight="700">
+      <Text fontSize="4xl" mb={10} lineHeight={1} fontWeight="700">
         About me
       </Text>
       <Grid
         templateColumns={["1fr", "1fr ", "1fr 1fr", "1fr 1fr"]}
         columnGap={2}
-        rowGap={4}
+        rowGap={10}
       >
         <Box>
           <Text mb={1} color="gray.500">
@@ -47,53 +38,49 @@ const AboutMe = () => {
           <Text mb={3} fontSize="lg">
             Here are a few technologies I've been working with recently:
           </Text>
-          <Stack isInline spacing={"80px"}>
-            <List spacing={3}>
-              <ListItem>
-                <ListIcon as={SiTypescript} color="primary" />
-                Typescript
-              </ListItem>
-              <ListItem>
-                <ListIcon as={FaHtml5} color="primary" />
-                HTML
-              </ListItem>
-
-              <ListItem>
-                <ListIcon as={FaCss3} color="primary" />
-                (S)CSS
-              </ListItem>
-            </List>
-            <List spacing={3}>
-              <ListItem>
-                <ListIcon as={FaReact} color="primary" />
-                React
-              </ListItem>
-              <ListItem>
-                <ListIcon as={FaNodeJs} color="primary" />
-                Nodejs
-              </ListItem>
-              <ListItem>
-                <ListIcon as={GrGraphQl} color="primary" />
-                Graphql
-              </ListItem>
-            </List>
-          </Stack>
+          <Grid templateColumns="1fr 1fr" gap={2}>
+            <HStack p={1} spacing={3}>
+              <SiTypescript fontSize="20px" />
+              <Text>Typescript</Text>
+            </HStack>
+            <HStack p={1} spacing={3}>
+              <FaReact fontSize="20px" />
+              <Text>React</Text>
+            </HStack>
+            <HStack p={1} spacing={3}>
+              <FaNodeJs fontSize="20px" />
+              <Text>Nodejs</Text>
+            </HStack>
+            <HStack p={1} spacing={3}>
+              <GrGraphQl fontSize="20px" />
+              <Text>GraphQl</Text>
+            </HStack>
+            <HStack p={1} spacing={3}>
+              <FaCss3 fontSize="20px" />
+              <Text>(S)CSS</Text>
+            </HStack>
+            <HStack p={1} spacing={3}>
+              <FaHtml5 fontSize="20px" />
+              <Text>HTML</Text>
+            </HStack>
+          </Grid>
         </Box>
         <Box
           justifySelf="center"
-          color="primary"
-          backgroundImage={`radial-gradient(currentColor 1px, transparent 0.5px)`}
-          backgroundSize={`calc(15 * 0.5px) calc(15 * 0.5px)`}
+          border="3px solid"
+          borderColor="primary"
           mt="30px"
           mr="30px"
+          p="-3px"
         >
-          <Box transform={"translate(30px,-30px)"}>
+          <Box maxW="350px" maxH="350px" transform={"translate(20px,-20px)"}>
             <NextImage
               src="/me.jpg"
-              height="350"
-              width="350"
+              height={350}
+              width={350}
               alt="syed shibli mahmud"
               loading="eager"
+              objectFit="cover"
             />
           </Box>
         </Box>

@@ -1,4 +1,11 @@
-import { Box, Flex, Link, Tag, Text } from "@chakra-ui/react";
+import {
+  Box,
+  Flex,
+  Link,
+  Tag,
+  Text,
+  useColorModeValue,
+} from "@chakra-ui/react";
 import NextImage from "next/image";
 import React from "react";
 import { FaExternalLinkAlt, FaGithub } from "react-icons/fa";
@@ -9,10 +16,14 @@ const Card = ({ project }: any) => {
   }
   return (
     <Box
-      boxShadow="rgba(149, 157, 165, 0.1) 0px 8px 24px"
       border="1px solid"
-      borderColor="gray.100"
+      borderColor={useColorModeValue("gray.200", "#30363d")}
       overflow="hidden"
+      _hover={{
+        boxShadow: "#fd3e60 -8px 8px",
+        transition: "ease-in-out",
+        transitionDuration: ".4s",
+      }}
     >
       <Box borderBottom="3px solid" borderColor="gray.500">
         <NextImage
@@ -44,6 +55,7 @@ const Card = ({ project }: any) => {
             <Flex justify="center" pt={2}>
               {project.frontmatter.github && (
                 <Link
+                  _hover={{ color: "primary" }}
                   ml={2}
                   href={project.frontmatter.github}
                   isExternal
@@ -54,6 +66,7 @@ const Card = ({ project }: any) => {
               )}
               {project.frontmatter.external && (
                 <Link
+                  _hover={{ color: "primary" }}
                   ml={2}
                   href={project.frontmatter.external}
                   isExternal
@@ -70,6 +83,7 @@ const Card = ({ project }: any) => {
             project.frontmatter.tech.map((tech: string, i: number) => (
               <Tag
                 fontSize="xs"
+                fontWeight="semibold"
                 mr={2}
                 bg="primary"
                 color="white"
