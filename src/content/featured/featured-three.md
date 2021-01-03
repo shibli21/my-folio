@@ -1,11 +1,11 @@
 ---
 date: "25-September-2020"
-title: "Chat App"
+title: "Folio"
 cover: "/demo.png"
-github: "https://github.com/shibli21/chat-web-app"
-external: "https://chat-web-app.netlify.app"
+github: "https://github.com/shibli21/my-folio"
+external: "https://syedshiblimahmud.vercel.app/"
 tech:
-  - graphql
   - next js
+  - mdx
 showInProjects: true
 ---
