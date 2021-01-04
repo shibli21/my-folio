@@ -116,14 +116,12 @@ const NavBar = (props: ChakraProps) => {
             to="aboutMe"
             spy={true}
             smooth={true}
-            offset={-100}
             duration={500}
           >
             <Box
               cursor="pointer"
               onClick={async () => {
                 onClose();
-
                 if (router.pathname !== "/") {
                   await router.push("/");
                   scroll.scrollTo(1500);
@@ -144,7 +142,7 @@ const NavBar = (props: ChakraProps) => {
             to="projects"
             spy={true}
             smooth={true}
-            offset={-150}
+            offset={-70}
             duration={500}
           >
             <Box
@@ -181,6 +179,7 @@ const NavBar = (props: ChakraProps) => {
     <Box
       top={0}
       position="sticky"
+      as="header"
       zIndex={100}
       boxShadow="xs"
       bg={useColorModeValue("white", "gray.800")}

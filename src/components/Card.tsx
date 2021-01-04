@@ -29,8 +29,8 @@ const Card = ({ project }: any) => {
         <NextImage
           src={project.frontmatter.cover && `${project.frontmatter.cover}`}
           alt={`${project.frontmatter.title}`}
-          height="200"
-          width="400"
+          height={200}
+          width={400}
           layout="responsive"
           loading="eager"
         />

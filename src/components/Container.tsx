@@ -13,6 +13,7 @@ export const Container = (props: FlexProps) => {
         alignItems="center"
         justifyContent="flex-start"
         position="relative"
+        minH="calc(100vh - 16rem)"
         {...props}
       >
         <SocialIcons />

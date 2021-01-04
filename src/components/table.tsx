@@ -93,7 +93,11 @@ const DataTable = ({ data }: TableProps) => {
                       isExternal
                       aria-label={`${b.data.title}`}
                     >
-                      <FaGithub size="20px" />
+                      <Box
+                        _hover={{ color: "primary" }}
+                        as={FaGithub}
+                        size="20px"
+                      />
                     </Link>
                   )}
                   {b.data.external && (
@@ -103,7 +107,11 @@ const DataTable = ({ data }: TableProps) => {
                       isExternal
                       aria-label={`${b.data.title}`}
                     >
-                      <FaExternalLinkAlt size="20px" />
+                      <Box
+                        _hover={{ color: "primary" }}
+                        as={FaExternalLinkAlt}
+                        size="20px"
+                      />
                     </Link>
                   )}
                 </Flex>

@@ -5,7 +5,6 @@ import React from "react";
 import Logo from "../../public/logo.svg";
 import AboutMe from "../components/AboutMe";
 import { Container } from "../components/Container";
-import { Footer } from "../components/Footer";
 import { Hero } from "../components/Hero";
 import { Main } from "../components/Main";
 import Projects from "../components/Projects";
@@ -35,7 +34,6 @@ const Index: React.FC<IndexProps> = ({
           <Hero />
           <Projects data={featuredProjects} />
           <AboutMe />
-          <Footer>Designed & Developed by Syed Shibli Mahmud</Footer>
         </Main>
       </Container>
     </>

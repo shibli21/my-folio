@@ -18,7 +18,7 @@ export const Footer = (props: FlexProps) => (
     {...props}
   >
     <Text textAlign="center" fontSize="sm">
-      Designed & Developed by Syed Shibli Mahmud
+      Designed & developed by Syed Shibli Mahmud
     </Text>
     <Grid gridTemplateColumns="1fr 1fr 1fr 1fr" gap="10px" pt={4}>
       <Link href="https://github.com/shibli21" isExternal aria-label="Github">
