@@ -1,6 +1,17 @@
 {
-  "name": "with-chakra-ui-typescript",
-  "version": "1.0.0",
+  "name": "shibli",
+  "description": "My personal website.",
+  "version": "0.0.0",
+  "author": {
+    "name": "syed shibli mahmud",
+    "email": "syedshiblimahmud@gmail.com",
+    "url": "https://syedshiblimahmud.vercel.app"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shibli21/my-folio"
+  },
   "scripts": {
     "dev": "next -p 3001",
     "build": "next build",
@@ -33,6 +44,5 @@
     "@types/react-dom": "^16.9.10",
     "@types/webpack-env": "^1.16.0",
     "typescript": "4.0.2"
-  },
-  "license": "MIT"
+  }
 }
