@@ -1,9 +1,9 @@
-import { Box, Flex, FlexProps, Grid, Link, Text } from "@chakra-ui/react";
+import { Flex, FlexProps, Grid, Link, Text } from "@chakra-ui/react";
 import React from "react";
-import { FaGithub, FaInstagram, FaLinkedin, FaTwitter } from "react-icons/fa";
+import { Github, Instagram, LinkedIn, Twitter } from "../theme/icons/icons";
 
 const hover = {
-  transform: "scale(1.2)",
+  transform: "scale(1.1)",
   transitionDuration: ".2s",
   color: "primary",
 };
@@ -20,26 +20,26 @@ export const Footer = (props: FlexProps) => (
     <Text textAlign="center" fontSize="sm">
       Designed & developed by Syed Shibli Mahmud
     </Text>
-    <Grid gridTemplateColumns="1fr 1fr 1fr 1fr" gap="10px" pt={4}>
+    <Grid gridTemplateColumns="1fr 1fr 1fr 1fr" gap="20px" pt={4}>
       <Link href="https://github.com/shibli21" isExternal aria-label="Github">
-        <Box _hover={hover} as={FaGithub} size="18px" />
+        <Github _hover={hover} />
       </Link>
       <Link href="https://twitter.com/shibli21" isExternal aria-label="Twitter">
-        <Box _hover={hover} size="18px" as={FaTwitter} />
+        <Twitter _hover={hover} />
       </Link>
       <Link
         href="https://twitter.com/shibli21"
         isExternal
         aria-label="Instagram"
       >
-        <Box _hover={hover} size="18px" as={FaInstagram} />
+        <Instagram _hover={hover} />
       </Link>
       <Link
         href="https://www.linkedin.com/in/syed-shibli-mahmud-0bb357163/"
         isExternal
         aria-label="Linkedin"
       >
-        <Box _hover={hover} as={FaLinkedin} size="18px" />
+        <LinkedIn _hover={hover} />
       </Link>
     </Grid>
   </Flex>
