@@ -8,12 +8,6 @@ $primary-300: #fd6581;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   transition: all 0.4s cubic-bezier(0, 0, 0.23, 1);
-  // background-image: linear-gradient(
-  //   to right,
-  //   $primary-300,
-  //   $primary-200 50%,
-  //   rgba(0, 0, 0, 0.781) 60%
-  // );
   background-size: 300% 100%;
   background-position: 100%;
   &:after {
