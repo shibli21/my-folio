@@ -1,14 +1,12 @@
-import { Box, Link, Stack, useMediaQuery } from "@chakra-ui/react";
+import { Box, Link, Stack } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import React from "react";
 import useIntro from "../hooks/useIntro";
+import css from "../style/global.scss";
 import { Github, Instagram, LinkedIn, Twitter } from "../theme/icons/icons";
-
 const SocialIcons = () => {
   const MotionBox = motion.custom(Box);
   const showAnimation = useIntro();
-
-  const [isLargerThan1280] = useMediaQuery("(max-width: 1200px)");
 
   const hover = {
     transform: "scale(1.1)",
@@ -23,7 +21,7 @@ const SocialIcons = () => {
       position="fixed"
       left="70px"
       top="35vh"
-      display={isLargerThan1280 ? "none" : "flex"}
+      className={css.socialIcons}
     >
       <Stack spacing={10} flexDir="column">
         <Link href="https://github.com/shibli21" isExternal aria-label="Github">
