@@ -22,8 +22,8 @@ import { RiCloseFill } from "react-icons/ri";
 import { animateScroll as scroll, Link as ScrollLink } from "react-scroll";
 import useIntro from "../hooks/useIntro";
 import css from "../style/nav.scss";
+import { Logo } from "../theme/icons/icons";
 import { DarkModeSwitch } from "./DarkModeSwitch";
-import Logo from "./icons/Logo";
 import MenuItems from "./MenuItems";
 
 const NavBar = (props: ChakraProps) => {
@@ -202,7 +202,7 @@ const NavBar = (props: ChakraProps) => {
             variants={logo}
             key="logo"
           >
-            <Logo />
+            <Logo fontSize="35px" />
           </MotionBox>
         </NextLink>
         <MotionFlex
