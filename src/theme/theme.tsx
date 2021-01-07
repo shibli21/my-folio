@@ -33,7 +33,7 @@ const theme = extendTheme({
         color: props.colorMode === "dark" ? "white" : "gray.800",
         bg: props.colorMode === "dark" ? "gray.800" : "white",
       },
-      "p,a,h1,h2,h3,h4,h5,h6,li": {
+      "*": {
         "::selection": {
           background: props.colorMode === "dark" ? "#fd3e60ed" : "primary",
           opacity: 1,
