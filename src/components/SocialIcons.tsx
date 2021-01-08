@@ -4,6 +4,7 @@ import React from "react";
 import useIntro from "../hooks/useIntro";
 import css from "../style/global.scss";
 import { Github, Instagram, LinkedIn, Twitter } from "../theme/icons/icons";
+
 const SocialIcons = () => {
   const MotionBox = motion.custom(Box);
   const showAnimation = useIntro();

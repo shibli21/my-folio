@@ -1,32 +1,23 @@
+import AboutMe from "@/components/AboutMe";
+import { Container } from "@/components/Container";
+import { Hero } from "@/components/Hero";
+import { Main } from "@/components/Main";
+import Projects from "@/components/Projects";
 import matter from "gray-matter";
 import { GetStaticProps } from "next";
 import Head from "next/head";
 import React from "react";
-import Logo from "../../public/logo.svg";
-import AboutMe from "../components/AboutMe";
-import { Container } from "../components/Container";
-import { Hero } from "../components/Hero";
-import { Main } from "../components/Main";
-import Projects from "../components/Projects";
 interface IndexProps {
   title: string;
   description: string;
   featuredProjects: any;
 }
 
-const Index: React.FC<IndexProps> = ({
-  featuredProjects,
-  title,
-  description,
-}) => {
+const Index: React.FC<IndexProps> = ({ featuredProjects }) => {
   return (
     <>
       <Head>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta charSet="utf-8" />
-        <meta name="Description" content={description}></meta>
-        <title>{title}</title>
-        <link rel="icon" href={Logo} type="image/shibli-icon" />
+        <title>shibli</title>
       </Head>
 
       <Container>
@@ -43,8 +34,6 @@ const Index: React.FC<IndexProps> = ({
 export default Index;
 
 export const getStaticProps: GetStaticProps = async () => {
-  const siteData = await import(`../config.json`);
-
   const featuredProjects = ((context) => {
     const keys = context.keys();
     const values = keys.map(context);
@@ -65,8 +54,6 @@ export const getStaticProps: GetStaticProps = async () => {
   return {
     props: {
       featuredProjects,
-      title: siteData.title,
-      description: siteData.description,
     },
   };
 };
