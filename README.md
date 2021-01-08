@@ -2,4 +2,4 @@
 
 ## [live demo](https://syedshiblimahmud.vercel.app)
 
-![alt text](/public/demo.png)
+![alt text](/public/projects/demo.png)
