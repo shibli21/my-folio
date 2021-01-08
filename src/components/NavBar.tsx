@@ -1,6 +1,9 @@
+import { DarkModeSwitch } from "@/components/DarkModeSwitch";
+import MenuItems from "@/components/MenuItems";
+import useIntro from "@/hooks/useIntro";
+import css from "@/style/nav.scss";
 import {
   Box,
-  Button,
   ChakraProps,
   Drawer,
   DrawerBody,
@@ -14,17 +17,13 @@ import {
   useDisclosure,
 } from "@chakra-ui/react";
 import { motion, Variants } from "framer-motion";
-import { useRouter } from "next/dist/client/router";
 import NextLink from "next/link";
+import { useRouter } from "next/router";
 import React from "react";
 import { FaBars } from "react-icons/fa";
 import { RiCloseFill } from "react-icons/ri";
 import { animateScroll as scroll, Link as ScrollLink } from "react-scroll";
-import useIntro from "../hooks/useIntro";
-import css from "../style/nav.scss";
-import { DarkModeSwitch } from "./DarkModeSwitch";
-import Logo from "./icons/Logo";
-import MenuItems from "./MenuItems";
+import { LogoShibli } from "theme/icons/icons";
 
 const NavBar = (props: ChakraProps) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -163,15 +162,6 @@ const NavBar = (props: ChakraProps) => {
           </ScrollLink>
         </MotionBox>
       </MenuItems>
-      <MenuItems>
-        <MotionBox key="resume" variants={childVariants}>
-          <NextLink href="/resume">
-            <Button onClick={onClose} variant="outline" size="md">
-              Resume
-            </Button>
-          </NextLink>
-        </MotionBox>
-      </MenuItems>
     </>
   );
 
@@ -202,7 +192,7 @@ const NavBar = (props: ChakraProps) => {
             variants={logo}
             key="logo"
           >
-            <Logo />
+            <LogoShibli />
           </MotionBox>
         </NextLink>
         <MotionFlex

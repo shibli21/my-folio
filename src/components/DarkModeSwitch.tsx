@@ -10,7 +10,7 @@ export const DarkModeSwitch = () => {
 
   return (
     <>
-      {isDark ? (
+      {!isDark ? (
         <MotionBox animate={{ rotate: 180 }} transition={{ duration: 1 }}>
           <FaSun onClick={toggleColorMode} cursor="pointer" />
         </MotionBox>

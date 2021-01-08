@@ -1,0 +1,21 @@
+$primary: #fd3e60;
+
+body {
+  overflow-y: scroll;
+  &::-webkit-scrollbar {
+    width: 8px;
+    height: 0;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+    background-color: $primary;
+  }
+}
+
+.socialIcons {
+  display: flex;
+  @media screen and (max-width: 1280px) {
+    display: none;
+  }
+}
