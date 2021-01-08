@@ -1,10 +1,10 @@
 import { ColorModeScript } from "@chakra-ui/react";
 import Document, {
-  Html,
+  DocumentContext,
   Head,
+  Html,
   Main,
   NextScript,
-  DocumentContext,
 } from "next/document";
 import React from "react";
 
@@ -24,6 +24,8 @@ class MyDocument extends Document {
             href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;600;700&display=swap"
             rel="stylesheet"
           />
+          <link rel="icon" href="/logos/logo.svg" type="image/x-icon" />
+          <meta charSet="utf-8" />
         </Head>
         <body>
           <Main />

@@ -1,17 +1,15 @@
+import { Container } from "@/components/Container";
+import { Main } from "@/components/Main";
 import { Box, Text } from "@chakra-ui/react";
 import Head from "next/head";
 import React from "react";
 import { FaArrowLeft } from "react-icons/fa";
-import Logo from "../../public/logo.svg";
-import { Container } from "../components/Container";
-import { Main } from "../components/Main";
 
 const resume = () => {
   return (
     <>
       <Head>
-        <title>shibli | resume</title>
-        <link rel="icon" href={Logo} type="image/x-icon" />
+        <title>resume | shibli</title>
       </Head>
       <Container>
         <Main>

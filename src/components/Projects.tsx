@@ -8,7 +8,7 @@ const Projects = ({ data }: any) => {
     <Box id="projects">
       <Flex flexDirection="column" mb={10}>
         <Text fontSize="4xl" fontWeight="700">
-          Portfolio
+          Projects
         </Text>
         <Text fontSize="xl">Take a look at my latest projects</Text>
       </Flex>

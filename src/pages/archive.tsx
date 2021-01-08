@@ -4,7 +4,6 @@ import { GetStaticProps } from "next";
 import Head from "next/head";
 import React from "react";
 import { FaArrowLeft } from "react-icons/fa";
-import Logo from "../../public/logo.svg";
 import { Container } from "../components/Container";
 import { Main } from "../components/Main";
 import Table from "../components/table";
@@ -32,8 +31,7 @@ const Archive = ({ archiveProjects }: ArchiveProps) => {
   return (
     <>
       <Head>
-        <title>shibli | archive</title>
-        <link rel="icon" href={Logo} type="image/x-icon" />
+        <title>archive | shibli</title>
       </Head>
       <Container>
         <Main>
