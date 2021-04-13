@@ -1,12 +1,11 @@
-import { Box, useColorMode } from "@chakra-ui/react";
-import { motion } from "framer-motion";
+import { useColorMode } from "@chakra-ui/react";
 import React from "react";
 import { FaMoon, FaSun } from "react-icons/fa";
+import { MotionBox } from "./Motion";
 
 export const DarkModeSwitch = () => {
   const { colorMode, toggleColorMode } = useColorMode();
   const isDark = colorMode === "dark";
-  const MotionBox = motion.custom(Box);
 
   return (
     <>

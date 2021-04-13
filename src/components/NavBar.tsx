@@ -2,21 +2,11 @@ import { DarkModeSwitch } from "@/components/DarkModeSwitch";
 import MenuItems from "@/components/MenuItems";
 import useIntro from "@/hooks/useIntro";
 import css from "@/style/nav.scss";
-import {
-  Box,
-  ChakraProps,
-  Drawer,
-  DrawerBody,
-  DrawerCloseButton,
-  DrawerContent,
-  DrawerFooter,
-  DrawerOverlay,
-  Flex,
-  Stack,
-  useColorModeValue,
-  useDisclosure,
-} from "@chakra-ui/react";
-import { motion, Variants } from "framer-motion";
+import { useColorModeValue } from "@chakra-ui/color-mode";
+import { useDisclosure } from "@chakra-ui/hooks";
+import { Box, Flex, Stack } from "@chakra-ui/layout";
+import { Drawer, DrawerBody, DrawerCloseButton, DrawerContent, DrawerFooter, DrawerOverlay } from "@chakra-ui/modal";
+import { Variants } from "framer-motion";
 import NextLink from "next/link";
 import { useRouter } from "next/router";
 import React from "react";
@@ -24,12 +14,11 @@ import { FaBars } from "react-icons/fa";
 import { RiCloseFill } from "react-icons/ri";
 import { animateScroll as scroll, Link as ScrollLink } from "react-scroll";
 import { LogoShibli } from "theme/icons/icons";
+import { MotionBox, MotionFlex } from "./Motion";
 
-const NavBar = (props: ChakraProps) => {
+const NavBar = ({}) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const router = useRouter();
-  const MotionBox = motion.custom(Box);
-  const MotionFlex = motion.custom(Flex);
   const showAnimation = useIntro();
 
   const containerVariants: Variants = {
@@ -84,14 +73,7 @@ const NavBar = (props: ChakraProps) => {
       </MenuItems>
       <MenuItems>
         <MotionBox key="contact" variants={childVariants} pos="relative">
-          <ScrollLink
-            activeClass="active"
-            to="contact"
-            spy={true}
-            smooth={true}
-            offset={-70}
-            duration={500}
-          >
+          <ScrollLink activeClass="active" to="contact" spy={true} smooth={true} offset={-70} duration={500}>
             <Box
               cursor="pointer"
               className={css.navigationLink}
@@ -110,13 +92,7 @@ const NavBar = (props: ChakraProps) => {
       </MenuItems>
       <MenuItems>
         <MotionBox key="about" variants={childVariants} pos="relative">
-          <ScrollLink
-            activeClass="active"
-            to="aboutMe"
-            spy={true}
-            smooth={true}
-            duration={500}
-          >
+          <ScrollLink activeClass="active" to="aboutMe" spy={true} smooth={true} duration={500}>
             <Box
               cursor="pointer"
               onClick={async () => {
@@ -136,14 +112,7 @@ const NavBar = (props: ChakraProps) => {
       </MenuItems>
       <MenuItems>
         <MotionBox key="work" variants={childVariants} pos="relative">
-          <ScrollLink
-            activeClass="active"
-            to="projects"
-            spy={true}
-            smooth={true}
-            offset={-70}
-            duration={500}
-          >
+          <ScrollLink activeClass="active" to="projects" spy={true} smooth={true} offset={-70} duration={500}>
             <Box
               cursor="pointer"
               className={css.navigationLink}
@@ -166,29 +135,13 @@ const NavBar = (props: ChakraProps) => {
   );
 
   return (
-    <Box
-      top={0}
-      position="sticky"
-      as="header"
-      zIndex={100}
-      boxShadow="xs"
-      bg={useColorModeValue("white", "gray.800")}
-    >
-      <Flex
-        as="nav"
-        align="center"
-        justify="space-between"
-        wrap="wrap"
-        padding="1rem"
-        maxW="1024px"
-        mx="auto"
-        {...props}
-      >
+    <Box top={0} position="sticky" as="header" zIndex={100} boxShadow="xs" bg={useColorModeValue("white", "gray.800")}>
+      <Flex as="nav" align="center" justify="space-between" wrap="wrap" padding="1rem" maxW="1024px" mx="auto">
         <NextLink href="/">
           <MotionBox
             cursor="pointer"
-            initial={showAnimation ? "enter" : undefined}
-            animate={showAnimation ? "exit" : undefined}
+            initial={showAnimation ? "enter" : "exit"}
+            animate={showAnimation ? "exit" : "exit"}
             variants={logo}
             key="logo"
           >
@@ -200,17 +153,17 @@ const NavBar = (props: ChakraProps) => {
           align="center"
           justify="center"
           variants={containerVariants}
-          initial={showAnimation ? "exit" : undefined}
-          animate={showAnimation ? "enter" : undefined}
-          exit={showAnimation ? "exit" : undefined}
+          initial={showAnimation ? "exit" : "enter"}
+          animate={showAnimation ? "enter" : "enter"}
+          exit={showAnimation ? "exit" : "enter"}
         >
           {NavLinks}
         </MotionFlex>
         <Box display={["block", "block", "none", "none"]}>
           <>
             <MotionBox
-              initial={showAnimation ? "enter" : undefined}
-              animate={showAnimation ? "exit" : undefined}
+              initial={showAnimation ? "enter" : "exit"}
+              animate={showAnimation ? "exit" : "exit"}
               variants={bar}
               key="bar"
             >
@@ -218,12 +171,7 @@ const NavBar = (props: ChakraProps) => {
                 <FaBars size="35px" />
               </Box>
             </MotionBox>
-            <Drawer
-              size="xs"
-              isOpen={isOpen}
-              placement="right"
-              onClose={onClose}
-            >
+            <Drawer size="xs" isOpen={isOpen} placement="right" onClose={onClose}>
               <DrawerOverlay />
               <DrawerContent>
                 <DrawerCloseButton m={4}>

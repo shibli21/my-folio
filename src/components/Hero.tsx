@@ -1,9 +1,10 @@
-import { Box, Button, Flex, Link, Text } from "@chakra-ui/react";
+import { Button } from "@chakra-ui/button";
+import { Box, Flex, Link } from "@chakra-ui/layout";
 import { motion, Variants } from "framer-motion";
+import React from "react";
+import { MotionText } from "./Motion";
 
 export const Hero = () => {
-  const MotionText = motion.custom(Text);
-
   const containerVariants: Variants = {
     enter: {
       x: 0,
@@ -30,12 +31,7 @@ export const Hero = () => {
 
   return (
     <Box h="100vh" pt={[100, 150, 180, 200]} id="contact">
-      <motion.div
-        variants={containerVariants}
-        initial="exit"
-        animate="enter"
-        exit="exit"
-      >
+      <motion.div variants={containerVariants} initial="exit" animate="enter" exit="exit">
         <Flex flexDirection="column" justify="center">
           <MotionText
             fontSize={["xl", "xl", "xl", "xl"]}
@@ -69,13 +65,7 @@ export const Hero = () => {
           </MotionText>
         </Flex>
         <motion.div key="button" variants={childVariants}>
-          <Button
-            variant="outline"
-            size="lg"
-            mt={8}
-            as={Link}
-            href="mailto:syedshiblimahmud@gmail.com"
-          >
+          <Button variant="outline" size="lg" mt={8} as={Link} href="mailto:syedshiblimahmud@gmail.com">
             Get In Touch
           </Button>
         </motion.div>
