@@ -19,36 +19,6 @@ const AboutMe = () => {
             development. I have experience of working with react, javascript, typescript python! Besides that, I have
             worked with react-native for app development
           </Text>
-
-          {/* <Text mb={3} fontSize="lg">
-            Here are a few technologies I've been working with recently:
-          </Text>
-          <Grid templateColumns="1fr 1fr" gap={2}>
-            <HStack p={1} spacing={3}>
-              <SiTypescript fontSize="20px" />
-              <Text>Typescript</Text>
-            </HStack>
-            <HStack p={1} spacing={3}>
-              <FaReact fontSize="20px" />
-              <Text>React</Text>
-            </HStack>
-            <HStack p={1} spacing={3}>
-              <FaNodeJs fontSize="20px" />
-              <Text>Nodejs</Text>
-            </HStack>
-            <HStack p={1} spacing={3}>
-              <GrGraphQl fontSize="20px" />
-              <Text>GraphQl</Text>
-            </HStack>
-            <HStack p={1} spacing={3}>
-              <FaCss3 fontSize="20px" />
-              <Text>(S)CSS</Text>
-            </HStack>
-            <HStack p={1} spacing={3}>
-              <FaHtml5 fontSize="20px" />
-              <Text>HTML</Text>
-            </HStack>
-          </Grid> */}
         </Box>
 
         <Box

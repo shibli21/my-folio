@@ -28,6 +28,17 @@ const theme = extendTheme({
   colors: { primary: "#fd3e60" },
   styles: {
     global: (props) => ({
+      html: {
+        overflowY: "scroll",
+        "&::-webkit-scrollbar": {
+          width: "8px",
+          height: "0",
+        },
+        "&::-webkit-scrollbar-thumb": {
+          boxShadow: "inset 0 0 6px rgba(0, 0, 0, 0.1)",
+          backgroundColor: "#fd3e60",
+        },
+      },
       "html, body": {
         fontFamily: "raleway",
         color: props.colorMode === "dark" ? "white" : "gray.800",

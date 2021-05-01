@@ -3,7 +3,6 @@ import { AppProps } from "next/app";
 import React from "react";
 import { Footer } from "@/components/Footer";
 import theme from "../theme/theme";
-import "@/style/global.scss";
 import Head from "next/head";
 
 const MyApp = ({ Component, pageProps }: AppProps) => {

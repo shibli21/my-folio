@@ -1,7 +1,6 @@
 import { Link, Stack } from "@chakra-ui/react";
 import React from "react";
 import useIntro from "../hooks/useIntro";
-import css from "../style/global.scss";
 import { Github, Instagram, LinkedIn, Twitter } from "../theme/icons/icons";
 import { MotionBox } from "./Motion";
 
@@ -21,7 +20,12 @@ const SocialIcons = () => {
       position="fixed"
       left="70px"
       top="35vh"
-      className={css.socialIcons}
+      __css={{
+        display: "flex",
+        "@media screen and (max-width: 1280px)": {
+          display: "none",
+        },
+      }}
     >
       <Stack spacing={10} flexDir="column">
         <Link href="https://github.com/shibli21" isExternal aria-label="Github">
