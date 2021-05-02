@@ -207,7 +207,7 @@ const NavBar = ({}) => {
             </MotionBox>
             <Drawer size="xs" isOpen={isOpen} placement="right" onClose={onClose}>
               <DrawerOverlay />
-              <DrawerContent>
+              <DrawerContent bg={useColorModeValue("white", "gray.800")}>
                 <DrawerCloseButton m={4}>
                   <Box color="primary">
                     <RiCloseFill size="50px" />
