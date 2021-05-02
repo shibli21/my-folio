@@ -3,14 +3,25 @@ import { Container } from "@/components/Container";
 import { Hero } from "@/components/Hero";
 import { Main } from "@/components/Main";
 import Projects from "@/components/Projects";
-import matter from "gray-matter";
+import { getAllFilesFrontMatter } from "lib/mdx";
 import { GetStaticProps } from "next";
 import Head from "next/head";
 import React from "react";
-interface IndexProps {
+
+export interface Project {
+  cover: string;
+  date: string;
+  external: string;
+  github: string;
+  showInProjects: boolean;
+  tech: string[];
   title: string;
-  description: string;
-  featuredProjects: any;
+  slug: string;
+  featured: boolean;
+}
+
+interface IndexProps {
+  featuredProjects: Project[];
 }
 
 const Index: React.FC<IndexProps> = ({ featuredProjects }) => {
@@ -34,26 +45,9 @@ const Index: React.FC<IndexProps> = ({ featuredProjects }) => {
 export default Index;
 
 export const getStaticProps: GetStaticProps = async () => {
-  const featuredProjects = ((context) => {
-    const keys = context.keys();
-    const values = keys.map(context);
+  const projects: Project[] = await getAllFilesFrontMatter("projects");
 
-    const data = keys.map((key, index) => {
-      let slug = key.replace(/^.*[\\\/]/, "").slice(0, -3);
-      const value: any = values[index];
-      const document = matter(value.default);
-      return {
-        frontmatter: document.data,
-        markdownBody: document.content,
-        slug,
-      };
-    });
-    return data;
-  })(require.context("../content/featured", true, /\.md$/));
+  const featuredProjects = projects.filter((p) => p.featured).reverse();
 
-  return {
-    props: {
-      featuredProjects,
-    },
-  };
+  return { props: { featuredProjects } };
 };

@@ -1,19 +1,14 @@
-import {
-  Box,
-  Flex,
-  Link,
-  Tag,
-  Text,
-  useColorModeValue,
-} from "@chakra-ui/react";
+import { Box, Flex, Link, Tag, Text, useColorModeValue } from "@chakra-ui/react";
 import NextImage from "next/image";
-import React from "react";
+import { Project } from "pages";
+import React, { FC } from "react";
 import { FaExternalLinkAlt, FaGithub } from "react-icons/fa";
 
-const Card = ({ project }: any) => {
-  if (!project) {
-    return <h1>No project</h1>;
-  }
+interface CardProps {
+  project: Project;
+}
+
+const Card: FC<CardProps> = ({ project: { cover, external, github, tech, title } }) => {
   return (
     <Box
       border="1px solid"
@@ -27,8 +22,8 @@ const Card = ({ project }: any) => {
     >
       <Box borderBottom="3px solid" borderColor="gray.500">
         <NextImage
-          src={project.frontmatter.cover && `${project.frontmatter.cover}`}
-          alt={`${project.frontmatter.title}`}
+          src={cover && `${cover}`}
+          alt={`${title}`}
           height={200}
           width={400}
           layout="responsive"
@@ -38,40 +33,21 @@ const Card = ({ project }: any) => {
       <Box px={5} py={5}>
         <Flex justifyContent="space-between">
           <Box>
-            <Link
-              href={
-                project.frontmatter.external
-                  ? project.frontmatter.external
-                  : `#`
-              }
-              isExternal
-            >
+            <Link href={external ? external : `#`} isExternal>
               <Text fontSize="lg" mb={2} fontWeight="semibold">
-                {project.frontmatter.title}
+                {title}
               </Text>
             </Link>
           </Box>
           <Box>
             <Flex justify="center" pt={2}>
-              {project.frontmatter.github && (
-                <Link
-                  _hover={{ color: "primary" }}
-                  ml={2}
-                  href={project.frontmatter.github}
-                  isExternal
-                  aria-label={`${project.frontmatter.title}`}
-                >
+              {github && (
+                <Link _hover={{ color: "primary" }} ml={2} href={github} isExternal aria-label={`${title}`}>
                   <FaGithub size="20px" />
                 </Link>
               )}
-              {project.frontmatter.external && (
-                <Link
-                  _hover={{ color: "primary" }}
-                  ml={2}
-                  href={project.frontmatter.external}
-                  isExternal
-                  aria-label={`${project.frontmatter.title}`}
-                >
+              {external && (
+                <Link _hover={{ color: "primary" }} ml={2} href={external} isExternal aria-label={`${title}`}>
                   <FaExternalLinkAlt size="20px" />
                 </Link>
               )}
@@ -79,8 +55,8 @@ const Card = ({ project }: any) => {
           </Box>
         </Flex>
         <Flex mt={2}>
-          {project.frontmatter.tech &&
-            project.frontmatter.tech.map((tech: string, i: number) => (
+          {tech &&
+            tech.map((tech: string, i: number) => (
               <Tag
                 fontSize="xs"
                 fontWeight="semibold"

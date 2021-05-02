@@ -18,7 +18,7 @@ import { FaExternalLinkAlt, FaGithub } from "react-icons/fa";
 import { ArchiveProjects } from "../pages/archive";
 
 interface TableProps extends TableHeadProps {
-  data?: [ArchiveProjects];
+  data?: ArchiveProjects[];
 }
 
 const DataTable = ({ data }: TableProps) => {
@@ -61,23 +61,16 @@ const DataTable = ({ data }: TableProps) => {
               key={`${b.slug + i}`}
             >
               <Td p={3} w={["auto", "auto", "60px", "60px"]}>
-                {b.data.date.slice(-4)}
+                {b.date.slice(-4)}
               </Td>
               <Td p={3}>
-                <Link
-                  href={b.data.github ? b.data.external : ""}
-                  isExternal
-                  aria-label={`${b.data.title}`}
-                >
-                  {b.data.title}
+                <Link href={b.github ? b.external : ""} isExternal aria-label={`${b.title}`}>
+                  {b.title}
                 </Link>
               </Td>
-              <Td
-                p={3}
-                display={["none", "table-cell", "table-cell", "table-cell"]}
-              >
+              <Td p={3} display={["none", "table-cell", "table-cell", "table-cell"]}>
                 <HStack>
-                  {b.data.tech.map((c, i) => (
+                  {b.tech.map((c, i) => (
                     <Fragment key={i}>
                       <Badge>{c}</Badge>
                     </Fragment>
@@ -86,32 +79,14 @@ const DataTable = ({ data }: TableProps) => {
               </Td>
               <Td p={3} isNumeric>
                 <Flex mr={2} display="inline-flex">
-                  {b.data.github && (
-                    <Link
-                      ml={2}
-                      href={b.data.github}
-                      isExternal
-                      aria-label={`${b.data.title}`}
-                    >
-                      <Box
-                        _hover={{ color: "primary" }}
-                        as={FaGithub}
-                        size="20px"
-                      />
+                  {b.github && (
+                    <Link ml={2} href={b.github} isExternal aria-label={`${b.title}`}>
+                      <Box _hover={{ color: "primary" }} as={FaGithub} size="20px" />
                     </Link>
                   )}
-                  {b.data.external && (
-                    <Link
-                      ml={2}
-                      href={b.data.external}
-                      isExternal
-                      aria-label={`${b.data.title}`}
-                    >
-                      <Box
-                        _hover={{ color: "primary" }}
-                        as={FaExternalLinkAlt}
-                        size="20px"
-                      />
+                  {b.external && (
+                    <Link ml={2} href={b.external} isExternal aria-label={`${b.title}`}>
+                      <Box _hover={{ color: "primary" }} as={FaExternalLinkAlt} size="20px" />
                     </Link>
                   )}
                 </Flex>

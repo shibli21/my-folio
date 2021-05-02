@@ -1,9 +1,14 @@
 import { Box, Button, Flex, Grid, Text } from "@chakra-ui/react";
 import NextLink from "next/link";
-import React from "react";
+import { Project } from "pages";
+import React, { FC } from "react";
 import Card from "./Card";
 
-const Projects = ({ data }: any) => {
+interface ProjectsProps {
+  data: Project[];
+}
+
+const Projects: FC<ProjectsProps> = ({ data }) => {
   return (
     <Box id="projects">
       <Flex flexDirection="column" mb={10}>
@@ -13,7 +18,7 @@ const Projects = ({ data }: any) => {
         <Text fontSize="xl">Take a look at my latest projects</Text>
       </Flex>
       <Grid templateColumns={["1fr", "1fr", "1fr 1fr", "1fr 1fr 1fr"]} gap={6}>
-        {data.map((project: any) => (
+        {data.map((project) => (
           <Card project={project} key={project.slug} />
         ))}
       </Grid>
