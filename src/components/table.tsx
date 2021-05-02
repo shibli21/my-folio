@@ -13,12 +13,12 @@ import {
   Tr,
   useColorModeValue,
 } from "@chakra-ui/react";
+import { Project } from "pages";
 import React, { Fragment } from "react";
 import { FaExternalLinkAlt, FaGithub } from "react-icons/fa";
-import { ArchiveProjects } from "../pages/archive";
 
 interface TableProps extends TableHeadProps {
-  data?: ArchiveProjects[];
+  data?: Project[];
 }
 
 const DataTable = ({ data }: TableProps) => {
