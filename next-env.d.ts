@@ -3,7 +3,6 @@
 
 declare module "*.scss";
 declare module "*.svg";
-declare module "react-scroll-to-bottom";
 declare module "*.jpg" {
   const image: string;
   export default image;

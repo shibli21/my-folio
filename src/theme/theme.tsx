@@ -29,6 +29,8 @@ const theme = extendTheme({
   styles: {
     global: (props) => ({
       html: {
+        scrollPaddingTop: "70px",
+        scrollBehavior: "smooth",
         overflowY: "scroll",
         "&::-webkit-scrollbar": {
           width: "8px",
@@ -49,6 +51,14 @@ const theme = extendTheme({
           background: props.colorMode === "dark" ? "#fd3e60ed" : "primary",
           opacity: 1,
           color: "white",
+        },
+        "&:focus": {
+          outline: "0 !important",
+          boxShadow: "none",
+          "&:not(.focus-visible)": {
+            outline: "0 !important",
+            boxShadow: "none !important",
+          },
         },
       },
     }),
