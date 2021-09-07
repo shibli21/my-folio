@@ -82,7 +82,9 @@ const NavBar = ({}) => {
       </MenuItems>
       <MenuItems>
         <MotionBox key="about" variants={childVariants} pos="relative">
-          <NavLink onClick={() => scrollTo("#aboutMe")}>About</NavLink>
+          <NextLink href="/about">
+            <NavLink>About</NavLink>
+          </NextLink>
         </MotionBox>
       </MenuItems>
       <MenuItems>

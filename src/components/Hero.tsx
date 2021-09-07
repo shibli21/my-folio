@@ -30,7 +30,7 @@ export const Hero = () => {
   };
 
   return (
-    <Box h="100vh" pt={[100, 150, 180, 200]} id="contact">
+    <Box h="100vh" maxH="600px" pt={[100, 150, 180, 200]} id="contact">
       <motion.div variants={containerVariants} initial="exit" animate="enter" exit="exit">
         <Flex flexDirection="column" justify="center">
           <MotionText

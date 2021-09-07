@@ -24,7 +24,7 @@ const Step: React.FC<StepProps> = ({ title, children }) => {
     <chakra.li mb={4} ml={2} listStyleType="none">
       <HStack alignItems="center" mb={2}>
         <FiCheckCircle color="green" />
-        <Text fontSize="md" color="gray.100" fontWeight="semibold">
+        <Text fontSize="md" fontWeight="semibold">
           {title}
         </Text>
       </HStack>

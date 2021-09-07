@@ -1,4 +1,3 @@
-import AboutMe from "@/components/AboutMe";
 import { Container } from "@/components/Container";
 import { Hero } from "@/components/Hero";
 import { Main } from "@/components/Main";
@@ -35,7 +34,6 @@ const Index: React.FC<IndexProps> = ({ featuredProjects }) => {
         <Main>
           <Hero />
           <Projects data={featuredProjects} />
-          <AboutMe />
         </Main>
       </Container>
     </>

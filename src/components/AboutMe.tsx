@@ -24,14 +24,14 @@ const AboutMe = () => {
             maxW="350px"
             maxH="350px"
             pos="relative"
-            border="10px solid"
-            borderColor="primary"
+            border="1px solid"
+            borderColor="brandSecondary.300"
             justifySelf="center"
             alignSelf="center"
           >
             <Box>
               <NextImage
-                src="/me.jpg"
+                src="/me2.jpeg"
                 height={350}
                 width={350}
                 alt="syed shibli mahmud"
