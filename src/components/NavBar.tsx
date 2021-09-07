@@ -94,7 +94,7 @@ const NavBar = ({}) => {
   );
 
   return (
-    <Box top={0} position="sticky" as="header" zIndex={100} boxShadow="xs" bg={useColorModeValue("white", "gray.800")}>
+    <Box top={0} position="sticky" as="header" zIndex={100} boxShadow="xs" bg={useColorModeValue("white", "#09141b")}>
       <Flex as="nav" align="center" justify="space-between" wrap="wrap" padding="1rem" maxW="1024px" mx="auto">
         <NextLink href="/">
           <MotionBox

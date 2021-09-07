@@ -155,14 +155,14 @@ export const DarkModeSwitch = () => {
               cx: 250,
               opacity: 1,
               transition: { duration: 0.4, type: "spring", stiffness: 50 },
-              fill: "#1A202C",
+              fill: "#09141b",
             },
             light: {
               r: "40px",
               cx: 450,
               opacity: 0,
               transition: { duration: 0 },
-              fill: "#1A202C",
+              fill: "#09141b",
             },
           }}
           animate={colorMode}
