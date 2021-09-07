@@ -34,10 +34,10 @@ const SocialIcons = () => {
         <Link href="https://twitter.com/shibli21" isExternal aria-label="Twitter">
           <Twitter _hover={hover} fontSize="25px" />
         </Link>
-        <Link href="https://twitter.com/shibli21" isExternal aria-label="Instagram">
+        <Link href="https://www.instagram.com/__shelbyy____/" isExternal aria-label="Instagram">
           <Instagram _hover={hover} fontSize="25px" />
         </Link>
-        <Link href="https://www.linkedin.com/in/syed-shibli-mahmud-0bb357163/" isExternal aria-label="Linkedin">
+        <Link href="https://www.linkedin.com/in/shibli21" isExternal aria-label="Linkedin">
           <LinkedIn _hover={hover} fontSize="25px" />
         </Link>
       </Stack>
