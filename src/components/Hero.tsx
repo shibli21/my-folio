@@ -1,5 +1,4 @@
-import { Button } from "@chakra-ui/button";
-import { Box, Flex, Link } from "@chakra-ui/layout";
+import { Box, Button, Flex, Link } from "@chakra-ui/react";
 import { motion, Variants } from "framer-motion";
 import React from "react";
 import { MotionText } from "./Motion";
@@ -34,17 +33,17 @@ export const Hero = () => {
       <motion.div variants={containerVariants} initial="exit" animate="enter" exit="exit">
         <Flex flexDirection="column" justify="center">
           <MotionText
-            fontSize={["xl", "xl", "xl", "xl"]}
+            fontSize={["xl", "xl", "xl", "2xl"]}
             fontWeight="700"
             color="primary"
             mb={2}
             key="subheading1"
             variants={childVariants}
           >
-            Hi, my name is
+            Hello 👋 , I'm
           </MotionText>
           <MotionText
-            fontSize={["4xl", "5xl", "5xl", "6xl"]}
+            fontSize={["3xl", "5xl", "5xl", "6xl"]}
             mb={2}
             lineHeight="1"
             fontWeight="700"
@@ -55,17 +54,31 @@ export const Hero = () => {
           </MotionText>
 
           <MotionText
-            fontSize={["4xl", "5xl", "5xl", "6xl"]}
+            fontSize={["md", "md", "lg", "xl"]}
             fontWeight="600"
             key="subheading2"
-            lineHeight="1"
+            color="tertiary"
+            mb={2}
             variants={childVariants}
           >
-            I build things for the web.
+            Full-stack & Mobile Application developer
+          </MotionText>
+          <MotionText
+            fontSize={["lg", "lg", "xl", "2xl"]}
+            fontWeight="600"
+            key="subheading2"
+            lineHeight="1.2"
+            variants={childVariants}
+            w={["100%", "100%", "100%", "90%"]}
+          >
+            Building things for the web with TypeScript, React, and Next.js and mobile applications with Dart and
+            Flutter are my passions
+            {/* Building web applications with TypeScript, React, and Next.js, and mobile apps with
+            Dart and Flutter are my specialties */}
           </MotionText>
         </Flex>
         <motion.div key="button" variants={childVariants}>
-          <Button variant="outline" size="lg" mt={8} as={Link} href="mailto:syedshiblimahmud@gmail.com">
+          <Button colorScheme="brand" size="md" mt={8} as={Link} href="mailto:syedshiblimahmud@gmail.com">
             Get In Touch
           </Button>
         </motion.div>
