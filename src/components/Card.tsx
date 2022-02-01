@@ -7,7 +7,7 @@ interface CardProps {
   project: Project;
 }
 
-const Card: FC<CardProps> = ({ project: { cover, external, github, tech, title, description } }) => {
+const Card: FC<CardProps> = ({ project: { external, github, tech, title, description } }) => {
   return (
     <Stack
       justifyContent="space-between"
