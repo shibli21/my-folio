@@ -26,8 +26,22 @@ const brandColorScheme = {
   900: "#5a2dff",
 };
 
-const primary = brandColorScheme[600];
+const tertiaryColorScheme = {
+  50: "#98fdd8",
+  100: "#86f8ce",
+  200: "#69ecbf",
+  300: "#5cdfb2",
+  400: "#4fd1a6",
+  500: "#49c29a",
+  600: "#44b58f",
+  700: "#3ea784",
+  800: "#389979",
+  900: "##328c6e",
+};
+
+const primary = brandColorScheme[700];
 const secondary = secondaryColorScheme[600];
+const tertiary = tertiaryColorScheme[500];
 
 // Text
 const textPrimary = secondaryColorScheme[600];
@@ -56,12 +70,12 @@ const theme = extendTheme({
           color: "primary",
           _hover: { bg: "primary", color: "white", textDecoration: "none" },
         }),
-        // solid: () => ({
-        //   bg: "#a277ff",
-        //   color: "white",
-        //   _hover: { bg: "#a277ff" },
-        //   _active: { bg: "brand.700" },
-        // }),
+        solid: () => ({
+          bg: primary,
+          color: "white",
+          _hover: { bg: primary },
+          _active: { bg: "brand.700" },
+        }),
       },
     },
     Table: {
@@ -78,8 +92,10 @@ const theme = extendTheme({
   colors: {
     brand: brandColorScheme,
     brandSecondary: secondaryColorScheme,
+    brandTertiary: tertiaryColorScheme,
     primary,
     secondary,
+    tertiary,
     text: {
       primary: textPrimary,
       secondary: textSecondary,
