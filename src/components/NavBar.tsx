@@ -4,18 +4,18 @@ import useIntro from "@/hooks/useIntro";
 import { useColorModeValue } from "@chakra-ui/color-mode";
 import { useDisclosure } from "@chakra-ui/hooks";
 import { Box, Flex, Stack } from "@chakra-ui/layout";
-import { Drawer, DrawerBody, DrawerCloseButton, DrawerContent, DrawerFooter, DrawerOverlay } from "@chakra-ui/modal";
+import { Button, Center, Fade, Link as ChakraLink } from "@chakra-ui/react";
 import { Variants } from "framer-motion";
 import NextLink from "next/link";
 import { useRouter } from "next/router";
-import React from "react";
-import { FaBars } from "react-icons/fa";
-import { RiCloseFill } from "react-icons/ri";
+import React, { FC } from "react";
+import { HiDownload } from "react-icons/hi";
 import { LogoShibli } from "theme/icons/icons";
+import HamMenu from "./HamMenu";
 import { MotionBox, MotionFlex } from "./Motion";
 import NavLink from "./NavLink";
 
-const NavBar = ({}) => {
+const NavBar: FC = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const router = useRouter();
   const showAnimation = useIntro();
@@ -89,69 +89,85 @@ const NavBar = ({}) => {
       </MenuItems>
       <MenuItems>
         <MotionBox key="work" variants={childVariants} pos="relative">
-          <NavLink onClick={() => scrollTo("#projects")}>Work</NavLink>
+          <NavLink onClick={() => scrollTo("#projects")}>Projects</NavLink>
+        </MotionBox>
+      </MenuItems>
+      <MenuItems>
+        <MotionBox key="work" variants={childVariants} pos="relative">
+          <Button
+            as={ChakraLink}
+            size="sm"
+            leftIcon={<HiDownload />}
+            href="/pdf/shibli-resume.pdf"
+            download
+            colorScheme="brand"
+          >
+            CV
+          </Button>
+          {/* <NavLink onClick={() => scrollTo("#projects")}>Work</NavLink> */}
         </MotionBox>
       </MenuItems>
     </>
   );
 
   return (
-    <Box top={0} position="sticky" as="header" zIndex={100} boxShadow="xs" bg={useColorModeValue("white", "#09141b")}>
-      <Flex as="nav" align="center" justify="space-between" wrap="wrap" padding="1rem" maxW="1024px" mx="auto">
-        <NextLink href="/">
-          <MotionBox
-            cursor="pointer"
-            initial={showAnimation ? "enter" : "exit"}
-            animate={showAnimation ? "exit" : "exit"}
-            variants={logo}
-            key="logo"
-          >
-            <LogoShibli />
-          </MotionBox>
-        </NextLink>
-        <MotionFlex
-          display={["none", "none", "inherit", "inherit"]}
-          align="center"
-          justify="center"
-          variants={containerVariants}
-          initial={showAnimation ? "exit" : "enter"}
-          animate={showAnimation ? "enter" : "enter"}
-          exit={showAnimation ? "exit" : "enter"}
-        >
-          {NavLinks}
-        </MotionFlex>
-        <Box display={["block", "block", "none", "none"]}>
-          <>
+    <>
+      <Box top={0} position="sticky" as="header" zIndex={100} boxShadow="xs" bg={useColorModeValue("white", "#09141b")}>
+        <Flex as="nav" align="center" justify="space-between" wrap="wrap" padding="1rem" maxW="1024px" mx="auto">
+          <NextLink href="/">
             <MotionBox
+              cursor="pointer"
               initial={showAnimation ? "enter" : "exit"}
               animate={showAnimation ? "exit" : "exit"}
-              variants={bar}
-              key="bar"
+              variants={logo}
+              key="logo"
             >
-              <Box color="primary" onClick={onOpen}>
-                <FaBars size="35px" />
-              </Box>
+              <LogoShibli />
             </MotionBox>
-            <Drawer size="xs" isOpen={isOpen} placement="right" onClose={onClose}>
-              <DrawerOverlay />
-              <DrawerContent bg={useColorModeValue("white", "gray.800")}>
-                <DrawerCloseButton m={4}>
-                  <Box color="primary">
-                    <RiCloseFill size="50px" />
-                  </Box>
-                </DrawerCloseButton>
-                <DrawerBody pt="150px">
-                  <Stack spacing="24px" align="center">
-                    {NavLinks}
-                  </Stack>
-                </DrawerBody>
-                <DrawerFooter></DrawerFooter>
-              </DrawerContent>
-            </Drawer>
-          </>
-        </Box>
-      </Flex>
-    </Box>
+          </NextLink>
+          <MotionFlex
+            display={["none", "none", "inherit", "inherit"]}
+            align="center"
+            justify="center"
+            variants={containerVariants}
+            initial={showAnimation ? "exit" : "enter"}
+            animate={showAnimation ? "enter" : "enter"}
+            exit={showAnimation ? "exit" : "enter"}
+          >
+            {NavLinks}
+          </MotionFlex>
+          <Box display={["block", "block", "none", "none"]} zIndex={9999999999}>
+            <>
+              <MotionBox
+                initial={showAnimation ? "enter" : "exit"}
+                animate={showAnimation ? "exit" : "exit"}
+                variants={bar}
+                key="bar"
+              >
+                <HamMenu
+                  onClick={() => (isOpen ? onClose() : onOpen())}
+                  isOpen={isOpen}
+                  lineProps={{
+                    stroke: isOpen ? "white" : "#a277ff",
+                  }}
+                  transition={{ type: "spring", stiffness: 200, damping: 15 }}
+                  style={{ marginLeft: "2rem", zIndex: 999999999 }}
+                />
+              </MotionBox>
+            </>
+          </Box>
+        </Flex>
+        <Fade in={isOpen}>
+          <Box bg="#49c29a" top={0} left={0} w="100vw" h="100vh" pos="fixed" pointerEvents={!isOpen ? "none" : "auto"}>
+            <Center alignItems="center" h="100%">
+              <Stack alignItems="center" spacing={5}>
+                {NavLinks}
+              </Stack>
+            </Center>
+          </Box>
+        </Fade>
+      </Box>
+    </>
   );
 };
 
