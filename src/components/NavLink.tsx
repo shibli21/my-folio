@@ -4,8 +4,8 @@ import React from "react";
 
 const NavLink = (props: BoxProps) => {
   const backgroundImage = useColorModeValue(
-    "linear-gradient(to right,#fd6581,#fd3e60 50%,rgba(0, 0, 0, 0.781) 60%)",
-    "linear-gradient(to right,#fd6581,#fd3e60 50%,white 60%)"
+    "linear-gradient(to right,#a97fff,#a277ff 50%,rgba(0, 0, 0, 0.781) 60%)",
+    "linear-gradient(to right,#a97fff,#a277ff 50%,white 60%)"
   );
 
   return <Box cursor="pointer" __css={navigationLinkStyle} backgroundImage={backgroundImage} {...props}></Box>;
@@ -29,7 +29,7 @@ const navigationLinkStyle = {
     transform: "scaleX(0)",
     bottom: "0",
     left: "0",
-    background: "linear-gradient(319.11deg, #fd3e60 0%, #fd6581 100%)",
+    background: "linear-gradient(319.11deg, #a277ff 0%, #a97fff 100%)",
     width: "100%",
     content: '""',
     height: "2px",
@@ -41,8 +41,8 @@ const navigationLinkStyle = {
     backgroundSize: "340% 100%",
     _after: {
       backgroundImage: [
-        "gradient(linear, left top, right top, from(#fd6581), to(#fd3e60))",
-        "linear-gradient(to right, #fd6581, #fd3e60 100%)",
+        "gradient(linear, left top, right top, from(#a97fff), to(#a277ff))",
+        "linear-gradient(to right, #a97fff, #a277ff 100%)",
       ],
       transform: "scaleX(1)",
       transformOrigin: "0 50%",

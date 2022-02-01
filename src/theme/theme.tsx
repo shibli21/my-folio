@@ -14,20 +14,34 @@ const secondaryColorScheme = {
   900: "#060e13",
 };
 const brandColorScheme = {
-  50: "#feb2bf",
-  100: "#fe9fb0",
-  200: "#fe8ba0",
-  300: "#fe7890",
-  400: "#fd6580",
-  500: "#fd5170",
-  600: "#fd3e60",
-  700: "#e43856",
-  800: "#ca324d",
-  900: "#b12b43",
+  50: "#d6befd",
+  100: "#cbaeff",
+  200: "#c09eff",
+  300: "#b58fff",
+  400: "#a97fff",
+  500: "#a277ff",
+  600: "#8e60ff",
+  700: "#7f50ff",
+  800: "#6e3fff",
+  900: "#5a2dff",
 };
 
-const primary = brandColorScheme[600];
+const tertiaryColorScheme = {
+  50: "#98fdd8",
+  100: "#86f8ce",
+  200: "#69ecbf",
+  300: "#5cdfb2",
+  400: "#4fd1a6",
+  500: "#49c29a",
+  600: "#44b58f",
+  700: "#3ea784",
+  800: "#389979",
+  900: "##328c6e",
+};
+
+const primary = brandColorScheme[700];
 const secondary = secondaryColorScheme[600];
+const tertiary = tertiaryColorScheme[500];
 
 // Text
 const textPrimary = secondaryColorScheme[600];
@@ -56,6 +70,12 @@ const theme = extendTheme({
           color: "primary",
           _hover: { bg: "primary", color: "white", textDecoration: "none" },
         }),
+        solid: () => ({
+          bg: primary,
+          color: "white",
+          _hover: { bg: primary },
+          _active: { bg: "brand.700" },
+        }),
       },
     },
     Table: {
@@ -72,8 +92,10 @@ const theme = extendTheme({
   colors: {
     brand: brandColorScheme,
     brandSecondary: secondaryColorScheme,
+    brandTertiary: tertiaryColorScheme,
     primary,
     secondary,
+    tertiary,
     text: {
       primary: textPrimary,
       secondary: textSecondary,
@@ -99,7 +121,7 @@ const theme = extendTheme({
         },
         "&::-webkit-scrollbar-thumb": {
           boxShadow: "inset 0 0 6px rgba(0, 0, 0, 0.1)",
-          backgroundColor: "#fd3e60",
+          backgroundColor: "#a277ff",
         },
       },
       "html, body": {
@@ -109,7 +131,7 @@ const theme = extendTheme({
       },
       "*": {
         "::selection": {
-          background: props.colorMode === "dark" ? "#fd3e60ed" : "primary",
+          background: props.colorMode === "dark" ? "#a277ffed" : "primary",
           opacity: 1,
           color: "white",
         },
