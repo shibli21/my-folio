@@ -6,5 +6,11 @@ export const DarkModeSwitch = () => {
   const { colorMode, toggleColorMode } = useColorMode();
   const isDark = colorMode === "dark";
 
-  return <Switch colorScheme="brand" isChecked={isDark} onChange={toggleColorMode} />;
+  return (
+    <Switch
+      sx={{ ".chakra-switch__track": { bg: isDark && "primary" } }}
+      isChecked={isDark}
+      onChange={toggleColorMode}
+    />
+  );
 };
