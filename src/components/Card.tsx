@@ -1,5 +1,4 @@
-import { Box, Flex, Link, Tag, Text, useColorModeValue } from "@chakra-ui/react";
-import NextImage from "next/image";
+import { Box, Flex, Link, Stack, Tag, Text } from "@chakra-ui/react";
 import { Project } from "pages";
 import React, { FC } from "react";
 import { FaExternalLinkAlt, FaGithub } from "react-icons/fa";
@@ -8,37 +7,33 @@ interface CardProps {
   project: Project;
 }
 
-const Card: FC<CardProps> = ({ project: { cover, external, github, tech, title } }) => {
+const Card: FC<CardProps> = ({ project: { cover, external, github, tech, title, description } }) => {
   return (
-    <Box
-      border="1px solid"
-      borderColor={useColorModeValue("gray.200", "#30363d")}
-      overflow="hidden"
+    <Stack
+      justifyContent="space-between"
       _hover={{
-        boxShadow: "#fd3e60 -8px 8px",
-        transition: "ease-in-out",
-        transitionDuration: ".4s",
+        transform: "scale(1.05)",
+        transition: "all 0.2s ease-in-out",
       }}
+      cursor="default"
+      border="1px solid"
+      borderTop="4px"
+      borderColor="tertiary"
+      overflow="hidden"
+      shadow="lg"
+      px={5}
+      py={5}
     >
-      <Box borderBottom="3px solid" borderColor="gray.500">
-        <NextImage
-          src={cover && `${cover}`}
-          alt={`${title}`}
-          height={200}
-          width={400}
-          layout="responsive"
-          loading="eager"
-        />
-      </Box>
-      <Box px={5} py={5}>
+      <Box>
         <Flex justifyContent="space-between">
           <Box>
-            <Link href={external ? external : `#`} isExternal>
-              <Text fontSize="lg" mb={2} fontWeight="semibold">
+            <Link href={external ? external : `#`} isExternal _hover={{ textDecor: "none" }}>
+              <Text fontSize="lg" mb={2} fontWeight="semibold" _hover={{ color: "tertiary", textDecoration: "none" }}>
                 {title}
               </Text>
             </Link>
           </Box>
+
           <Box>
             <Flex justify="center" pt={2}>
               {github && (
@@ -54,25 +49,28 @@ const Card: FC<CardProps> = ({ project: { cover, external, github, tech, title }
             </Flex>
           </Box>
         </Flex>
-        <Flex mt={2}>
-          {tech &&
-            tech.map((tech: string, i: number) => (
-              <Tag
-                fontSize="xs"
-                fontWeight="semibold"
-                mr={2}
-                bg="primary"
-                color="white"
-                key={i}
-                borderRadius={0}
-                textTransform="uppercase"
-              >
-                {tech}
-              </Tag>
-            ))}
-        </Flex>
+        <Text fontSize="sm" my={3} fontWeight="semibold">
+          {description}
+        </Text>
       </Box>
-    </Box>
+      <Flex mt={2}>
+        {tech &&
+          tech.map((tech: string, i: number) => (
+            <Tag
+              fontSize="xs"
+              fontWeight="semibold"
+              mr={2}
+              bg="primary"
+              color="white"
+              key={i}
+              borderRadius={0}
+              textTransform="uppercase"
+            >
+              {tech}
+            </Tag>
+          ))}
+      </Flex>
+    </Stack>
   );
 };
 

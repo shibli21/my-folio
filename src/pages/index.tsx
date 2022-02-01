@@ -17,6 +17,7 @@ export interface Project {
   title: string;
   slug: string;
   featured: boolean;
+  description: string;
 }
 
 interface IndexProps {
