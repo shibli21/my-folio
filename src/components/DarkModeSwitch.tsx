@@ -8,7 +8,11 @@ export const DarkModeSwitch = () => {
 
   return (
     <Switch
-      sx={{ ".chakra-switch__track": { bg: isDark && "primary" } }}
+      sx={{
+        _checked: {
+          ".chakra-switch__track": { bg: "primary" },
+        },
+      }}
       isChecked={isDark}
       onChange={toggleColorMode}
     />
