@@ -4,7 +4,7 @@
     </a>
 </h1>
 
-![demo](/public/projects/demo.png)
+![demo](/public/projects/demo-site.png)
 
 # **_Tech Stack:_**
 
