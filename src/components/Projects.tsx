@@ -28,14 +28,14 @@ const Projects: FC<ProjectsProps> = ({ data }) => {
         Take a look at my latest projects
       </Text>
       <Grid templateColumns={["1fr", "1fr", "1fr 1fr", "1fr 1fr 1fr"]} gap={6}>
-        {data.map((project) => (
-          <Card project={project} key={project.slug} />
-        ))}
+        {data
+          .sort((a, b) => a.order - b.order)
+          .map((project) => (
+            <Card project={project} key={project.slug} />
+          ))}
       </Grid>
     </Box>
   );
 };
 
 export default Projects;
-
-// export const getStaticProps: GetStaticProps = async () => {};
