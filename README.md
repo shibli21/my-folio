@@ -1,5 +1,14 @@
-# **my folio**
+<h1 align="center">
+    <a href='https://syedshiblimahmud.vercel.app'>
+        <img alt="Logo" src="public/logos/Sh!bl!.svg" width="100" />
+    </a>
+</h1>
 
-## [live demo](https://syedshiblimahmud.vercel.app)
+![demo](/public/projects/demo.png)
 
-![alt text](/public/projects/demo.png)
+# **_Tech Stack:_**
+
+- _Next Js_
+- _MDX_
+- _Typescript_
+- _Chakra Ui_
