@@ -1,6 +1,5 @@
-import { Button, Center, chakra, Container, Divider, HStack, Text } from "@chakra-ui/react";
-import { ReactNode, useState } from "react";
-import { FaArrowDown } from "react-icons/fa";
+import { Box, chakra, Divider, HStack, Icon, Text, useColorModeValue } from "@chakra-ui/react";
+import { ReactNode } from "react";
 import { FiCheckCircle } from "react-icons/fi";
 
 interface YearProps {
@@ -8,7 +7,7 @@ interface YearProps {
 }
 const Year: React.FC<YearProps> = ({ children }) => {
   return (
-    <Text fontSize="2xl" fontFamily="poppins" mb={4}>
+    <Text fontSize="2xl" fontFamily="poppins" my={4}>
       {children}
     </Text>
   );
@@ -23,12 +22,12 @@ const Step: React.FC<StepProps> = ({ title, children }) => {
   return (
     <chakra.li mb={4} ml={2} listStyleType="none">
       <HStack alignItems="center" mb={2}>
-        <FiCheckCircle color="green" />
+        <Icon as={FiCheckCircle} color="primary" />
         <Text fontSize="md" fontWeight="semibold">
           {title}
         </Text>
       </HStack>
-      <Text ml={6} color="gray.400">
+      <Text ml={6} color={useColorModeValue("gray.800", "gray.400")}>
         {children}
       </Text>
     </chakra.li>
@@ -37,7 +36,7 @@ const Step: React.FC<StepProps> = ({ title, children }) => {
 
 const FullTimeline = () => (
   <>
-    <Divider />
+    <Divider bg="tertiary" />
     <Year>2018</Year>
     <ul>
       <Step title="Started at Sylhet Engineering College">
@@ -45,12 +44,12 @@ const FullTimeline = () => (
       </Step>
     </ul>
 
-    <Divider />
+    <Divider bg="tertiary" />
     <Year>2017</Year>
     <ul>
       <Step title="Graduated College">Graduated from comilla victoria govt. college . My graduating class was 17.</Step>
     </ul>
-    <Divider />
+    <Divider bg="tertiary" />
     <Year>2015</Year>
     <ul>
       <Step title="Graduated High School">Graduated from comilla zilla school . My graduating class was 15.</Step>
@@ -58,7 +57,7 @@ const FullTimeline = () => (
         I started my college life in one of the most popular & renowned college of bangladesh.
       </Step>
     </ul>
-    <Divider />
+    <Divider bg="tertiary" />
     <Year>2009</Year>
     <ul>
       <Step title="Graduated Primary School">Completed my primary school from ywca school, comilla.</Step>
@@ -67,7 +66,7 @@ const FullTimeline = () => (
         popular & reputable school in my home town & all over Bangladesh.
       </Step>
     </ul>
-    <Divider />
+    <Divider bg="tertiary" />
     <Year>1997</Year>
     <ul>
       <Step title="Born 👶🏼🍼"> </Step>
@@ -76,27 +75,14 @@ const FullTimeline = () => (
 );
 
 export default function Timeline() {
-  const [isShowingFullTimeline, showFullTimeline] = useState(true);
-
   return (
     <>
-      <Container maxW="2xl">
+      <Box pt={[4, 10]} maxW="2xl" mx="auto">
         <Text fontWeight="bold" fontSize="3xl" mb={4} mt={8}>
           Timeline
         </Text>
-        {isShowingFullTimeline ? (
-          <FullTimeline />
-        ) : (
-          <Center>
-            <Button variant="ghost" type="button" onClick={() => showFullTimeline(true)}>
-              <HStack>
-                <Text>See More</Text>
-                <FaArrowDown />
-              </HStack>
-            </Button>
-          </Center>
-        )}
-      </Container>
+        <FullTimeline />
+      </Box>
     </>
   );
 }

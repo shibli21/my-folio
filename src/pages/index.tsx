@@ -18,6 +18,7 @@ export interface Project {
   slug: string;
   featured: boolean;
   description: string;
+  order: number;
 }
 
 interface IndexProps {

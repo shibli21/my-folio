@@ -1,44 +1,51 @@
 import { Box, Grid, Text } from "@chakra-ui/react";
 import NextImage from "next/image";
-import React from "react";
+import React, { FC } from "react";
 
-const AboutMe = () => {
+const AboutMe: FC = () => {
   return (
-    <Box px={["0", "0", "0", "70px"]}>
-      <Box my="6rem" id="aboutMe">
+    <Box>
+      <Box my={[".5rem", "3rem"]} id="aboutMe">
         <Text fontSize="4xl" mb={10} lineHeight={1} fontWeight="700">
           About me
         </Text>
-        <Grid templateColumns={["1fr", "1fr ", "1fr 1fr", "1fr 1fr"]} columnGap={2} rowGap={10}>
-          <Box alignSelf="center">
-            <Text mb={1} fontSize="xl" color="gray.500" fontWeight="700">
-              Hi there, I’m Shibli
+        <Grid templateColumns={["1fr", "1fr ", "1fr 1fr", "1fr 1fr"]} columnGap={10} rowGap={10}>
+          <Box>
+            <Text mb={1} fontSize="xl" color="tertiary" fontWeight="700">
+              Hello 👋 there, I’m Shibli
             </Text>
-            <Text mb={1} fontSize="xl">
-              I am a cs student & a computer nerd. I am an incoming software engineer. Primarily interested in web
-              development. I have experience of working with react, javascript, typescript python! Besides that, I have
-              worked with react-native for app development
+            <Text mb={1} textAlign="justify" fontSize={["lg", "xl"]}>
+              I'm a computer nerd and a computer science student major. I'm really passionate about coding, software
+              development, and web design.I have been working with react.js, javascript, and typescript for couple of
+              years now. I have experience coding in node.
+              <br />I have built a few complex apps in react and javascript so I am confident in my abilities to deliver
+              great work.
+              <br />
+              <br />
+              In addition to that i have been developing apps using Flutter for over a year now. With this experience I
+              have created products that can be used to develop cross-platform mobile apps in less time. I love to learn
+              new things and I'm always looking for new ways to do things.
             </Text>
           </Box>
           <Box
-            maxW="350px"
-            maxH="350px"
-            pos="relative"
-            border="1px solid"
-            borderColor="brandSecondary.300"
-            justifySelf="center"
             alignSelf="center"
+            sx={{
+              img: {
+                border: "2px solid #49c29a !important",
+              },
+            }}
+            justifySelf={["center", "center", "right"]}
           >
-            <Box>
-              <NextImage
-                src="/me2.jpeg"
-                height={350}
-                width={350}
-                alt="syed shibli mahmud"
-                loading="eager"
-                objectFit="cover"
-              />
-            </Box>
+            <NextImage
+              src="/me2.jpeg"
+              height={450}
+              width={450}
+              alt="syed shibli mahmud"
+              objectFit="cover"
+              placeholder="blur"
+              blurDataURL={`/_next/image?url=shibli&w=16&q=1`}
+              className="image"
+            />
           </Box>
         </Grid>
       </Box>

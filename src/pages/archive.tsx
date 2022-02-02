@@ -1,4 +1,4 @@
-import { Box, Text } from "@chakra-ui/react";
+import { Box, Icon, Text } from "@chakra-ui/react";
 import { getAllFilesFrontMatter } from "lib/mdx";
 import { GetStaticProps } from "next";
 import Head from "next/head";
@@ -22,9 +22,15 @@ const Archive: FC<ArchiveProps> = ({ archiveProjects }) => {
       <Container>
         <Main>
           <Box>
-            <Box mt={6} cursor="pointer" display="inline-block">
-              <FaArrowLeft onClick={() => history.back()} />
-            </Box>
+            <Icon
+              fontSize="22px"
+              mt={6}
+              onClick={() => history.back()}
+              cursor="pointer"
+              as={FaArrowLeft}
+              _hover={{ color: "tertiary" }}
+            />
+
             <Text fontSize="4xl" fontWeight="700">
               Archive
             </Text>
