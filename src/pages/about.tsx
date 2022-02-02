@@ -1,7 +1,8 @@
 import AboutMe from "@/components/AboutMe";
 import { Container } from "@/components/Container";
 import { Main } from "@/components/Main";
-import { Box } from "@chakra-ui/react";
+import Timeline from "@/components/Timeline";
+import { Box, Icon } from "@chakra-ui/react";
 import Head from "next/head";
 import React from "react";
 import { FaArrowLeft } from "react-icons/fa";
@@ -15,11 +16,17 @@ const resume = () => {
       <Container>
         <Main>
           <Box>
-            <Box mt={6} cursor="pointer" display="inline-block">
-              <FaArrowLeft onClick={() => history.back()} />
-            </Box>
+            <Icon
+              fontSize="22px"
+              mt={6}
+              onClick={() => history.back()}
+              cursor="pointer"
+              as={FaArrowLeft}
+              _hover={{ color: "tertiary" }}
+            />
+
             <AboutMe />
-            {/* <Timeline /> */}
+            <Timeline />
           </Box>
         </Main>
       </Container>
