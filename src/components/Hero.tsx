@@ -29,7 +29,7 @@ export const Hero = () => {
   };
 
   return (
-    <Box h="100vh" maxH="600px" pt={[100, 150, 180, 200]} id="contact">
+    <Box h="100vh" maxH={["460px", "600px"]} pt={[100, 150, 180, 200]} id="contact">
       <motion.div variants={containerVariants} initial="exit" animate="enter" exit="exit">
         <Flex flexDirection="column" justify="center">
           <MotionText
@@ -73,8 +73,6 @@ export const Hero = () => {
           >
             Building things for the web with TypeScript, React, and Next.js and mobile applications with Dart and
             Flutter are my passions
-            {/* Building web applications with TypeScript, React, and Next.js, and mobile apps with
-            Dart and Flutter are my specialties */}
           </MotionText>
         </Flex>
         <motion.div key="button" variants={childVariants}>
