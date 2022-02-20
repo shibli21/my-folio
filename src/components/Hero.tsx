@@ -71,8 +71,8 @@ export const Hero = () => {
             variants={childVariants}
             w={["100%", "100%", "100%", "90%"]}
           >
-            Building things for the web with TypeScript, React, and Next.js and mobile applications with Dart and
-            Flutter are my passions
+            I am passionate about developing web applications using TypeScript, React, and Next.js, and mobile apps
+            using Flutter and Dart
           </MotionText>
         </Flex>
         <motion.div key="button" variants={childVariants}>

@@ -12,19 +12,16 @@ const AboutMe: FC = () => {
         <Grid templateColumns={["1fr", "1fr ", "1fr 1fr", "1fr 1fr"]} columnGap={10} rowGap={10}>
           <Box>
             <Text mb={1} fontSize="xl" color="tertiary" fontWeight="700">
-              Hello 👋 there, I’m Shibli
+              Hello 👋 there,
             </Text>
             <Text mb={1} textAlign="justify" fontSize={["lg", "xl"]}>
-              I'm a computer nerd and a computer science student major. I'm really passionate about coding, software
-              development, and web design.I have been working with react.js, javascript, and typescript for couple of
-              years now. I have experience coding in node.
-              <br />I have built a few complex apps in react and javascript so I am confident in my abilities to deliver
-              great work.
+              Let me introduce myself as Shibli. As an enthusiastic and creative developer, I am passionate about the
+              web and Android development using Flutter and React. I have built several complex apps in React and
+              Flutter , so I am confident in my ability to deliver excellent results.
               <br />
               <br />
-              In addition to that i have been developing apps using Flutter for over a year now. With this experience I
-              have created products that can be used to develop cross-platform mobile apps in less time. I love to learn
-              new things and I'm always looking for new ways to do things.
+              I'm a fun person who enjoys nature, pets, and programming! I am always looking for new ways to accomplish
+              tasks and I love learning new things.
             </Text>
           </Box>
           <Box
