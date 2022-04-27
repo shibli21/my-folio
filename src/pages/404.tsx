@@ -1,7 +1,7 @@
-import Layout from "@/components/Layout";
 import { Button, Flex, Text } from "@chakra-ui/react";
 import Head from "next/head";
 import Link from "next/link";
+import Layout from "../components/Layout";
 
 export default function NotFound() {
   return (
