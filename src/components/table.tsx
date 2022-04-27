@@ -15,14 +15,14 @@ import {
 } from "@chakra-ui/react";
 import { Project } from "pages";
 import React, { Fragment } from "react";
-import { FaExternalLinkAlt, FaGithub } from "react-icons/fa";
+import { BrandGithub, ExternalLink } from "tabler-icons-react";
 
 interface TableProps extends TableHeadProps {
   data?: Project[];
 }
 
 const DataTable = ({ data }: TableProps) => {
-  const hoverBg = useColorModeValue("red.50", "gray.900");
+  const hoverBg = useColorModeValue("red.50", "brandSecondary.800");
 
   if (!data) {
     return <h1>NO PROJECTS</h1>;
@@ -66,11 +66,18 @@ const DataTable = ({ data }: TableProps) => {
                   {b.date.slice(-4)}
                 </Td>
                 <Td p={3}>
-                  <Link href={b.github ? b.external : ""} isExternal aria-label={`${b.title}`}>
+                  <Link
+                    href={b.github ? b.external : ""}
+                    isExternal
+                    aria-label={`${b.title}`}
+                  >
                     {b.title}
                   </Link>
                 </Td>
-                <Td p={3} display={["none", "table-cell", "table-cell", "table-cell"]}>
+                <Td
+                  p={3}
+                  display={["none", "table-cell", "table-cell", "table-cell"]}
+                >
                   <HStack>
                     {b.tech.map((c, i) => (
                       <Fragment key={i}>
@@ -82,13 +89,25 @@ const DataTable = ({ data }: TableProps) => {
                 <Td p={3} isNumeric>
                   <Flex mr={2} display="inline-flex">
                     {b.github && (
-                      <Link ml={2} href={b.github} isExternal aria-label={`${b.title}`}>
-                        <Box _hover={{ color: "primary" }} as={FaGithub} size="20px" />
+                      <Link
+                        ml={2}
+                        href={b.github}
+                        isExternal
+                        aria-label={`${b.title}`}
+                        _hover={{ color: "primary" }}
+                      >
+                        <BrandGithub size="24px" />
                       </Link>
                     )}
                     {b.external && (
-                      <Link ml={2} href={b.external} isExternal aria-label={`${b.title}`}>
-                        <Box _hover={{ color: "primary" }} as={FaExternalLinkAlt} size="20px" />
+                      <Link
+                        ml={2}
+                        href={b.external}
+                        isExternal
+                        aria-label={`${b.title}`}
+                        _hover={{ color: "primary" }}
+                      >
+                        <ExternalLink size="24px" />
                       </Link>
                     )}
                   </Flex>

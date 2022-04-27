@@ -28,8 +28,8 @@ class MyDocument extends Document {
           <meta charSet="utf-8" />
         </Head>
         <body>
-          <Main />
           <ColorModeScript initialColorMode="dark" />
+          <Main />
           <NextScript />
         </body>
       </Html>

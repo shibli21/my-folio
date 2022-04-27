@@ -1,7 +1,7 @@
-import { Container } from "@/components/Container";
 import { Hero } from "@/components/Hero";
-import { Main } from "@/components/Main";
+import Layout from "@/components/layout";
 import Projects from "@/components/Projects";
+import { Stack } from "@chakra-ui/react";
 import { getAllFilesFrontMatter } from "lib/mdx";
 import { GetStaticProps } from "next";
 import Head from "next/head";
@@ -32,12 +32,12 @@ const Index: React.FC<IndexProps> = ({ featuredProjects }) => {
         <title>shibli</title>
       </Head>
 
-      <Container>
-        <Main>
+      <Layout>
+        <Stack spacing={20}>
           <Hero />
           <Projects data={featuredProjects} />
-        </Main>
-      </Container>
+        </Stack>
+      </Layout>
     </>
   );
 };

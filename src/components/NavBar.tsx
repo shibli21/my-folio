@@ -3,13 +3,13 @@ import MenuItems from "@/components/MenuItems";
 import useIntro from "@/hooks/useIntro";
 import { useColorModeValue } from "@chakra-ui/color-mode";
 import { useDisclosure } from "@chakra-ui/hooks";
-import { Box, Flex, Stack } from "@chakra-ui/layout";
+import { Box, Container, Flex, Stack } from "@chakra-ui/layout";
 import { Button, Center, Fade, Link as ChakraLink } from "@chakra-ui/react";
 import { Variants } from "framer-motion";
 import NextLink from "next/link";
 import { useRouter } from "next/router";
 import React, { FC } from "react";
-import { HiDownload } from "react-icons/hi";
+import { CloudDownload } from "tabler-icons-react";
 import { LogoShibli } from "theme/icons/icons";
 import HamMenu from "./HamMenu";
 import { MotionBox, MotionFlex } from "./Motion";
@@ -97,7 +97,7 @@ const NavBar: FC = () => {
           <Button
             as={ChakraLink}
             size="sm"
-            leftIcon={<HiDownload />}
+            rightIcon={<CloudDownload size="18px" />}
             href="/pdf/shibli-resume.pdf"
             download
             colorScheme="brand"
@@ -110,10 +110,24 @@ const NavBar: FC = () => {
     </>
   );
 
+  const bg = useColorModeValue("white", "#09141b");
   return (
-    <>
-      <Box top={0} position="sticky" as="header" zIndex={100} boxShadow="xs" bg={useColorModeValue("white", "#09141b")}>
-        <Flex as="nav" align="center" justify="space-between" wrap="wrap" padding="1rem" maxW="1024px" mx="auto">
+    <Box
+      top={0}
+      position="sticky"
+      as="header"
+      zIndex={100}
+      boxShadow="xs"
+      bg={bg}
+    >
+      <Container maxW="container.lg" bg={bg}>
+        <Flex
+          as="nav"
+          align="center"
+          justify="space-between"
+          wrap="wrap"
+          paddingY="1rem"
+        >
           <NextLink href="/">
             <MotionBox
               cursor="pointer"
@@ -158,7 +172,15 @@ const NavBar: FC = () => {
           </Box>
         </Flex>
         <Fade in={isOpen}>
-          <Box bg="#49c29a" top={0} left={0} w="100vw" h="100vh" pos="fixed" pointerEvents={!isOpen ? "none" : "auto"}>
+          <Box
+            bg="brandTertiary.500"
+            top={0}
+            left={0}
+            w="100vw"
+            h="100vh"
+            pos="fixed"
+            pointerEvents={!isOpen ? "none" : "auto"}
+          >
             <Center alignItems="center" h="100%">
               <Stack alignItems="center" spacing={5}>
                 {NavLinks}
@@ -166,8 +188,8 @@ const NavBar: FC = () => {
             </Center>
           </Box>
         </Fade>
-      </Box>
-    </>
+      </Container>
+    </Box>
   );
 };
 

@@ -1,24 +1,24 @@
-import React, { FunctionComponent } from "react";
-import { Container, Flex } from "@chakra-ui/react";
+import { Container } from "@chakra-ui/react";
+import React, { FunctionComponent, PropsWithChildren } from "react";
 import { Footer } from "./Footer";
 import NavBar from "./NavBar";
-
-/**
- * Layout which surounds every component
- */
+import SocialIcons from "./SocialIcons";
 
 interface LayoutProps {}
 
-const Layout: FunctionComponent<LayoutProps> = ({ children }) => (
-  <Flex direction="column" h="100vh" w="100%">
-    <NavBar />
-    <Flex direction="column" flex={1}>
-      <Container maxW="container.lg" my={10}>
-        <main>{children}</main>
+const Layout: FunctionComponent<PropsWithChildren<LayoutProps>> = ({
+  children,
+}) => {
+  return (
+    <>
+      <NavBar />
+      <Container maxW="container.lg">
+        <SocialIcons />
+        {children}
+        <Footer />
       </Container>
-    </Flex>
-    <Footer />
-  </Flex>
-);
+    </>
+  );
+};
 
 export default Layout;
