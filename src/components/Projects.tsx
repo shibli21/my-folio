@@ -2,7 +2,7 @@ import { Box, Button, Grid, HStack, Text } from "@chakra-ui/react";
 import NextLink from "next/link";
 import { Project } from "pages";
 import React, { FC } from "react";
-import { FaArrowRight } from "react-icons/fa";
+import { ArrowRight } from "tabler-icons-react";
 import Card from "./Card";
 
 interface ProjectsProps {
@@ -18,7 +18,7 @@ const Projects: FC<ProjectsProps> = ({ data }) => {
         </Text>
         <Box textAlign="center">
           <NextLink href="/archive">
-            <Button size={"sm"} rightIcon={<FaArrowRight />}>
+            <Button size={"sm"} rightIcon={<ArrowRight size="22px" />}>
               View all
             </Button>
           </NextLink>

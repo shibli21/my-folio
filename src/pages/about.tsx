@@ -1,11 +1,9 @@
 import AboutMe from "@/components/AboutMe";
-import { Container } from "@/components/Container";
-import { Main } from "@/components/Main";
+import Layout from "@/components/Layout";
 import Timeline from "@/components/Timeline";
-import { Box, Icon } from "@chakra-ui/react";
+import { Box } from "@chakra-ui/react";
 import Head from "next/head";
 import React from "react";
-import { FaArrowLeft } from "react-icons/fa";
 
 const resume = () => {
   return (
@@ -13,23 +11,12 @@ const resume = () => {
       <Head>
         <title>about | shibli</title>
       </Head>
-      <Container>
-        <Main>
-          <Box>
-            <Icon
-              fontSize="22px"
-              mt={6}
-              onClick={() => history.back()}
-              cursor="pointer"
-              as={FaArrowLeft}
-              _hover={{ color: "tertiary" }}
-            />
-
-            <AboutMe />
-            <Timeline />
-          </Box>
-        </Main>
-      </Container>
+      <Layout>
+        <Box py={[4, 4, 10]}>
+          <AboutMe />
+          <Timeline />
+        </Box>
+      </Layout>
     </>
   );
 };

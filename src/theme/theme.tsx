@@ -73,7 +73,9 @@ const theme = extendTheme({
         solid: () => ({
           bg: primary,
           color: "white",
-          _hover: { bg: primary },
+          _hover: {
+            bg: primary,
+          },
           _active: { bg: "brand.700" },
         }),
       },
@@ -109,6 +111,7 @@ const theme = extendTheme({
       secondaryDark: backgroundSecondaryDarkMode,
     },
   },
+
   styles: {
     global: (props: any) => ({
       html: {
@@ -121,18 +124,17 @@ const theme = extendTheme({
         },
         "&::-webkit-scrollbar-thumb": {
           boxShadow: "inset 0 0 6px rgba(0, 0, 0, 0.1)",
-          backgroundColor: "#a277ff",
+          backgroundColor: primary,
         },
       },
-      "html, body": {
+      body: {
         fontFamily: "raleway",
         color: mode(textPrimary, textPrimaryDarkMode)(props),
         bg: mode(backgroundPrimary, backgroundPrimaryDarkMode)(props),
       },
       "*": {
         "::selection": {
-          background: props.colorMode === "dark" ? "#a277ffed" : "primary",
-          opacity: 1,
+          background: primary,
           color: "white",
         },
         "&:focus": {

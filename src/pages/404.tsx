@@ -1,4 +1,4 @@
-import { Container } from "@/components/Container";
+import Layout from "@/components/Layout";
 import { Button, Flex, Text } from "@chakra-ui/react";
 import Head from "next/head";
 import Link from "next/link";
@@ -9,7 +9,7 @@ export default function NotFound() {
       <Head>
         <title>404 | shibli</title>
       </Head>
-      <Container>
+      <Layout>
         <Flex justify="center" align="center" flexDir="column" h="60vh">
           <Text fontSize="8xl" fontWeight="bold" color="primary">
             404
@@ -23,7 +23,7 @@ export default function NotFound() {
             <Button>Return Home</Button>
           </Link>
         </Flex>
-      </Container>
+      </Layout>
     </>
   );
 }
