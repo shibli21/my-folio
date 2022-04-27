@@ -1,5 +1,5 @@
 import { Hero } from "@/components/Hero";
-import Layout from "@/components/Layout";
+import Layout from "@/components/layout";
 import Projects from "@/components/Projects";
 import { Stack } from "@chakra-ui/react";
 import { getAllFilesFrontMatter } from "lib/mdx";

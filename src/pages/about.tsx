@@ -1,5 +1,5 @@
 import AboutMe from "@/components/AboutMe";
-import Layout from "@/components/Layout";
+import Layout from "@/components/layout";
 import Timeline from "@/components/Timeline";
 import { Box } from "@chakra-ui/react";
 import Head from "next/head";

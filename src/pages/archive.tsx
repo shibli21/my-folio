@@ -1,4 +1,4 @@
-import Layout from "../components/Layout";
+import Layout from "../components/layout";
 import { Box, Stack, Text } from "@chakra-ui/react";
 import { getAllFilesFrontMatter } from "lib/mdx";
 import { GetStaticProps } from "next";
