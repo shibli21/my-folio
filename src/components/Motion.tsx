@@ -1,4 +1,13 @@
-import { Box, BoxProps, Flex, FlexProps, Text, TextProps } from "@chakra-ui/layout";
+import {
+  Box,
+  BoxProps,
+  Flex,
+  FlexProps,
+  Text,
+  TextProps,
+  HeadingProps,
+  Heading,
+} from "@chakra-ui/layout";
 import { HTMLMotionProps, motion } from "framer-motion";
 import React, { FunctionComponent } from "react";
 
@@ -11,3 +20,7 @@ export const MotionFlex: FunctionComponent<MotionFlexProps> = motion(Flex);
 
 type MotionTextProps = Merge<TextProps, HTMLMotionProps<"div">>;
 export const MotionText: FunctionComponent<MotionTextProps> = motion(Text);
+
+type MotionHeadingProps = Merge<HeadingProps, HTMLMotionProps<"div">>;
+export const MotionHeading: FunctionComponent<MotionHeadingProps> =
+  motion(Heading);
