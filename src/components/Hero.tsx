@@ -1,8 +1,9 @@
-import { Box, Button, Flex, Link } from "@chakra-ui/react";
+import { Box, Circle, Flex, Grid, Image } from "@chakra-ui/react";
 import { motion, Variants } from "framer-motion";
 import React from "react";
-import { MotionText } from "./Motion";
-import { Click } from "tabler-icons-react";
+import ReactTyped from "react-typed";
+import { MotionHeading, MotionText } from "./Motion";
+import SocialContacts from "./SocialContact";
 
 export const Hero = () => {
   const containerVariants: Variants = {
@@ -31,10 +32,13 @@ export const Hero = () => {
 
   return (
     <Box
-      h="100vh"
-      maxH={["460px", "600px"]}
-      pt={[100, 150, 180, 200]}
+      py={20}
+      pb={[0, 20]}
+      gap={10}
       id="contact"
+      as={Grid}
+      templateColumns={["1fr", "1fr", "1fr 1fr"]}
+      alignItems="center"
     >
       <motion.div
         variants={containerVariants}
@@ -43,62 +47,54 @@ export const Hero = () => {
         exit="exit"
       >
         <Flex flexDirection="column" justify="center">
-          <MotionText
-            fontSize={["xl", "xl", "xl", "2xl"]}
-            fontWeight="700"
-            color="primary"
-            mb={2}
-            key="subheading1"
+          <MotionHeading
             variants={childVariants}
+            fontSize={["3xl", "4xl", "2.7rem"]}
           >
-            Hello 👋 , I'm
-          </MotionText>
-          <MotionText
-            fontSize={["3xl", "5xl", "5xl", "6xl"]}
-            mb={2}
-            lineHeight="1"
-            fontWeight="700"
-            key="heading"
-            variants={childVariants}
-          >
-            Syed Shibli Mahmud.
-          </MotionText>
+            Syed Shibli Mahmud
+          </MotionHeading>
 
           <MotionText
-            fontSize={["md", "md", "lg", "xl"]}
-            fontWeight="600"
+            fontWeight="400"
             key="subheading2"
-            color="tertiary"
-            mb={2}
             variants={childVariants}
           >
-            Full-stack & Mobile Application developer
-          </MotionText>
-          <MotionText
-            fontSize={["lg", "lg", "xl", "2xl"]}
-            fontWeight="600"
-            key="subheading3"
-            lineHeight="1.2"
-            variants={childVariants}
-            w={["100%", "100%", "100%", "90%"]}
-          >
-            I am passionate about developing web applications using TypeScript,
-            React, and Next.js, and mobile apps using Flutter and Dart
+            <ReactTyped
+              style={{
+                fontSize: "1.5rem",
+                fontFamily: "poppins",
+              }}
+              strings={[
+                "I'm a full-stack web developer",
+                "I'm an android developer",
+                "I'm an ios developer",
+                "I'm a react developer",
+              ]}
+              typeSpeed={50}
+              backSpeed={50}
+              backDelay={1}
+              loop
+              smartBackspace
+            />
           </MotionText>
         </Flex>
-        <motion.div key="button" variants={childVariants}>
-          <Button
-            colorScheme="brand"
-            size="md"
-            mt={8}
-            as={Link}
-            href="mailto:syedshiblimahmud@gmail.com"
-            rightIcon={<Click />}
-          >
-            Get In Touch
-          </Button>
+        <motion.div key="socialContacts" variants={childVariants}>
+          <SocialContacts />
         </motion.div>
       </motion.div>
+      <Circle
+        m={[5, 0]}
+        alignSelf="self-start"
+        justifySelf="center"
+        overflow="hidden"
+      >
+        <Image
+          maxH={400}
+          src="/shibli_sq.png"
+          alt="Syed shibli mahmud"
+          objectFit="cover"
+        />
+      </Circle>
     </Box>
   );
 };
