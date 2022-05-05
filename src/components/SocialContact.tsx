@@ -4,7 +4,6 @@ import {
   BrandFacebook,
   BrandGithub,
   BrandInstagram,
-  BrandKickstarter,
   BrandLinkedin,
   BrandTwitter,
 } from "tabler-icons-react";
