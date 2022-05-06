@@ -12,7 +12,7 @@ interface ArchiveProps {
 
 const Archive: FC<ArchiveProps> = ({ archiveProjects }) => {
   return (
-    <Container title="Archive - Syed Shibli Mahmud">
+    <Container>
       <Stack spacing={6}>
         <Box py={[4, 4, 10]}>
           <Text fontSize="4xl" fontWeight="700">

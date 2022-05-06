@@ -1,4 +1,5 @@
 import AboutMe from "@/components/AboutMe";
+import { Container } from "@/components/Container";
 import Layout from "@/components/layout";
 import Timeline from "@/components/Timeline";
 import { Box } from "@chakra-ui/react";
@@ -7,7 +8,7 @@ import React from "react";
 
 const resume = () => {
   return (
-    <>
+    <Container title="About - Syed Shibli Mahmud">
       <Head>
         <title>about | shibli</title>
       </Head>
@@ -17,7 +18,7 @@ const resume = () => {
           <Timeline />
         </Box>
       </Layout>
-    </>
+    </Container>
   );
 };
 
