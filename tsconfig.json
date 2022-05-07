@@ -8,7 +8,8 @@
     "jsx": "preserve",
     "lib": [
       "dom",
-      "es2017"
+      "dom.iterable",
+      "esnext"
     ],
     "module": "esnext",
     "moduleResolution": "node",
@@ -21,6 +22,7 @@
     "strict": true,
     "target": "esnext",
     "baseUrl": "src",
+    "incremental": true,
     "paths": {
       "@/components/*": [
         "components/*"
@@ -30,15 +32,19 @@
       ],
       "@/style/*": [
         "style/*"
+      ],
+      "contentlayer/generated": [
+        "../.contentlayer/generated"
       ]
-    },
-    "incremental": true
+    }
   },
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "../.contentlayer/generated"
+  ],
   "exclude": [
     "node_modules"
   ],
-  "include": [
-    "**/*.ts",
-    "**/*.tsx"
-  ]
 }

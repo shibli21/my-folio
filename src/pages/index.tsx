@@ -1,33 +1,20 @@
 import { Container } from "@/components/Container";
 import { Hero } from "@/components/Hero";
 import Projects from "@/components/Projects";
-import { getAllFilesFrontMatter } from "lib/mdx";
+import { pick } from "contentlayer/client";
+import { allProjects, Projects as ProjectsType } from "contentlayer/generated";
 import { GetStaticProps } from "next";
 import React from "react";
 
-export interface Project {
-  cover: string;
-  date: string;
-  external: string;
-  github: string;
-  showInProjects: boolean;
-  tech: string[];
-  title: string;
-  slug: string;
-  featured: boolean;
-  description: string;
-  order: number;
-}
-
 interface IndexProps {
-  featuredProjects: Project[];
+  projects: ProjectsType[];
 }
 
-const Index: React.FC<IndexProps> = ({ featuredProjects }) => {
+const Index: React.FC<IndexProps> = ({ projects }) => {
   return (
     <Container>
       <Hero />
-      <Projects data={featuredProjects} />
+      <Projects projects={projects} />
     </Container>
   );
 };
@@ -35,9 +22,19 @@ const Index: React.FC<IndexProps> = ({ featuredProjects }) => {
 export default Index;
 
 export const getStaticProps: GetStaticProps = async () => {
-  const projects: Project[] = await getAllFilesFrontMatter("projects");
+  const projects = allProjects.map((project) =>
+    pick(project, [
+      "title",
+      "image",
+      "slug",
+      "github",
+      "external",
+      "description",
+      "publishedAt",
+      "tech",
+      "featured",
+    ])
+  );
 
-  const featuredProjects = projects.filter((p) => p.featured).reverse();
-
-  return { props: { featuredProjects } };
+  return { props: { projects: JSON.parse(JSON.stringify(projects)) } };
 };
