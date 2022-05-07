@@ -28,7 +28,7 @@ export default function Footer() {
         <Heading size="md">Syed Shibli Mahmud</Heading>
         <HStack spacing={6}>
           <NextLink href="/">Home</NextLink>
-          <NextLink href="/projects">Blog</NextLink>
+          <NextLink href="/projects">Projects</NextLink>
         </HStack>
       </Container>
 
