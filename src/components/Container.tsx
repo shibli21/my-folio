@@ -5,7 +5,6 @@ import {
   Flex,
   HStack,
   IconButton,
-  Image,
   Link as ChakraLink,
   Stack,
   useColorMode,
@@ -70,6 +69,7 @@ export const Container: React.FC<PropsWithChildren<IContainerProps>> = ({
     <>
       <Head>
         <title>{meta.title}</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
         <meta name="robots" content="follow, index" />
         <meta content={meta.description} name="description" />
         <meta
