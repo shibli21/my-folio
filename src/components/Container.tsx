@@ -60,7 +60,8 @@ export const Container: React.FC<PropsWithChildren<IContainerProps>> = ({
   const meta = {
     title: "Syed Shibli Mahmud – Web & Mobile Application developer.",
     description: `Full-stack developer, JavaScript & Flutter enthusiast`,
-    image: "/shibli_sq.png",
+    image:
+      "https://syedshiblimahmud.vercel.app/_next/image?url=%2Fshibli_sq.png&w=640&q=75",
     type: "website",
     ...customMeta,
   };
