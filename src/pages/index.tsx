@@ -1,6 +1,7 @@
 import { Container } from "@/components/Container";
 import { Hero } from "@/components/Hero";
 import Projects from "@/components/Projects";
+import Resume from "@/components/Resume";
 import { pick } from "contentlayer/client";
 import { allProjects, Projects as ProjectsType } from "contentlayer/generated";
 import { GetStaticProps } from "next";
@@ -14,6 +15,7 @@ const Index: React.FC<IndexProps> = ({ projects }) => {
   return (
     <Container>
       <Hero />
+      <Resume />
       <Projects projects={projects} />
     </Container>
   );
