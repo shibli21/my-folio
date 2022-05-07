@@ -96,6 +96,7 @@ export const Hero = () => {
             height="400"
             src="/shibli_sq.png"
             alt="Syed shibli mahmud"
+            priority
           />
         </Circle>
       </Box>
