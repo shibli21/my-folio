@@ -10,7 +10,7 @@ import {
   useColorMode,
   useColorModeValue,
 } from "@chakra-ui/react";
-import Head from "next/head";
+import { NextSeo } from "next-seo";
 import NextLink from "next/link";
 import { useRouter } from "next/router";
 import { PropsWithChildren } from "react";
@@ -55,7 +55,6 @@ export const Container: React.FC<PropsWithChildren<IContainerProps>> = ({
 }) => {
   const { toggleColorMode, colorMode } = useColorMode();
   const bg = useColorModeValue("background.primary", "text.primary");
-  const router = useRouter();
 
   const meta = {
     title: "Syed Shibli Mahmud – Web & Mobile Application developer.",
@@ -67,29 +66,38 @@ export const Container: React.FC<PropsWithChildren<IContainerProps>> = ({
 
   return (
     <>
-      <Head>
-        <title>{meta.title}</title>
-        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-        <meta name="robots" content="follow, index" />
-        <meta content={meta.description} name="description" />
-        <meta
-          property="og:url"
-          content={`https://syedshiblimahmud.vercel.app${router.asPath}`}
-        />
-        <link
-          rel="canonical"
-          href={`https://syedshiblimahmud.vercel.app${router.asPath}`}
-        />
-        <meta property="og:type" content={meta.type} />
-        <meta property="og:site_name" content="Syed Shibli Mahmud" />
-        <meta property="og:description" content={meta.description} />
-        <meta property="og:title" content={meta.title} />
-        <meta property="og:image" content={meta.image} />
-        <meta name="twitter:site" content="@shibli21" />
-        <meta name="twitter:title" content={meta.title} />
-        <meta name="twitter:description" content={meta.description} />
-        <meta name="twitter:image" content={meta.image} />
-      </Head>
+      <NextSeo
+        title={meta.title}
+        description={meta.description}
+        canonical="https://syedshiblimahmud.vercel.app/"
+        openGraph={{
+          url: "https://syedshiblimahmud.vercel.app/",
+          title: "Syed Shibli Mahmud",
+          description: meta.description,
+          images: [
+            {
+              url: meta.image,
+              width: 400,
+              height: 400,
+              alt: "Syed Shibli Mahmud",
+              type: "image/png",
+            },
+            {
+              url: meta.image,
+              width: 400,
+              height: 400,
+              alt: "Syed Shibli Mahmud",
+              type: "image/png",
+            },
+          ],
+          site_name: "Syed Shibli Mahmud",
+        }}
+        twitter={{
+          handle: "@shibli21",
+          site: "@shibli21",
+          cardType: "summary_large_image",
+        }}
+      />
       <Box
         backdropFilter="blur(8px)"
         bg={bg}
