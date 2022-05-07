@@ -27,7 +27,7 @@ const ScrollViewZoom: FunctionComponent<ScrollViewZoomProps> = ({
     if (!inView) {
       controls.start("hidden");
     }
-  }, [inView]);
+  }, [inView, controls]);
 
   return (
     <motion.div

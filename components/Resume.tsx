@@ -77,7 +77,7 @@ function Resume() {
             and Flutter , so I am confident in my ability to deliver excellent
             results.
             <br />
-            I'm a fun person who enjoys nature, pets, and programming! I am
+            I&apos;m a fun person who enjoys nature, pets, and programming! I am
             always looking for new ways to accomplish tasks and I love learning
             new things.
           </Text>
