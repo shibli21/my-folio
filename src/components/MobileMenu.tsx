@@ -59,7 +59,7 @@ export default function MobileMenu() {
             </Box>
 
             <Container pt={10}>
-              <Stack spacing={4}>
+              <Stack spacing={4} color="white">
                 <Link href="/">Home</Link>
                 <Link href="/projects">Projects</Link>
               </Stack>
