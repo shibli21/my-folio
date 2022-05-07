@@ -1,64 +1,55 @@
-import { Flex, FlexProps, Grid, Link, Text } from "@chakra-ui/react";
-import React from "react";
 import {
-  BrandGithub,
-  BrandInstagram,
-  BrandLinkedin,
-  BrandTwitter,
-} from "tabler-icons-react";
+  Box,
+  Container,
+  Heading,
+  HStack,
+  Stack,
+  Text,
+  useColorModeValue,
+} from "@chakra-ui/react";
+import NextLink from "next/link";
+import SocialContacts from "./SocialContact";
 
-const hover = {
-  transform: "scale(1.1)",
-  transitionDuration: ".2s",
-  color: "primary",
-};
+export default function Footer() {
+  return (
+    <Box
+      color={useColorModeValue("gray.700", "gray.200")}
+      borderTopWidth={1}
+      borderStyle={"solid"}
+    >
+      <Container
+        as={Stack}
+        maxW={"6xl"}
+        py={4}
+        spacing={4}
+        justify={"center"}
+        align={"center"}
+      >
+        <Heading size="md">Syed Shibli Mahmud</Heading>
+        <HStack spacing={6}>
+          <NextLink href="/">Home</NextLink>
+          <NextLink href="/projects">Projects</NextLink>
+        </HStack>
+      </Container>
 
-export const Footer = (props: FlexProps) => (
-  <Flex
-    as="footer"
-    flexDir="column"
-    justify="center"
-    align="center"
-    mt={[10, 10, 20]}
-    py="4rem"
-    {...props}
-  >
-    <Text textAlign="center" fontSize="sm">
-      Designed & developed by Syed Shibli Mahmud
-    </Text>
-    <Grid gridTemplateColumns="1fr 1fr 1fr 1fr" gap="20px" pt={4}>
-      <Link
-        _hover={hover}
-        href="https://github.com/shibli21"
-        isExternal
-        aria-label="Github"
+      <Box
+        borderTopWidth={1}
+        borderStyle="solid"
+        borderColor={useColorModeValue("gray.200", "gray.700")}
       >
-        <BrandGithub size="20px" />
-      </Link>
-      <Link
-        href="https://twitter.com/shibli21"
-        isExternal
-        aria-label="Twitter"
-        _hover={hover}
-      >
-        <BrandTwitter size="20px" />
-      </Link>
-      <Link
-        href="https://twitter.com/shibli21"
-        isExternal
-        aria-label="Instagram"
-        _hover={hover}
-      >
-        <BrandInstagram size="20px" />
-      </Link>
-      <Link
-        href="https://www.linkedin.com/in/syed-shibli-mahmud-0bb357163/"
-        isExternal
-        aria-label="Linkedin"
-        _hover={hover}
-      >
-        <BrandLinkedin size="20px" />
-      </Link>
-    </Grid>
-  </Flex>
-);
+        <Container
+          as={Stack}
+          maxW={"6xl"}
+          py={4}
+          direction={{ base: "column", md: "row" }}
+          spacing={4}
+          justify={{ base: "center", md: "space-between" }}
+          align={{ base: "center", md: "center" }}
+        >
+          <Text>© 2022 Shibli. All rights reserved</Text>
+          <SocialContacts isSmall />
+        </Container>
+      </Box>
+    </Box>
+  );
+}

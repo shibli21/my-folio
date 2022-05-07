@@ -13,7 +13,7 @@
     "url": "git+https://github.com/shibli21/my-folio"
   },
   "scripts": {
-    "dev": "next",
+    "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "export": "next export"
@@ -22,14 +22,16 @@
     "@chakra-ui/react": "^1.8.8",
     "@emotion/react": "^11.9.0",
     "@emotion/styled": "^11.8.1",
+    "contentlayer": "^0.2.4",
     "framer-motion": "^6.3.2",
-    "gray-matter": "^4.0.3",
     "next": "^12.1.5",
-    "next-mdx-remote": "^4.0.3",
+    "next-contentlayer": "^0.2.4",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
     "react-intersection-observer": "^9.1.0",
     "react-typed": "^1.2.0",
+    "reading-time": "^1.5.0",
+    "swiper": "^8.1.4",
     "tabler-icons-react": "^1.46.0"
   },
   "devDependencies": {

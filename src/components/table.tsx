@@ -13,12 +13,12 @@ import {
   Tr,
   useColorModeValue,
 } from "@chakra-ui/react";
-import { Project } from "pages";
 import React, { Fragment } from "react";
 import { BrandGithub, ExternalLink } from "tabler-icons-react";
+import { Projects as ProjectsType } from "contentlayer/generated";
 
 interface TableProps extends TableHeadProps {
-  data?: Project[];
+  data?: ProjectsType[];
 }
 
 const DataTable = ({ data }: TableProps) => {
@@ -54,7 +54,11 @@ const DataTable = ({ data }: TableProps) => {
         </Thead>
         <Tbody>
           {data
-            .sort((a, b) => Number(b.date.slice(-4)) - Number(a.date.slice(-4)))
+            .sort(
+              (a, b) =>
+                Number(b.publishedAt.slice(-4)) -
+                Number(a.publishedAt.slice(-4))
+            )
             .map((b, i) => (
               <Tr
                 _hover={{
@@ -63,7 +67,7 @@ const DataTable = ({ data }: TableProps) => {
                 key={`${b.slug + i}`}
               >
                 <Td p={3} w={["auto", "auto", "60px", "60px"]}>
-                  {b.date.slice(-4)}
+                  {b.publishedAt.slice(-4)}
                 </Td>
                 <Td p={3}>
                   <Link
@@ -79,11 +83,12 @@ const DataTable = ({ data }: TableProps) => {
                   display={["none", "table-cell", "table-cell", "table-cell"]}
                 >
                   <HStack>
-                    {b.tech.map((c, i) => (
-                      <Fragment key={i}>
-                        <Badge>{c}</Badge>
-                      </Fragment>
-                    ))}
+                    {b.tech &&
+                      b.tech.map((c, i) => (
+                        <Fragment key={i}>
+                          <Badge>{c}</Badge>
+                        </Fragment>
+                      ))}
                   </HStack>
                 </Td>
                 <Td p={3} isNumeric>

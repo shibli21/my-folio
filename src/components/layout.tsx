@@ -1,6 +1,6 @@
 import { Container } from "@chakra-ui/react";
 import React, { FunctionComponent, PropsWithChildren } from "react";
-import { Footer } from "./Footer";
+import Footer from "./Footer";
 import NavBar from "./NavBar";
 import SocialIcons from "./SocialIcons";
 

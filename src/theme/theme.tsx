@@ -55,31 +55,11 @@ const backgroundSecondary = "#EBEBEB";
 const textPrimaryDarkMode = backgroundPrimary;
 const textSecondaryDarkMode = backgroundSecondary;
 
-const backgroundPrimaryDarkMode = secondaryColorScheme[600];
-const backgroundSecondaryDarkMode = secondaryColorScheme[400];
+const backgroundPrimaryDarkMode = textPrimary;
+const backgroundSecondaryDarkMode = textSecondary;
 
-const theme = extendTheme({
+export const theme = extendTheme({
   components: {
-    Button: {
-      baseStyle: {
-        borderRadius: 0,
-      },
-      variants: {
-        outline: () => ({
-          borderColor: "primary",
-          color: "primary",
-          _hover: { bg: "primary", color: "white", textDecoration: "none" },
-        }),
-        solid: () => ({
-          bg: primary,
-          color: "white",
-          _hover: {
-            bg: primary,
-          },
-          _active: { bg: "brand.700" },
-        }),
-      },
-    },
     Table: {
       baseStyle: {
         td: {
@@ -111,7 +91,10 @@ const theme = extendTheme({
       secondaryDark: backgroundSecondaryDarkMode,
     },
   },
-
+  fonts: {
+    body: "Poppins, sans-serif",
+    heading: "'Roboto Mono', monospace",
+  },
   styles: {
     global: (props: any) => ({
       html: {
@@ -128,7 +111,6 @@ const theme = extendTheme({
         },
       },
       body: {
-        fontFamily: "raleway",
         color: mode(textPrimary, textPrimaryDarkMode)(props),
         bg: mode(backgroundPrimary, backgroundPrimaryDarkMode)(props),
       },
@@ -149,5 +131,3 @@ const theme = extendTheme({
     }),
   },
 });
-
-export default theme;
