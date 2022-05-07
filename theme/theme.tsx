@@ -1,5 +1,10 @@
-import { extendTheme } from "@chakra-ui/react";
+import { extendTheme, type ThemeConfig } from "@chakra-ui/react";
 import { mode } from "@chakra-ui/theme-tools";
+
+const config: ThemeConfig = {
+  initialColorMode: "dark",
+  useSystemColorMode: false,
+};
 
 const secondaryColorScheme = {
   50: "#9da1a4",
@@ -95,6 +100,7 @@ export const theme = extendTheme({
     body: "Poppins, sans-serif",
     heading: "'Roboto Mono', monospace",
   },
+  config,
   styles: {
     global: (props: any) => ({
       html: {

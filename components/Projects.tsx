@@ -23,7 +23,7 @@ const Projects: FC<ProjectsProps> = ({ projects }) => {
       <HStack alignItems="center" justifyContent="space-between">
         <Title>Projects</Title>
         <Box textAlign="center">
-          <NextLink href="/projects">
+          <NextLink href="/projects" passHref>
             <Button size={"sm"} rightIcon={<ArrowRight size="22px" />}>
               View all
             </Button>

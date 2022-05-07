@@ -7,6 +7,7 @@ import Document, {
   NextScript,
 } from "next/document";
 import React from "react";
+import { theme } from "theme/theme";
 
 class MyDocument extends Document {
   static async getInitialProps(ctx: DocumentContext) {
@@ -33,7 +34,7 @@ class MyDocument extends Document {
           <meta charSet="utf-8" />
         </Head>
         <body>
-          <ColorModeScript initialColorMode="dark" />
+          <ColorModeScript initialColorMode={theme.config.initialColorMode} />
           <Main />
           <NextScript />
         </body>
