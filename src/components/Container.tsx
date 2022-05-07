@@ -5,6 +5,7 @@ import {
   Flex,
   HStack,
   IconButton,
+  Image,
   Link as ChakraLink,
   Stack,
   useColorMode,
@@ -60,8 +61,7 @@ export const Container: React.FC<PropsWithChildren<IContainerProps>> = ({
   const meta = {
     title: "Syed Shibli Mahmud – Web & Mobile Application developer.",
     description: `Full-stack developer, JavaScript & Flutter enthusiast`,
-    image:
-      "https://syedshiblimahmud.vercel.app/_next/image?url=%2Fshibli_sq.png&w=640&q=75",
+    image: "https://syedshiblimahmud.vercel.app/shibli_sq.png",
     type: "website",
     ...customMeta,
   };
