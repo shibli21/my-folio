@@ -71,15 +71,12 @@ function Resume() {
         <Box mb={10}>
           <Title mb={10}>Resume</Title>
           <Text>
-            Let me introduce myself as Shibli. As an enthusiastic and creative
-            developer, I am passionate about the web and Android development
-            using Flutter and React. I have built several complex apps in React
-            and Flutter , so I am confident in my ability to deliver excellent
-            results.
+            Let me introduce myself as Shibli. As an enthusiastic and creative developer, I am passionate about the web
+            and Android development using Flutter and React. I have built several complex apps in React and Flutter , so
+            I am confident in my ability to deliver excellent results.
             <br />
-            I&apos;m a fun person who enjoys nature, pets, and programming! I am
-            always looking for new ways to accomplish tasks and I love learning
-            new things.
+            I&apos;m a fun person who enjoys nature, pets, and programming! I am always looking for new ways to
+            accomplish tasks and I love learning new things.
           </Text>
         </Box>
 
@@ -95,8 +92,7 @@ function Resume() {
                 <em>Sylhet Engineering College</em>
               </Text>
               <p>
-                After College it was my dream to study in engineering , so i
-                admitted into sylhet engineering college.
+                After College it was my dream to study in engineering , so i admitted into sylhet engineering college.
               </p>
             </ResumeItem>
             <ResumeItem>
@@ -105,10 +101,7 @@ function Resume() {
               <Text mb={2} fontWeight={600}>
                 <em>Comilla victoria govt. college</em>
               </Text>
-              <p>
-                I started my college life in one of the most popular & renowned
-                college of bangladesh.
-              </p>
+              <p>I started my college life in one of the most popular & renowned college of bangladesh.</p>
             </ResumeItem>
             <ResumeItem>
               <ResumeTitle>Higher Secondary Certificate</ResumeTitle>
@@ -117,9 +110,8 @@ function Resume() {
                 <em> Cumilla Zilla School</em>
               </Text>
               <p>
-                It was my dream to study in this school . My dream comes true &
-                I started my high school journey in the most popular & reputable
-                school in my home town & all over Bangladesh.
+                It was my dream to study in this school . My dream comes true & I started my high school journey in the
+                most popular & reputable school in my home town & all over Bangladesh.
               </p>
             </ResumeItem>
           </Box>
@@ -129,7 +121,7 @@ function Resume() {
             </Heading>
             <ResumeItem>
               <ResumeTitle>Full-Stack Web Developer</ResumeTitle>
-              <ResumeTag>Oct 2021 - Jan 2022</ResumeTag>
+              <ResumeTag>Jan 2020 - Present</ResumeTag>
               <Text mb={2} fontWeight={600}>
                 <em>Fiverr.com</em>
               </Text>
