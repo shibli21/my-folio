@@ -1,16 +1,6 @@
 import { Container } from "@/components/Container";
 import Title from "@/components/Title";
-import {
-  Box,
-  Flex,
-  Grid,
-  Link,
-  LinkBox,
-  LinkOverlay,
-  Stack,
-  Tag,
-  Text,
-} from "@chakra-ui/react";
+import { Box, Flex, Grid, Link, LinkBox, LinkOverlay, Stack, Tag, Text } from "@chakra-ui/react";
 import { pick } from "contentlayer/client";
 import { allProjects, Projects as ProjectsType } from "contentlayer/generated";
 import { GetStaticProps } from "next";
@@ -35,6 +25,9 @@ const Project: FC<IProjectProps> = ({ projects }) => {
           .sort(function (b, a) {
             return Number(a.featured) - Number(b.featured);
           })
+          .sort((a, b) => {
+            return new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime();
+          })
           .map((project) => (
             <Card {...project} key={project.slug} />
           ))}
@@ -46,17 +39,7 @@ export default Project;
 
 export const getStaticProps: GetStaticProps = async () => {
   const projects = allProjects.map((project) =>
-    pick(project, [
-      "title",
-      "image",
-      "slug",
-      "github",
-      "external",
-      "description",
-      "publishedAt",
-      "tech",
-      "featured",
-    ])
+    pick(project, ["title", "image", "slug", "github", "external", "description", "publishedAt", "tech", "featured"])
   );
 
   return { props: { projects: JSON.parse(JSON.stringify(projects)) } };
@@ -74,15 +57,7 @@ interface ICardProps {
   featured?: boolean;
 }
 
-const Card = ({
-  description,
-  external,
-  github,
-  image,
-  slug,
-  tech,
-  title,
-}: ICardProps) => {
+const Card = ({ description, external, github, image, slug, tech, title }: ICardProps) => {
   return (
     <Grid
       templateColumns={["1fr", "1fr", "1fr 1.5fr"]}
@@ -118,12 +93,7 @@ const Card = ({
                     transition: "color 0.2s ease-in-out",
                   }}
                 >
-                  <Text
-                    fontSize="lg"
-                    mb={2}
-                    fontWeight="semibold"
-                    _hover={{ color: "tertiary" }}
-                  >
+                  <Text fontSize="lg" mb={2} fontWeight="semibold" _hover={{ color: "tertiary" }}>
                     {title}
                   </Text>
                 </LinkOverlay>
@@ -132,24 +102,12 @@ const Card = ({
             <Box>
               <Flex justify="center" align="baseline" pt={2}>
                 {github && (
-                  <Link
-                    _hover={{ color: "primary" }}
-                    ml={2}
-                    href={github}
-                    isExternal
-                    aria-label={`${title}`}
-                  >
+                  <Link _hover={{ color: "primary" }} ml={2} href={github} isExternal aria-label={`${title}`}>
                     <BrandGithub size="20px" />
                   </Link>
                 )}
                 {external && (
-                  <Link
-                    _hover={{ color: "primary" }}
-                    ml={2}
-                    href={external}
-                    isExternal
-                    aria-label={`${title}`}
-                  >
+                  <Link _hover={{ color: "primary" }} ml={2} href={external} isExternal aria-label={`${title}`}>
                     <ExternalLink size="20px" />
                   </Link>
                 )}
