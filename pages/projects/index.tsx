@@ -85,19 +85,19 @@ const Card = ({ description, external, github, image, slug, tech, title }: ICard
         <Box>
           <Flex justifyContent="space-between">
             <Box>
-              <NextLink href={`/projects/${slug}`} passHref>
-                <LinkOverlay
-                  _hover={{
-                    textDecor: "none",
-                    color: "primary",
-                    transition: "color 0.2s ease-in-out",
-                  }}
-                >
-                  <Text fontSize="lg" mb={2} fontWeight="semibold" _hover={{ color: "tertiary" }}>
-                    {title}
-                  </Text>
-                </LinkOverlay>
-              </NextLink>
+              <LinkOverlay
+                href={external ? external : github}
+                isExternal
+                _hover={{
+                  textDecor: "none",
+                  color: "primary",
+                  transition: "color 0.2s ease-in-out",
+                }}
+              >
+                <Text fontSize="lg" mb={2} fontWeight="semibold" _hover={{ color: "tertiary" }}>
+                  {title}
+                </Text>
+              </LinkOverlay>
             </Box>
             <Box>
               <Flex justify="center" align="baseline" pt={2}>

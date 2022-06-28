@@ -1,13 +1,4 @@
-import {
-  Box,
-  Flex,
-  Link,
-  LinkBox,
-  LinkOverlay,
-  Stack,
-  Tag,
-  Text,
-} from "@chakra-ui/react";
+import { Box, Flex, Link, LinkBox, LinkOverlay, Stack, Tag, Text } from "@chakra-ui/react";
 import { Projects as ProjectsType } from "contentlayer/generated";
 import NextLink from "next/link";
 import React, { FC } from "react";
@@ -16,9 +7,7 @@ interface CardProps {
   project: ProjectsType;
 }
 
-const Card: FC<CardProps> = ({
-  project: { external, github, tech, title, description, slug },
-}) => {
+const Card: FC<CardProps> = ({ project: { external, github, tech, title, description, slug } }) => {
   return (
     <Stack
       as={LinkBox}
@@ -37,47 +26,30 @@ const Card: FC<CardProps> = ({
       <Box>
         <Flex justifyContent="space-between">
           <Box>
-            <NextLink href={`/projects/${slug}`} passHref>
-              <LinkOverlay
-                _hover={{
-                  textDecor: "none",
-                  color: "primary",
-                  transition: "color 0.2s ease-in-out",
-                }}
-              >
-                <Text
-                  fontSize="lg"
-                  mb={2}
-                  fontWeight="semibold"
-                  _hover={{ color: "tertiary" }}
-                >
-                  {title}
-                </Text>
-              </LinkOverlay>
-            </NextLink>
+            <LinkOverlay
+              href={external ? external : github}
+              isExternal
+              _hover={{
+                textDecor: "none",
+                color: "primary",
+                transition: "color 0.2s ease-in-out",
+              }}
+            >
+              <Text fontSize="lg" mb={2} fontWeight="semibold" _hover={{ color: "tertiary" }}>
+                {title}
+              </Text>
+            </LinkOverlay>
           </Box>
 
           <Box>
             <Flex justify="center" align="baseline" pt={2}>
               {github && (
-                <Link
-                  _hover={{ color: "primary" }}
-                  ml={2}
-                  href={github}
-                  isExternal
-                  aria-label={`${title}`}
-                >
+                <Link _hover={{ color: "primary" }} ml={2} href={github} isExternal aria-label={`${title}`}>
                   <BrandGithub size="20px" />
                 </Link>
               )}
               {external && (
-                <Link
-                  _hover={{ color: "primary" }}
-                  ml={2}
-                  href={external}
-                  isExternal
-                  aria-label={`${title}`}
-                >
+                <Link _hover={{ color: "primary" }} ml={2} href={external} isExternal aria-label={`${title}`}>
                   <ExternalLink size="20px" />
                 </Link>
               )}
