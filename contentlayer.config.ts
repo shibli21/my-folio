@@ -1,10 +1,6 @@
-import {
-  ComputedFields,
-  defineDocumentType,
-  makeSource,
-} from "contentlayer/source-files";
+import { ComputedFields, defineDocumentType, makeSource } from "contentlayer/source-files";
 
-import readingTime from 'reading-time';
+import readingTime from "reading-time";
 
 const computedFields: ComputedFields = {
   readingTime: { type: "json", resolve: (doc) => readingTime(doc.body.raw) },
@@ -18,8 +14,6 @@ const computedFields: ComputedFields = {
   },
 };
 
-
-
 const Projects = defineDocumentType(() => ({
   name: "Projects",
   filePathPattern: "projects/*.mdx",
@@ -29,29 +23,29 @@ const Projects = defineDocumentType(() => ({
     publishedAt: { type: "date", required: true },
     description: { type: "string", required: false, defaultValue: null },
     featured: {
-      type: "boolean", required: false, defaultValue: false
+      type: "boolean",
+      required: false,
+      defaultValue: false,
     },
     github: { type: "string", required: true },
     tech: {
-      type: "list", required: false,
+      type: "list",
+      required: false,
       defaultValue: null,
       of: { type: "string", required: true },
     },
 
     external: {
-      type: "string", required: false,
-      defaultValue: null
+      type: "string",
+      required: false,
+      defaultValue: null,
     },
     image: { type: "string", required: true },
   },
   computedFields,
 }));
 
-
-
 export default makeSource({
   documentTypes: [Projects],
   contentDirPath: "data",
 });
-
-
