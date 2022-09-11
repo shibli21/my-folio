@@ -5,7 +5,6 @@ import React from "react";
 import ReactTyped from "react-typed";
 import { MotionHeading, MotionText } from "./Motion";
 import SocialContacts from "./SocialContact";
-import shibli_pic from "../public/shibli.jpg";
 
 export const Hero = () => {
   const containerVariants: Variants = {
@@ -74,7 +73,7 @@ export const Hero = () => {
       </motion.div>
       <Box m={[5, 0]} maxW={400} maxH={400} alignSelf="self-start" justifySelf="center">
         <Circle overflow="hidden">
-          <Image width="400" height="400" objectFit="cover" src={shibli_pic} alt="Syed shibli mahmud" priority />
+          <Image width={400} height={400} src="/shibli.JPG" objectFit="cover" alt="Syed shibli mahmud" priority />
         </Circle>
       </Box>
     </Box>
