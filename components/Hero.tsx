@@ -41,25 +41,13 @@ export const Hero = () => {
       templateColumns={["1fr", "1fr", "1fr 1fr"]}
       alignItems="center"
     >
-      <motion.div
-        variants={containerVariants}
-        initial="exit"
-        animate="enter"
-        exit="exit"
-      >
+      <motion.div variants={containerVariants} initial="exit" animate="enter" exit="exit">
         <Flex flexDirection="column" justify="center">
-          <MotionHeading
-            variants={childVariants}
-            fontSize={["3xl", "4xl", "2.7rem"]}
-          >
+          <MotionHeading variants={childVariants} fontSize={["3xl", "4xl", "2.7rem"]}>
             Syed Shibli Mahmud
           </MotionHeading>
 
-          <MotionText
-            fontWeight="400"
-            key="subheading2"
-            variants={childVariants}
-          >
+          <MotionText fontWeight="400" key="subheading2" variants={childVariants}>
             <ReactTyped
               style={{
                 fontSize: "1.5rem",
@@ -83,21 +71,9 @@ export const Hero = () => {
           <SocialContacts />
         </motion.div>
       </motion.div>
-      <Box
-        m={[5, 0]}
-        maxW={400}
-        maxH={400}
-        alignSelf="self-start"
-        justifySelf="center"
-      >
+      <Box m={[5, 0]} maxW={400} maxH={400} alignSelf="self-start" justifySelf="center">
         <Circle overflow="hidden">
-          <Image
-            width="400"
-            height="400"
-            src="/shibli_sq.png"
-            alt="Syed shibli mahmud"
-            priority
-          />
+          <Image width="400" height="400" src="/shibli.jpg" objectFit="cover" alt="Syed shibli mahmud" priority />
         </Circle>
       </Box>
     </Box>
