@@ -2,7 +2,7 @@ import { Box, Button, HStack, Text, useMediaQuery } from "@chakra-ui/react";
 import { Projects as ProjectsType } from "contentlayer/generated";
 import { default as NextLink } from "next/link";
 import React, { FC } from "react";
-import { Pagination } from "swiper";
+import { Autoplay, Pagination } from "swiper";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
@@ -51,7 +51,6 @@ const Projects: FC<ProjectsProps> = ({ projects }) => {
           slidesPerView={isLargerThan700 ? 3 : 1}
           spaceBetween={30}
           slidesPerGroup={1}
-          loop={true}
           loopFillGroupWithBlank={true}
           pagination={{
             clickable: true,
