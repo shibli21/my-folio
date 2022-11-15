@@ -1,11 +1,10 @@
-import { AspectRatio, Box, Circle, Flex, Grid, Square } from "@chakra-ui/react";
+import { AspectRatio, Box, Circle, Flex, Grid } from "@chakra-ui/react";
 import { motion, Variants } from "framer-motion";
 import Image from "next/image";
 import React from "react";
 import ReactTyped from "react-typed";
 import { MotionHeading, MotionText } from "./Motion";
 import SocialContacts from "./SocialContact";
-import HeroImg from "../public/shibli.jpg";
 
 export const Hero = () => {
   const containerVariants: Variants = {
@@ -72,11 +71,9 @@ export const Hero = () => {
           <SocialContacts />
         </motion.div>
       </motion.div>
-      <Box m={[5, 0]}>
+      <Box p={[5, 0]} borderRadius="50%" overflow="hidden">
         <AspectRatio ratio={1}>
-          <Circle>
-            <Image src={HeroImg} alt="Syed shibli mahmud" priority />
-          </Circle>
+          <Image width={400} height={400} src="/shibli.JPG" alt="Syed shibli mahmud" priority />
         </AspectRatio>
       </Box>
     </Box>
