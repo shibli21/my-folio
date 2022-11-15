@@ -1,6 +1,6 @@
 import { Container } from "@/components/Container";
 import Title from "@/components/Title";
-import { Box, Flex, Grid, Link, LinkBox, LinkOverlay, Stack, Tag, Text } from "@chakra-ui/react";
+import { AspectRatio, Box, Flex, Grid, Link, LinkBox, LinkOverlay, Stack, Tag, Text } from "@chakra-ui/react";
 import { pick } from "contentlayer/client";
 import { allProjects, Projects as ProjectsType } from "contentlayer/generated";
 import { GetStaticProps } from "next";
@@ -65,22 +65,13 @@ const Card = ({ description, external, github, image, slug, tech, title }: ICard
       justifyContent="space-between"
       cursor="default"
       border="1px solid"
-      borderTop="4px"
       borderColor="primary"
       overflow="hidden"
-      shadow="lg"
-      borderRadius="lg"
+      shadow="md"
     >
-      <Image
-        src={image}
-        alt={title}
-        height={900}
-        width={1600}
-        layout="responsive"
-        objectFit="cover"
-        objectPosition="top"
-        priority
-      />
+      <AspectRatio ratio={16 / 9}>
+        <Image src={image} alt={title} height={900} width={1600} priority />
+      </AspectRatio>
       <Stack h="100%" px={5} py={5}>
         <Box>
           <Flex justifyContent="space-between">
